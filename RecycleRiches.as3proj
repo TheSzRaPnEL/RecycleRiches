@@ -6,11 +6,11 @@
     <movie input="" />
     <movie path="bin\RecycleRiches.swf" />
     <movie fps="60" />
-    <movie width="100" />
-    <movie height="100" />
+    <movie width="1024" />
+    <movie height="768" />
     <movie version="14" />
     <movie minorVersion="0" />
-    <movie platform="AIR Mobile" />
+    <movie platform="Flash Player" />
     <movie background="#000000" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
@@ -85,7 +85,7 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Custom" />
+    <option testMovie="Default" />
     <option testMovieCommand="Run.bat" />
   </options>
   <!-- Plugin storage -->
