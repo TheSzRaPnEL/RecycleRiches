@@ -83,8 +83,6 @@ package
 			splashScreen = null;
 			removeChild(preloader);
 			preloader = null;
-			
-			star.stage.dispatchEventWith(starling.events.Event.TRIGGERED);
 		}
 	
 	}

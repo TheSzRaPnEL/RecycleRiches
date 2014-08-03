@@ -5,10 +5,12 @@ package
 	import com.greensock.loading.ImageLoader;
 	import com.greensock.loading.LoaderMax;
 	import com.greensock.loading.XMLLoader;
+	import events.ScreenEvent;
 	import flash.display.Bitmap;
 	import flash.events.Event;
 	import services.Assets;
 	import services.ScreenManager;
+	import starling.core.Starling;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.text.TextField;
@@ -66,17 +68,18 @@ package
 			
 			Assets.assetManager = assetManager;
 			
-			stage.addEventListener(starling.events.Event.TRIGGERED, onStarlingTriggered_handler);
-			stage.dispatchEventWith(starling.events.Event.COMPLETE);
-		}
-		
-		public function onStarlingTriggered_handler():void
-		{
-			stage.removeEventListener(starling.events.Event.TRIGGERED, onStarlingTriggered_handler);
-			
 			screenManager = new ScreenManager();
 			addChild(screenManager);
 			screenManager.showScreen(0);
+			
+			Starling.current.stage.addEventListener(ScreenEvent.SHOW_SCREEN, showScreen_handler);
+			
+			stage.dispatchEventWith(starling.events.Event.COMPLETE);
+		}
+		
+		private function showScreen_handler(e:ScreenEvent):void 
+		{
+			screenManager.showScreen(int(e.data));
 		}
 	
 	}

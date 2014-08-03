@@ -1,8 +1,13 @@
-package components 
+package components
 {
+	import events.ScreenEvent;
 	import services.Assets;
+	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.Event;
+	import starling.textures.Texture;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -16,7 +21,7 @@ package components
 		private var cancelBtn:SimpleButton;
 		private var sortBtn:SimpleButton;
 		
-		public function Popup() 
+		public function Popup()
 		{
 			container = new Sprite();
 			addChild(container);
@@ -36,6 +41,7 @@ package components
 			cancelBtn.pivotY = cancelBtn.height / 2;
 			cancelBtn.x = 120;
 			cancelBtn.y = 250;
+			cancelBtn.addEventListener(Event.TRIGGERED, onCancelBtn_handler);
 			container.addChild(cancelBtn);
 			
 			sortBtn = new SimpleButton(Assets.getTexture("button_Segreguj"));
@@ -43,12 +49,29 @@ package components
 			sortBtn.pivotY = sortBtn.height / 2;
 			sortBtn.x = 300;
 			sortBtn.y = 250;
+			sortBtn.addEventListener(Event.TRIGGERED, onSortBtn_handler);
 			container.addChild(sortBtn);
 			
 			container.x = 0;
 			container.y = -170;
 		}
 		
+		private function onCancelBtn_handler(e:Event):void
+		{
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.POPUP_CANCEL));
+		}
+		
+		private function onSortBtn_handler(e:Event):void
+		{
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.POPUP_SORT));
+		}
+		
+		public function setItem(itemTexture:Texture):void
+		{
+			item.texture = itemTexture;
+			item.width = itemTexture.width;
+			item.height = itemTexture.height;
+		}
+	
 	}
-
 }

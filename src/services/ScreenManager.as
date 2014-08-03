@@ -2,6 +2,7 @@ package services
 {
 	import screen.Screen001;
 	import screen.Screen002;
+	import screen.Screen003;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	/**
@@ -10,13 +11,15 @@ package services
 	 */
 	public class ScreenManager extends Sprite
 	{
-		private var screens:Vector.<Sprite>
+		private var screens:Vector.<Sprite>;
+		private var currentScreenId:int = -1;
 		
 		public function ScreenManager() 
 		{
 			screens = new Vector.<Sprite>;
 			screens.push(new Screen001);
 			screens.push(new Screen002);
+			screens.push(new Screen003);
 			
 			screens[0].addEventListener(Event.CLOSE, onScreen001StartBtn_handler);
 		}
@@ -29,8 +32,14 @@ package services
 		
 		public function showScreen(screenId:int):void
 		{
+			if (currentScreenId != -1)
+			{
+				hideScreen(currentScreenId);
+			}
+				
 			if (screens[screenId].parent == null)
 				addChild(screens[screenId]);
+				
 			screens[screenId].visible = true;
 		}
 		

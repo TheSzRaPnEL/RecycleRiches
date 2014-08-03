@@ -1,11 +1,15 @@
 package screen 
 {
+	import components.GrassItemOverlay;
 	import components.Popup;
 	import components.SimpleButton;
+	import events.ScreenEvent;
 	import services.Assets;
+	import starling.core.Starling;
 	import starling.display.Button;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
+	import starling.display.Quad;
 	import starling.display.Sprite;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
@@ -22,6 +26,8 @@ package screen
 		private var background:Image;
 		private var items:Vector.<Image>;
 		private var popupInfo:Popup;
+		private var grassItemOverlay:GrassItemOverlay;
+		private var blackOverlay:Quad;
 		
 		public function Screen002()
 		{
@@ -40,13 +46,28 @@ package screen
 			for (var i:int = 0; i < 20; i++)
 			{
 				var item:Image = new Image(Assets.getTexture(itemNames[i]));
+				//var item:Image = new Image(Assets.getTexture("jasnePoleTrawy"));
 				item.pivotX = item.width / 2;
 				item.pivotY = item.height / 2;
-				item.x = 185 + 160 * (i % 5);
-				item.y = 185 + 150 * int(i / 5);
+				item.x = 185 + 162 * (i % 5);
+				item.y = 181 + 148 * int(i / 5);
 				item.addEventListener(TouchEvent.TOUCH, onItemTouch);
 				container.addChild(item);
 			}
+			
+			blackOverlay = new Quad(1024, 768, 0);
+			blackOverlay.alpha = 0.8;
+			blackOverlay.touchable = false;
+			blackOverlay.visible = false;
+			container.addChild(blackOverlay);
+			
+			grassItemOverlay = new GrassItemOverlay();
+			grassItemOverlay.visible = false;
+			grassItemOverlay.touchable = false;
+			container.addChild(grassItemOverlay);
+			
+			Starling.current.stage.addEventListener(ScreenEvent.POPUP_CANCEL, cancelSelection_handler);
+			Starling.current.stage.addEventListener(ScreenEvent.POPUP_SORT, sortSelection_handler);
 		}
 		
 		private function onItemTouch(e:TouchEvent):void 
@@ -54,10 +75,43 @@ package screen
 			var touch:Touch = e.getTouch(stage);
 			if (touch.phase == TouchPhase.BEGAN)
 			{
+				blackOverlay.visible = true;
+				
 				popupInfo.x = DisplayObject(e.target).x + 60;
 				popupInfo.y = DisplayObject(e.target).y;
 				popupInfo.visible = true;
+				popupInfo.setItem(Image(e.target).texture);
+				
+				grassItemOverlay.visible = true;
+				grassItemOverlay.x = DisplayObject(e.target).x;
+				grassItemOverlay.y = DisplayObject(e.target).y;
+				grassItemOverlay.setItem(Image(e.target).texture);
 			}
+		}
+		
+		private function cancelSelection_handler(e:ScreenEvent):void 
+		{
+			cancelSelection();
+		}
+		
+		public function cancelSelection():void
+		{
+			blackOverlay.visible = false;
+			popupInfo.visible = false;
+			grassItemOverlay.visible = false;
+		}
+		
+		private function sortSelection_handler(e:ScreenEvent):void 
+		{
+			sortSelection();
+		}
+		
+		public function sortSelection():void
+		{
+			popupInfo.visible = false;
+			grassItemOverlay.visible = false;
+			
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 2));
 		}
 		
 	}
