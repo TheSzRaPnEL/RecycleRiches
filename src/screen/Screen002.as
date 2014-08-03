@@ -4,6 +4,8 @@ package screen
 	import components.Popup;
 	import components.SimpleButton;
 	import events.ScreenEvent;
+	import model.Item;
+	import model.items.Skarpeta;
 	import services.Assets;
 	import starling.core.Starling;
 	import starling.display.Button;
@@ -24,7 +26,7 @@ package screen
 		
 		private var container:Sprite;
 		private var background:Image;
-		private var items:Vector.<Image>;
+		private var items:Vector.<Item>;
 		private var popupInfo:Popup;
 		private var grassItemOverlay:GrassItemOverlay;
 		private var blackOverlay:Quad;
@@ -33,6 +35,9 @@ package screen
 		{
 			container = new Sprite();
 			addChild(container);
+			
+			items = new Vector.<Item>;
+			items.push(new Skarpeta());
 			
 			background = new Image(Assets.getTexture("screen002"));
 			background.x = -2;

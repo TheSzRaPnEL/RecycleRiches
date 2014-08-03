@@ -3,6 +3,7 @@ package services
 	import screen.Screen001;
 	import screen.Screen002;
 	import screen.Screen003;
+	import screen.Screen004;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	/**
@@ -20,6 +21,7 @@ package services
 			screens.push(new Screen001);
 			screens.push(new Screen002);
 			screens.push(new Screen003);
+			screens.push(new Screen004);
 			
 			screens[0].addEventListener(Event.CLOSE, onScreen001StartBtn_handler);
 		}
