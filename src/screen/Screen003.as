@@ -31,28 +31,28 @@ package screen
 			var basket:Image = new Image(Assets.getTexture("kosz_Odzysk"));
 			basket.pivotX = basket.width / 2;
 			basket.pivotY = basket.height;
-			basket.x = 1 * 1024 / 5;
+			basket.x = 1 * 1024 / 8;
 			basket.y = 768;
 			container.addChild(basket);
 			
 			basket = new Image(Assets.getTexture("kosz_Recykling"));
 			basket.pivotX = basket.width / 2;
 			basket.pivotY = basket.height;
-			basket.x = 2 * 1024 / 5;
+			basket.x = 3 * 1024 / 8;
 			basket.y = 768;
 			container.addChild(basket);
 			
 			basket = new Image(Assets.getTexture("kosz_Skladowisko"));
 			basket.pivotX = basket.width / 2;
 			basket.pivotY = basket.height;
-			basket.x = 3 * 1024 / 5;
+			basket.x = 5 * 1024 / 8;
 			basket.y = 768;
 			container.addChild(basket);
 			
 			basket = new Image(Assets.getTexture("kosz_Unieszkodliwienie"));
 			basket.pivotX = basket.width / 2;
 			basket.pivotY = basket.height;
-			basket.x = 4 * 1024 / 5;
+			basket.x = 7 * 1024 / 8;
 			basket.y = 768;
 			basket.addEventListener(TouchEvent.TOUCH, onBasket4Touch_handler);
 			container.addChild(basket);
