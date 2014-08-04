@@ -1,9 +1,8 @@
-package screen 
+package screen
 {
 	import components.GrassItemOverlay;
 	import components.ItemImage;
 	import components.Popup;
-	import components.SimpleButton;
 	import events.ItemEvent;
 	import events.ScreenEvent;
 	import flash.geom.Rectangle;
@@ -30,7 +29,6 @@ package screen
 	import model.items.Widelec;
 	import services.Assets;
 	import starling.core.Starling;
-	import starling.display.Button;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Quad;
@@ -38,14 +36,13 @@ package screen
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
 	 */
 	public class Screen002 extends Sprite
 	{
-		private static const itemNames:Vector.<String> = new <String>["przedmiot_Karton", "przedmiot_Sloik", "przedmiot_Kurczak", "przedmiot_Ogryzek", "przedmiot_Rura","przedmiot_Skarpeta","przedmiot_Puszka","przedmiot_UkladScalony","przedmiot_BrazoweCos","przedmiot_Butelka","przedmiot_Karton2","przedmiot_Widelec","przedmiot_Karton3","przedmiot_Szalik","przedmiot_Konserwa","przedmiot_Banan","przedmiot_ButelkaPet","przedmiot_Chleb","przedmiot_Siatka","przedmiot_Szklo"];
-		
 		private var container:Sprite;
 		private var background:Image;
 		private var items:Vector.<Item>;
@@ -93,10 +90,8 @@ package screen
 			
 			for (var i:int = 0; i < items.length; i++)
 			{
-				//var item:Image = new Image(Assets.getTexture(itemNames[i]));
 				var item:ItemImage = new ItemImage(items[i].itemTexture);
 				item.itemRef = items[i];
-				//var item:Image = new Image(Assets.getTexture("jasnePoleTrawy"));
 				item.pivotX = item.width / 2;
 				item.pivotY = item.height / 2;
 				item.x = 185 + 162 * (i % 5);
@@ -120,7 +115,7 @@ package screen
 			Starling.current.stage.addEventListener(ScreenEvent.POPUP_SORT, sortSelection_handler);
 		}
 		
-		private function onItemImageTouch(e:TouchEvent):void 
+		private function onItemImageTouch(e:TouchEvent):void
 		{
 			var touch:Touch = e.getTouch(stage);
 			if (touch.phase == TouchPhase.BEGAN)
@@ -136,7 +131,7 @@ package screen
 					popupInfo.x -= popupInfo.width + grassItemOverlay.width + 100;
 					popupInfo.swapTexture = true;
 				}
-				popupInfo.setItem(Image(e.target).texture);
+				popupInfo.setItem(ItemImage(e.target).itemRef);
 				
 				grassItemOverlay.visible = true;
 				grassItemOverlay.x = DisplayObject(e.target).x;
@@ -147,7 +142,7 @@ package screen
 			}
 		}
 		
-		private function cancelSelection_handler(e:ScreenEvent):void 
+		private function cancelSelection_handler(e:ScreenEvent):void
 		{
 			cancelSelection();
 		}
@@ -159,7 +154,7 @@ package screen
 			grassItemOverlay.visible = false;
 		}
 		
-		private function sortSelection_handler(e:ScreenEvent):void 
+		private function sortSelection_handler(e:ScreenEvent):void
 		{
 			blackOverlay.visible = false;
 			popupInfo.visible = false;
@@ -175,6 +170,6 @@ package screen
 			
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 2));
 		}
-		
+	
 	}
 }

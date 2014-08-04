@@ -8,6 +8,7 @@ package model
 	 */
 	public class Item
 	{
+		private var _name:String;
 		private var _itemTexture:Texture;
 		private var _materialList:Vector.<Material>;
 		private var _available:Boolean;
@@ -16,6 +17,7 @@ package model
 		public function Item()
 		{
 			_materialList = new Vector.<Material>;
+			_name = "itemName";
 		}
 		
 		public function get type():String
@@ -56,6 +58,16 @@ package model
 		public function set itemTexture(value:Texture):void
 		{
 			_itemTexture = value;
+		}
+		
+		public function get name():String 
+		{
+			return _name;
+		}
+		
+		public function set name(value:String):void 
+		{
+			_name = value;
 		}
 	
 	}

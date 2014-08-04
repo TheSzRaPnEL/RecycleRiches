@@ -1,12 +1,15 @@
 package components
 {
 	import events.ScreenEvent;
+	import model.Item;
 	import services.Assets;
 	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
-	import starling.textures.Texture;
+	import starling.text.TextField;
+	import starling.utils.HAlign;
+	import starling.utils.VAlign;
 	
 	/**
 	 * ...
@@ -16,10 +19,11 @@ package components
 	{
 		private var container:Sprite;
 		private var background:Image;
-		private var item:Image;
-		private var materialList:Sprite;
+		private var itemImage:Image;
+		private var materialList:ArrowList;
 		private var cancelBtn:SimpleButton;
 		private var sortBtn:SimpleButton;
+		private var headline:TextField;
 		
 		public function Popup()
 		{
@@ -28,13 +32,6 @@ package components
 			
 			background = new Image(Assets.getTexture("popup_Info"));
 			container.addChild(background);
-			
-			item = new Image(Assets.getTexture("przedmiot_Puszka"));
-			item.pivotX = item.width / 2;
-			item.pivotY = item.height / 2;
-			item.x = 120;
-			item.y = 160;
-			container.addChild(item);
 			
 			cancelBtn = new SimpleButton(Assets.getTexture("button_Anuluj"));
 			cancelBtn.pivotX = cancelBtn.width / 2;
@@ -52,6 +49,14 @@ package components
 			sortBtn.addEventListener(Event.TRIGGERED, onSortBtn_handler);
 			container.addChild(sortBtn);
 			
+			headline = new TextField(340, 40, "");
+			headline.vAlign = VAlign.CENTER;
+			headline.hAlign = HAlign.CENTER;
+			headline.autoScale = true;
+			headline.x = 35;
+			headline.y = 22;
+			container.addChild(headline);
+			
 			container.x = 0;
 			container.y = -170;
 		}
@@ -66,17 +71,51 @@ package components
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.POPUP_SORT));
 		}
 		
-		public function setItem(itemTexture:Texture):void
+		public function setItem(item:Item):void
 		{
-			item.texture = itemTexture;
-			item.width = itemTexture.width;
-			item.height = itemTexture.height;
+			if (itemImage == null)
+			{
+				itemImage = new Image(item.itemTexture);
+				itemImage.x = 160;
+				itemImage.y = 160;
+				container.addChild(itemImage);
+				itemImage.pivotX = itemImage.texture.width / 2;
+				itemImage.pivotY = itemImage.texture.height / 2;
+			}
+			else
+			{
+				itemImage.texture = item.itemTexture;
+				itemImage.width = itemImage.texture.width;
+				itemImage.height = itemImage.texture.height;
+			}
+			
+			var textList:Vector.<String> = new Vector.<String>;
+			for (var i:int = 0; i < item.materialList.length; i++)
+			{
+				textList.push(item.materialList[i].name);
+			}
+			
+			if (materialList == null)
+			{
+				materialList = new ArrowList(textList);
+				materialList.x = 310;
+				materialList.y = 150;
+				container.addChild(materialList);
+				materialList.pivotX = materialList.width / 2;
+				materialList.pivotY = materialList.height / 2;
+			}
+			else
+			{
+				materialList.update(textList);
+			}
+			
+			headline.text = item.name;
 		}
 		
 		public function set swapTexture(value:Boolean):void
 		{
 			background.scaleX = (value ? -1 : 1);
-			background.x = (value ? background.width+50 : 0);
+			background.x = (value ? background.width + 50 : 0);
 			container.x = (value ? 170 : 0);
 		}
 	
