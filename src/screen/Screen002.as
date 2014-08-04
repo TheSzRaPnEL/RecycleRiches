@@ -1,10 +1,14 @@
 package screen 
 {
 	import components.GrassItemOverlay;
+	import components.ItemImage;
 	import components.Popup;
 	import components.SimpleButton;
+	import events.ItemEvent;
 	import events.ScreenEvent;
+	import flash.geom.Rectangle;
 	import model.Item;
+	import model.items.Karton;
 	import model.items.Skarpeta;
 	import services.Assets;
 	import starling.core.Starling;
@@ -33,10 +37,31 @@ package screen
 		
 		public function Screen002()
 		{
+			this.clipRect = new Rectangle(0, 0, 1024, 768);
+			
 			container = new Sprite();
 			addChild(container);
 			
 			items = new Vector.<Item>;
+			items.push(new Karton());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
+			items.push(new Skarpeta());
 			items.push(new Skarpeta());
 			
 			background = new Image(Assets.getTexture("screen002"));
@@ -48,15 +73,17 @@ package screen
 			popupInfo.visible = false;
 			addChild(popupInfo);
 			
-			for (var i:int = 0; i < 20; i++)
+			for (var i:int = 0; i < items.length; i++)
 			{
-				var item:Image = new Image(Assets.getTexture(itemNames[i]));
+				//var item:Image = new Image(Assets.getTexture(itemNames[i]));
+				var item:ItemImage = new ItemImage(items[i].itemTexture);
+				item.itemRef = items[i];
 				//var item:Image = new Image(Assets.getTexture("jasnePoleTrawy"));
 				item.pivotX = item.width / 2;
 				item.pivotY = item.height / 2;
 				item.x = 185 + 162 * (i % 5);
 				item.y = 181 + 148 * int(i / 5);
-				item.addEventListener(TouchEvent.TOUCH, onItemTouch);
+				item.addEventListener(TouchEvent.TOUCH, onItemImageTouch);
 				container.addChild(item);
 			}
 			
@@ -75,7 +102,7 @@ package screen
 			Starling.current.stage.addEventListener(ScreenEvent.POPUP_SORT, sortSelection_handler);
 		}
 		
-		private function onItemTouch(e:TouchEvent):void 
+		private function onItemImageTouch(e:TouchEvent):void 
 		{
 			var touch:Touch = e.getTouch(stage);
 			if (touch.phase == TouchPhase.BEGAN)
@@ -85,12 +112,20 @@ package screen
 				popupInfo.x = DisplayObject(e.target).x + 60;
 				popupInfo.y = DisplayObject(e.target).y;
 				popupInfo.visible = true;
+				popupInfo.swapTexture = false;
+				if (popupInfo.x > width - popupInfo.width)
+				{
+					popupInfo.x -= popupInfo.width + grassItemOverlay.width + 100;
+					popupInfo.swapTexture = true;
+				}
 				popupInfo.setItem(Image(e.target).texture);
 				
 				grassItemOverlay.visible = true;
 				grassItemOverlay.x = DisplayObject(e.target).x;
 				grassItemOverlay.y = DisplayObject(e.target).y;
 				grassItemOverlay.setItem(Image(e.target).texture);
+				
+				Starling.current.stage.dispatchEvent(new ItemEvent(ItemEvent.SELECTED, false, ItemImage(e.target).itemRef));
 			}
 		}
 		
@@ -108,6 +143,10 @@ package screen
 		
 		private function sortSelection_handler(e:ScreenEvent):void 
 		{
+			blackOverlay.visible = false;
+			popupInfo.visible = false;
+			grassItemOverlay.visible = false;
+			
 			sortSelection();
 		}
 		

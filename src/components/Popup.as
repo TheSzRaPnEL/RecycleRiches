@@ -33,14 +33,14 @@ package components
 			item.pivotX = item.width / 2;
 			item.pivotY = item.height / 2;
 			item.x = 120;
-			item.y = 140;
+			item.y = 160;
 			container.addChild(item);
 			
 			cancelBtn = new SimpleButton(Assets.getTexture("button_Anuluj"));
 			cancelBtn.pivotX = cancelBtn.width / 2;
 			cancelBtn.pivotY = cancelBtn.height / 2;
 			cancelBtn.x = 120;
-			cancelBtn.y = 250;
+			cancelBtn.y = 270;
 			cancelBtn.addEventListener(Event.TRIGGERED, onCancelBtn_handler);
 			container.addChild(cancelBtn);
 			
@@ -48,7 +48,7 @@ package components
 			sortBtn.pivotX = sortBtn.width / 2;
 			sortBtn.pivotY = sortBtn.height / 2;
 			sortBtn.x = 300;
-			sortBtn.y = 250;
+			sortBtn.y = 270;
 			sortBtn.addEventListener(Event.TRIGGERED, onSortBtn_handler);
 			container.addChild(sortBtn);
 			
@@ -71,6 +71,13 @@ package components
 			item.texture = itemTexture;
 			item.width = itemTexture.width;
 			item.height = itemTexture.height;
+		}
+		
+		public function set swapTexture(value:Boolean):void
+		{
+			background.scaleX = (value ? -1 : 1);
+			background.x = (value ? background.width+50 : 0);
+			container.x = (value ? 170 : 0);
 		}
 	
 	}

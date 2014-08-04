@@ -18,10 +18,10 @@ package services
 		public function ScreenManager() 
 		{
 			screens = new Vector.<Sprite>;
-			screens.push(new Screen001);
-			screens.push(new Screen002);
-			screens.push(new Screen003);
-			screens.push(new Screen004);
+			screens.push(new Screen001());
+			screens.push(new Screen002());
+			screens.push(new Screen003());
+			screens.push(new Screen004());
 			
 			screens[0].addEventListener(Event.CLOSE, onScreen001StartBtn_handler);
 		}

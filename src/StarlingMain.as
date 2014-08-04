@@ -5,9 +5,11 @@ package
 	import com.greensock.loading.ImageLoader;
 	import com.greensock.loading.LoaderMax;
 	import com.greensock.loading.XMLLoader;
+	import events.ItemEvent;
 	import events.ScreenEvent;
 	import flash.display.Bitmap;
 	import flash.events.Event;
+	import model.Item;
 	import services.Assets;
 	import services.ScreenManager;
 	import starling.core.Starling;
@@ -28,6 +30,7 @@ package
 		private var assetLoader:LoaderMax;
 		private var screenManager:ScreenManager;
 		private var preloader:TextField;
+		private var selectedItem:Item;
 		
 		public function StarlingMain()
 		{
@@ -73,8 +76,15 @@ package
 			screenManager.showScreen(0);
 			
 			Starling.current.stage.addEventListener(ScreenEvent.SHOW_SCREEN, showScreen_handler);
+			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
 			
 			stage.dispatchEventWith(starling.events.Event.COMPLETE);
+		}
+		
+		private function itemSelected_handler(e:ItemEvent):void 
+		{
+			trace("SELECTED!!!");
+			selectedItem = Item(e.data);
 		}
 		
 		private function showScreen_handler(e:ScreenEvent):void 
