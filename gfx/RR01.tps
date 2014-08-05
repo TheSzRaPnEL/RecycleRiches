@@ -217,6 +217,8 @@
             <filename>images/strzalka.png</filename>
             <filename>images/popup_Mapa.png</filename>
             <filename>images/punkt.png</filename>
+            <filename>images/lifeCycle1.png</filename>
+            <filename>images/strzalka2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

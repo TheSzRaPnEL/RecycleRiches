@@ -14,7 +14,7 @@ package model.materials
 			super();
 			
 			name = "Metal";
-			lifeCycleId = 0;
+			lifeCycleId = 1;
 			
 			addInfo("1,25 Euro/kg");
 			addInfo("1250 Euro/t");
@@ -22,10 +22,6 @@ package model.materials
 			
 			addMapPointId(0);
 			addMapPointId(1);
-			addMapPointId(2);
-			addMapPointId(3);
-			addMapPointId(4);
-			addMapPointId(5);
 		}
 		
 	}

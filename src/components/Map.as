@@ -1,8 +1,13 @@
 package components
 {
+	import events.MapPointEvent;
 	import model.MapPoint;
+	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -45,7 +50,39 @@ package components
 		public function addMapPoint(mapPoint:MapPoint):void 
 		{
 			container.addChild(mapPoint);
+			mapPoint.x = mapPoint.position.x;
+			mapPoint.y = mapPoint.position.y;
+			mapPoint.addEventListener(TouchEvent.TOUCH, onMapPointTouch_handler);
 			_mapPoints.push(mapPoint);
+		}
+		
+		private function onMapPointTouch_handler(e:TouchEvent):void 
+		{
+			if (e.getTouch(stage))
+			{
+				var touch:Touch = e.getTouch(stage);
+				if (touch.phase == TouchPhase.HOVER)
+				{
+					var mapPoint:MapPoint;
+					for (var i:int = 0; i < mapPoints.length; i++)
+					{
+						if (mapPoints[i].point == touch.target)
+						{
+							mapPoint = mapPoints[i];
+							break;
+						}
+					}
+					
+					if (mapPoint == null)
+					{
+						Starling.current.stage.dispatchEvent(new MapPointEvent(MapPointEvent.MOUSE_OUT));
+					}
+					else
+					{
+						Starling.current.stage.dispatchEvent(new MapPointEvent(MapPointEvent.MOUSE_OVER, false, mapPoint));
+					}
+				}
+			}
 		}
 		
 		public function showMapPoint(mapPointId:int):void 

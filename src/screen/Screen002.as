@@ -46,9 +46,11 @@ package screen
 		private var container:Sprite;
 		private var background:Image;
 		private var items:Vector.<Item>;
+		private var itemImages:Vector.<ItemImage>;
 		private var popupInfo:Popup;
 		private var grassItemOverlay:GrassItemOverlay;
 		private var blackOverlay:Quad;
+		private var selectedItemImage:ItemImage;
 		
 		public function Screen002()
 		{
@@ -88,6 +90,7 @@ package screen
 			popupInfo.visible = false;
 			addChild(popupInfo);
 			
+			itemImages = new Vector.<ItemImage>;
 			for (var i:int = 0; i < items.length; i++)
 			{
 				var item:ItemImage = new ItemImage(items[i].itemTexture);
@@ -97,6 +100,7 @@ package screen
 				item.x = 185 + 162 * (i % 5);
 				item.y = 181 + 148 * int(i / 5);
 				item.addEventListener(TouchEvent.TOUCH, onItemImageTouch);
+				itemImages.push(item);
 				container.addChild(item);
 			}
 			
@@ -120,6 +124,8 @@ package screen
 			var touch:Touch = e.getTouch(stage);
 			if (touch.phase == TouchPhase.BEGAN)
 			{
+				selectedItemImage = ItemImage(e.target);
+				
 				blackOverlay.visible = true;
 				
 				popupInfo.x = DisplayObject(e.target).x + 60;
@@ -159,6 +165,9 @@ package screen
 			blackOverlay.visible = false;
 			popupInfo.visible = false;
 			grassItemOverlay.visible = false;
+			
+			selectedItemImage.removeEventListener(TouchEvent.TOUCH, onItemImageTouch);
+			selectedItemImage.visible = false;
 			
 			sortSelection();
 		}
