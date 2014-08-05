@@ -81,13 +81,13 @@ package
 			stage.dispatchEventWith(starling.events.Event.COMPLETE);
 		}
 		
-		private function itemSelected_handler(e:ItemEvent):void 
+		private function itemSelected_handler(e:ItemEvent):void
 		{
 			trace("SELECTED!!!");
 			selectedItem = Item(e.data);
 		}
 		
-		private function showScreen_handler(e:ScreenEvent):void 
+		private function showScreen_handler(e:ScreenEvent):void
 		{
 			screenManager.showScreen(int(e.data));
 		}

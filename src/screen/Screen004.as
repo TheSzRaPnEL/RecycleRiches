@@ -5,9 +5,11 @@ package screen
 	import components.MapPopup;
 	import components.MaterialList;
 	import components.TextFieldList;
+	import events.GameEvent;
 	import events.ItemEvent;
 	import events.MapPointEvent;
 	import events.MaterialEvent;
+	import events.ScreenEvent;
 	import model.Item;
 	import model.MapPoint;
 	import model.maps.MazowszeMap;
@@ -16,6 +18,9 @@ package screen
 	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	
 	/**
 	 * ...
@@ -31,7 +36,8 @@ package screen
 		private var textFieldList:TextFieldList;
 		private var materialList:MaterialList;
 		private var materialLifeCycle:Image;
-		;
+		private var exitArrow:Image;
+		private var nextArrow:Image;
 		
 		public function Screen004()
 		{
@@ -41,10 +47,60 @@ package screen
 			background = new Image(Assets.getTexture("screen005"));
 			container.addChild(background);
 			
+			exitArrow = new Image(Assets.getTexture("strzalka2"));
+			exitArrow.x = 900;
+			exitArrow.y = 700;
+			exitArrow.addEventListener(TouchEvent.TOUCH, onExitArrowTouch_handler);
+			container.addChild(exitArrow);
+			
+			nextArrow = new Image(Assets.getTexture("strzalka2"));
+			nextArrow.x = 800;
+			nextArrow.y = 700;
+			nextArrow.addEventListener(TouchEvent.TOUCH, onNextArrowTouch_handler);
+			container.addChild(nextArrow);
+			
 			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
+			Starling.current.stage.addEventListener(ItemEvent.ALL_ITEMS_PICKED, allItemsPicked_handler);
 			Starling.current.stage.addEventListener(MaterialEvent.SELECTED, materialSelected_handler);
 			Starling.current.stage.addEventListener(MapPointEvent.MOUSE_OVER, mouseOverMapPoint_handler);
 			Starling.current.stage.addEventListener(MapPointEvent.MOUSE_OUT, mouseOutMapPoint_handler);
+			Starling.current.stage.addEventListener(GameEvent.RESTART_GAME, restartGame_handler);
+		}
+		
+		private function restartGame_handler(e:GameEvent):void
+		{
+			nextArrow.visible = true;
+		}
+		
+		private function allItemsPicked_handler(e:ItemEvent):void
+		{
+			nextArrow.visible = false;
+		}
+		
+		private function onNextArrowTouch_handler(e:TouchEvent):void
+		{
+			if (e.getTouch(stage))
+			{
+				var touch:Touch = e.getTouch(stage)
+				if (touch.phase == TouchPhase.BEGAN)
+				{
+					trace("BOOM!");
+					Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 1));
+				}
+			}
+		}
+		
+		private function onExitArrowTouch_handler(e:TouchEvent):void
+		{
+			if (e.getTouch(stage))
+			{
+				var touch:Touch = e.getTouch(stage)
+				if (touch.phase == TouchPhase.BEGAN)
+				{
+					trace("BOOM END!");
+					Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 4));
+				}
+			}
 		}
 		
 		private function mouseOutMapPoint_handler(e:MapPointEvent):void
@@ -90,6 +146,8 @@ package screen
 			{
 				map.showMapPoint(material.mapPointIdList[i]);
 			}
+			
+			map.visible = true;
 		}
 		
 		private function updateMaterialLifeCycle(material:Material):void
@@ -109,6 +167,8 @@ package screen
 				materialLifeCycle.width = materialLifeCycle.texture.width;
 				materialLifeCycle.height = materialLifeCycle.texture.height;
 			}
+			
+			materialLifeCycle.visible = true;
 		}
 		
 		private function itemSelected_handler(e:ItemEvent):void
@@ -162,6 +222,30 @@ package screen
 			{
 				textFieldList.update(material.infoList);
 			}
+			
+			textFieldList.visible = true;
+		}
+		
+		override public function set visible(value:Boolean):void
+		{
+			super.visible = value;
+			if (value)
+				restartComponents();
+		}
+		
+		public function restartComponents():void
+		{
+			if (materialLifeCycle != null)
+				materialLifeCycle.visible = false;
+			
+			if (map != null)
+				map.visible = false;
+			
+			if (textFieldList != null)
+				textFieldList.visible = false;
+			
+			if (materialList != null)
+				materialList.unselect();
 		}
 	
 	}

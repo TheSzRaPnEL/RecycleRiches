@@ -3,6 +3,7 @@ package screen
 	import components.GrassItemOverlay;
 	import components.ItemImage;
 	import components.Popup;
+	import events.GameEvent;
 	import events.ItemEvent;
 	import events.ScreenEvent;
 	import flash.geom.Rectangle;
@@ -93,6 +94,7 @@ package screen
 			itemImages = new Vector.<ItemImage>;
 			for (var i:int = 0; i < items.length; i++)
 			{
+				items[i].available = true;
 				var item:ItemImage = new ItemImage(items[i].itemTexture);
 				item.itemRef = items[i];
 				item.pivotX = item.width / 2;
@@ -117,6 +119,16 @@ package screen
 			
 			Starling.current.stage.addEventListener(ScreenEvent.POPUP_CANCEL, cancelSelection_handler);
 			Starling.current.stage.addEventListener(ScreenEvent.POPUP_SORT, sortSelection_handler);
+			Starling.current.stage.addEventListener(GameEvent.RESTART_GAME, restartGame_handler);
+		}
+		
+		private function restartGame_handler(e:GameEvent):void 
+		{
+			for (var i:int = 0; i < items.length; i++)
+			{
+				items[i].available = true;
+				itemImages[i].visible = true;
+			}
 		}
 		
 		private function onItemImageTouch(e:TouchEvent):void
@@ -166,6 +178,7 @@ package screen
 			popupInfo.visible = false;
 			grassItemOverlay.visible = false;
 			
+			selectedItemImage.itemRef.available = false;
 			selectedItemImage.removeEventListener(TouchEvent.TOUCH, onItemImageTouch);
 			selectedItemImage.visible = false;
 			
@@ -176,6 +189,19 @@ package screen
 		{
 			popupInfo.visible = false;
 			grassItemOverlay.visible = false;
+			
+			var allItemsPicked:Boolean = true;
+			for (var i:int = 0; i < items.length; i++)
+			{
+				if (items[i].available)
+				{
+					allItemsPicked = false;
+					break;
+				}
+			}
+			
+			if (allItemsPicked)
+				Starling.current.stage.dispatchEvent(new ItemEvent(ItemEvent.ALL_ITEMS_PICKED));
 			
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 2));
 		}

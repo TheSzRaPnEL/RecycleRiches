@@ -81,6 +81,11 @@ package components
 				}
 			}
 		}
+		
+		public function unselect():void
+		{
+			arrow.visible = false;
+		}
 	
 	}
 }
