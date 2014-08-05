@@ -51,7 +51,7 @@ package
 			assetLoader = new LoaderMax();
 			assetLoader.append(new XMLLoader("RR01.xml", {name: "RR01xml"}));
 			assetLoader.append(new ImageLoader("RR01.png", {name: "RR01png"}));
-			assetLoader.append(new MP3Loader("gameMusic.mp3", {name: "GameMusic"}));
+			assetLoader.append(new MP3Loader("gameMusic.mp3", {name: "GameMusic", autoPlay:false}));
 			assetLoader.load();
 			assetLoader.addEventListener(LoaderEvent.PROGRESS, onFilesDownloading);
 			assetLoader.addEventListener(LoaderEvent.COMPLETE, onFilesDownloaded);
