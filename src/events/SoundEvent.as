@@ -10,6 +10,7 @@ package events
 	{
 		public static const MUTE:String = "mute";
 		public static const UNMUTE:String = "unmute";
+		static public const PLAY_MUSIC:String = "playMusic";
 		
 		public function SoundEvent(type:String, bubbles:Boolean = false, data:Object = null)
 		{

@@ -88,7 +88,6 @@ package
 			screenManager.showScreen(0);
 			
 			soundController = new SoundController();
-			soundController.playMusic("Music");
 			
 			soundBtn = new SimpleButton(Assets.getTexture("button_SoundOn"), Assets.getTexture("button_SoundOff"));
 			soundBtn.x = 900;
@@ -100,8 +99,14 @@ package
 			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
 			Starling.current.stage.addEventListener(SoundEvent.MUTE, mute_handler);
 			Starling.current.stage.addEventListener(SoundEvent.UNMUTE, unmute_handler);
+			Starling.current.stage.addEventListener(SoundEvent.PLAY_MUSIC, playMusic_handler);
 			
 			stage.dispatchEventWith(starling.events.Event.COMPLETE);
+		}
+		
+		private function playMusic_handler(e:SoundEvent):void 
+		{
+			soundController.playMusic("Music");
 		}
 		
 		private function onSoundBtn_handler(e:starling.events.Event):void

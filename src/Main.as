@@ -1,6 +1,7 @@
 package
 {
 	//import flash.desktop.NativeApplication;
+	import events.SoundEvent;
 	import flash.display.Bitmap;
 	import flash.display.Loader;
 	import flash.display.Sprite;
@@ -14,6 +15,7 @@ package
 	import flash.text.TextFormatAlign;
 	import flash.ui.Multitouch;
 	import flash.ui.MultitouchInputMode;
+	import flash.utils.setTimeout;
 	import starling.core.Starling;
 	import starling.events.Event;
 	
@@ -27,6 +29,9 @@ package
 		private var splashScreen:Bitmap;
 		private var star:Starling;
 		private var preloader:TextField;
+		private var percLoaded:int;
+		private var percShown:int;
+		private var showStarlingAllowed:Boolean;
 		
 		public function Main():void
 		{
@@ -67,14 +72,42 @@ package
 		{
 			star.stage.addEventListener(starling.events.Event.COMPLETE, onStarlingReadyToShow_handler);
 			star.stage.addEventListener(starling.events.Event.CHANGE, onStarlingPreloading_handler);
+			percLoaded = 0;
+			percShown = 0;
+			showStarlingAllowed = false;
+			addEventListener(flash.events.Event.ENTER_FRAME, preloaderAnim_handler);
+		}
+		
+		private function preloaderAnim_handler(e:flash.events.Event):void 
+		{
+			if (percLoaded > percShown && percShown != 100)
+			{
+				percShown++;
+				preloader.text = percShown + "%";
+			}
+			else if (showStarlingAllowed)
+			{
+				removeEventListener(flash.events.Event.ENTER_FRAME, preloaderAnim_handler);
+				setTimeout(showStarling, 500);
+			}
+		}
+		
+		private function allowShowStarling():void 
+		{
+			showStarlingAllowed = true;
 		}
 		
 		private function onStarlingPreloading_handler(e:starling.events.Event):void
 		{
-			preloader.text = int(100 * Number(e.data)) + "%";
+			percLoaded = int(100 * Number(e.data));
 		}
 		
 		private function onStarlingReadyToShow_handler(e:starling.events.Event):void
+		{
+			allowShowStarling();
+		}
+		
+		private function showStarling():void
 		{
 			star.stage.removeEventListener(starling.events.Event.COMPLETE, onStarlingReadyToShow_handler);
 			star.stage.removeEventListener(starling.events.Event.CHANGE, onStarlingPreloading_handler);
@@ -83,6 +116,8 @@ package
 			splashScreen = null;
 			removeChild(preloader);
 			preloader = null;
+			
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_MUSIC));
 		}
 	
 	}
