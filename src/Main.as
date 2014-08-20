@@ -8,6 +8,7 @@ package
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
+	import flash.geom.Rectangle;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
@@ -48,6 +49,8 @@ package
 		private function onLoadingComplete_handler(e:flash.events.Event):void
 		{
 			splashScreen = e.target.content;
+			splashScreen.width = stage.stageWidth;
+			splashScreen.height = 768 * splashScreen.width / 1024;
 			addChild(splashScreen);
 			
 			var textFormat:TextFormat = new TextFormat();
@@ -56,20 +59,22 @@ package
 			textFormat.align = TextFormatAlign.CENTER;
 			preloader = new TextField();
 			preloader.defaultTextFormat = textFormat;
-			preloader.width = 250;
+			preloader.width = splashScreen.width;
 			preloader.autoSize = TextFieldAutoSize.CENTER;
 			addChild(preloader);
 			preloader.text = "0%";
-			preloader.x = 512 - preloader.width / 2;
-			preloader.y = 595;
+			//preloader.x = splashScreen.width - preloader.width / 2;
+			//preloader.y = splashScreen.height - 200;
 			
-			star = new Starling(StarlingMain, stage, stage.fullScreenSourceRect);
+			star = new Starling(StarlingMain, stage, new Rectangle(0, 0, splashScreen.width, splashScreen.height));
 			star.addEventListener(starling.events.Event.CONTEXT3D_CREATE, onStarlingContext3DCreated_handler);
 			star.start();
 		}
 		
 		private function onStarlingContext3DCreated_handler(e:starling.events.Event):void
 		{
+			star.stage.stageWidth = 1024;
+			star.stage.stageHeight = 768;
 			star.stage.addEventListener(starling.events.Event.COMPLETE, onStarlingReadyToShow_handler);
 			star.stage.addEventListener(starling.events.Event.CHANGE, onStarlingPreloading_handler);
 			percLoaded = 0;
