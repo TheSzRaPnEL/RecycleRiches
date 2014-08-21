@@ -41,6 +41,7 @@ package screen
 		private function onStartBtn_handler(e:Event):void
 		{
 			Starling.current.stage.dispatchEvent(new GameEvent(GameEvent.RESTART_GAME));
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 4));
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 0));
 		}
 	

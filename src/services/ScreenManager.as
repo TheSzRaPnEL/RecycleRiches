@@ -25,14 +25,6 @@ package services
 			screens.push(new Screen003());
 			screens.push(new Screen004());
 			screens.push(new Screen005());
-			
-			screens[0].addEventListener(Event.CLOSE, onScreen001StartBtn_handler);
-		}
-		
-		private function onScreen001StartBtn_handler(e:Event):void
-		{
-			hideScreen(0);
-			showScreen(1);
 		}
 		
 		public function showScreen(screenId:int):void

@@ -122,7 +122,7 @@ package screen
 			Starling.current.stage.addEventListener(GameEvent.RESTART_GAME, restartGame_handler);
 		}
 		
-		private function restartGame_handler(e:GameEvent):void 
+		private function restartGame_handler(e:GameEvent):void
 		{
 			for (var i:int = 0; i < items.length; i++)
 			{

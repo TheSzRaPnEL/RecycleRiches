@@ -1,7 +1,9 @@
 package screen
 {
 	import components.SimpleButton;
+	import events.ScreenEvent;
 	import services.Assets;
+	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -37,7 +39,7 @@ package screen
 		
 		private function onStartBtn_handler(e:Event):void
 		{
-			dispatchEventWith(Event.CLOSE);
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 1));
 		}
 	
 	}

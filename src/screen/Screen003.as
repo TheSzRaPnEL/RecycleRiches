@@ -1,7 +1,6 @@
-package screen 
+package screen
 {
 	import components.ItemImage;
-	import components.RobotArm;
 	import events.ItemEvent;
 	import events.ScreenEvent;
 	import flash.geom.Rectangle;
@@ -16,7 +15,7 @@ package screen
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
-	import starling.textures.Texture;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -76,7 +75,7 @@ package screen
 			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
 		}
 		
-		private function itemSelected_handler(e:ItemEvent):void 
+		private function itemSelected_handler(e:ItemEvent):void
 		{
 			updateItemImage(Item(e.data));
 		}
@@ -98,7 +97,7 @@ package screen
 			}
 		}
 		
-		private function onItemMove_handler(e:TouchEvent):void 
+		private function onItemMove_handler(e:TouchEvent):void
 		{
 			if (e.getTouch(stage))
 			{
@@ -113,18 +112,23 @@ package screen
 					basket4.alpha = 0.5;
 					
 					if (touch.target == basket1)
-					{	basket1.alpha = 1; }
+					{
+						basket1.alpha = 1;
+					}
+					else if (touch.target == basket2)
+					{
+						basket2.alpha = 1;
+					}
+					else if (touch.target == basket3)
+					{
+						basket3.alpha = 1;
+					}
+					else if (touch.target == basket4)
+					{
+						basket4.alpha = 1;
+					}
 					else
-					if (touch.target == basket2)
-					{	basket2.alpha = 1; }
-					else
-					if (touch.target == basket3)
-					{	basket3.alpha = 1; }
-					else
-					if (touch.target == basket4)
-					{	basket4.alpha = 1; }
-					else
-					{	
+					{
 						basket1.alpha = 1;
 						basket2.alpha = 1;
 						basket3.alpha = 1;
@@ -134,16 +138,21 @@ package screen
 				else if (touch.phase == TouchPhase.ENDED)
 				{
 					if (touch.target == basket1)
-					{	onBasket1Selected_handler(); }
-					else
-					if (touch.target == basket2)
-					{	onBasket2Selected_handler(); }
-					else
-					if (touch.target == basket3)
-					{	onBasket3Selected_handler(); }
-					else
-					if (touch.target == basket4)
-					{	onBasket4Selected_handler(); }
+					{
+						onBasket1Selected_handler();
+					}
+					else if (touch.target == basket2)
+					{
+						onBasket2Selected_handler();
+					}
+					else if (touch.target == basket3)
+					{
+						onBasket3Selected_handler();
+					}
+					else if (touch.target == basket4)
+					{
+						onBasket4Selected_handler();
+					}
 				}
 			}
 		}
@@ -245,8 +254,8 @@ package screen
 				if (popup == null)
 				{
 					popup = new Image(Assets.getTexture("popup_Brawo"));
-					popup.x = 512 - popup.width;
-					popup.y = 384 - popup.height;
+					popup.x = 512 - popup.width / 2;
+					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
@@ -264,8 +273,8 @@ package screen
 				if (popup == null)
 				{
 					popup = new Image(Assets.getTexture("popup_Fail"));
-					popup.x = 512 - popup.width;
-					popup.y = 384 - popup.height;
+					popup.x = 512 - popup.width / 2;
+					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
@@ -289,8 +298,8 @@ package screen
 				if (popup == null)
 				{
 					popup = new Image(Assets.getTexture("popup_Brawo"));
-					popup.x = 512 - popup.width;
-					popup.y = 384 - popup.height;
+					popup.x = 512 - popup.width / 2;
+					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
@@ -308,8 +317,8 @@ package screen
 				if (popup == null)
 				{
 					popup = new Image(Assets.getTexture("popup_Fail"));
-					popup.x = 512 - popup.width;
-					popup.y = 384 - popup.height;
+					popup.x = 512 - popup.width / 2;
+					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
@@ -335,6 +344,6 @@ package screen
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 3));
 			hidePopup();
 		}
-		
+	
 	}
 }

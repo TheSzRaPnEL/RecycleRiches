@@ -36,7 +36,6 @@ package screen
 		private var textFieldList:TextFieldList;
 		private var materialList:MaterialList;
 		private var materialLifeCycle:Image;
-		private var exitArrow:Image;
 		private var nextArrow:Image;
 		
 		public function Screen004()
@@ -46,12 +45,6 @@ package screen
 			
 			background = new Image(Assets.getTexture("screen005"));
 			container.addChild(background);
-			
-			exitArrow = new Image(Assets.getTexture("strzalka2"));
-			exitArrow.x = 900;
-			exitArrow.y = 700;
-			exitArrow.addEventListener(TouchEvent.TOUCH, onExitArrowTouch_handler);
-			container.addChild(exitArrow);
 			
 			nextArrow = new Image(Assets.getTexture("strzalka2"));
 			nextArrow.x = 800;
@@ -84,21 +77,7 @@ package screen
 				var touch:Touch = e.getTouch(stage)
 				if (touch.phase == TouchPhase.BEGAN)
 				{
-					trace("BOOM!");
 					Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 1));
-				}
-			}
-		}
-		
-		private function onExitArrowTouch_handler(e:TouchEvent):void
-		{
-			if (e.getTouch(stage))
-			{
-				var touch:Touch = e.getTouch(stage)
-				if (touch.phase == TouchPhase.BEGAN)
-				{
-					trace("BOOM END!");
-					Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 4));
 				}
 			}
 		}

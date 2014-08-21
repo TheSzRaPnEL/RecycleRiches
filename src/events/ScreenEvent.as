@@ -10,6 +10,7 @@ package events
 		public static const POPUP_CANCEL:String = "popupCancel";
 		public static const POPUP_SORT:String = "popupSort";
 		static public const SHOW_SCREEN:String = "showScreen";
+		static public const HIDE_SCREEN:String = "hideScreen";
 		
 		public function ScreenEvent(type:String, bubbles:Boolean = false, data:Object = null)
 		{

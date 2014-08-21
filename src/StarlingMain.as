@@ -96,6 +96,7 @@ package
 			addChild(soundBtn);
 			
 			Starling.current.stage.addEventListener(ScreenEvent.SHOW_SCREEN, showScreen_handler);
+			Starling.current.stage.addEventListener(ScreenEvent.HIDE_SCREEN, hideScreen_handler);
 			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
 			Starling.current.stage.addEventListener(SoundEvent.MUTE, mute_handler);
 			Starling.current.stage.addEventListener(SoundEvent.UNMUTE, unmute_handler);
@@ -126,13 +127,17 @@ package
 		
 		private function itemSelected_handler(e:ItemEvent):void
 		{
-			trace("SELECTED!!!");
 			selectedItem = Item(e.data);
 		}
 		
 		private function showScreen_handler(e:ScreenEvent):void
 		{
 			screenManager.showScreen(int(e.data));
+		}
+		
+		private function hideScreen_handler(e:ScreenEvent):void
+		{
+			screenManager.hideScreen(int(e.data));
 		}
 	
 	}
