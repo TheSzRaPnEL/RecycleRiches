@@ -37,9 +37,12 @@ package screen
 		private var materialList:MaterialList;
 		private var materialLifeCycle:Image;
 		private var nextArrow:Image;
+		private var allItemsPicked:Boolean;
 		
 		public function Screen004()
 		{
+			allItemsPicked = false;
+			
 			container = new Sprite();
 			addChild(container);
 			
@@ -62,12 +65,12 @@ package screen
 		
 		private function restartGame_handler(e:GameEvent):void
 		{
-			nextArrow.visible = true;
+			allItemsPicked = false;
 		}
 		
 		private function allItemsPicked_handler(e:ItemEvent):void
 		{
-			nextArrow.visible = false;
+			allItemsPicked = true;
 		}
 		
 		private function onNextArrowTouch_handler(e:TouchEvent):void
@@ -77,7 +80,15 @@ package screen
 				var touch:Touch = e.getTouch(stage)
 				if (touch.phase == TouchPhase.BEGAN)
 				{
-					Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 1));
+					if (allItemsPicked)
+					{
+						Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 4));
+					}
+					else
+					{
+						Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 3));
+						Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 1));
+					}
 				}
 			}
 		}

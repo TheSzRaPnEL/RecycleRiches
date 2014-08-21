@@ -70,7 +70,7 @@ package screen
 			basket4.y = 768;
 			container.addChild(basket4);
 			
-			addEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			activateDragItemImage();
 			
 			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
 		}
@@ -78,6 +78,7 @@ package screen
 		private function itemSelected_handler(e:ItemEvent):void
 		{
 			updateItemImage(Item(e.data));
+			activateDragItemImage();
 		}
 		
 		public function updateItemImage(item:Item):void
@@ -159,7 +160,7 @@ package screen
 		
 		private function onBasket1Selected_handler():void
 		{
-			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			deactivateDragItemImage();
 			
 			if (itemImage.itemRef.type == ItemType.ODZYSK)
 			{
@@ -198,12 +199,13 @@ package screen
 				}
 				
 				setTimeout(hidePopup, 2000);
+				setTimeout(activateDragItemImage, 2000);
 			}
 		}
 		
 		private function onBasket2Selected_handler():void
 		{
-			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			deactivateDragItemImage();
 			
 			if (itemImage.itemRef.type == ItemType.RECYKLING)
 			{
@@ -242,12 +244,13 @@ package screen
 				}
 				
 				setTimeout(hidePopup, 2000);
+				setTimeout(activateDragItemImage, 2000);
 			}
 		}
 		
 		private function onBasket3Selected_handler():void
 		{
-			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			deactivateDragItemImage();
 			
 			if (itemImage.itemRef.type == ItemType.ODZYSK_I_RECYKLING)
 			{
@@ -286,12 +289,13 @@ package screen
 				}
 				
 				setTimeout(hidePopup, 2000);
+				setTimeout(activateDragItemImage, 2000);
 			}
 		}
 		
 		private function onBasket4Selected_handler():void
 		{
-			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			deactivateDragItemImage();
 			
 			if (itemImage.itemRef.type == ItemType.SKLADOWISKO)
 			{
@@ -330,17 +334,30 @@ package screen
 				}
 				
 				setTimeout(hidePopup, 2000);
+				setTimeout(activateDragItemImage, 2000);
 			}
 		}
 		
 		private function hidePopup():void
 		{
-			addEventListener(TouchEvent.TOUCH, onItemMove_handler);
 			popup.visible = false;
+		}
+		
+		private function activateDragItemImage():void
+		{
+			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			addEventListener(TouchEvent.TOUCH, onItemMove_handler);
+		}
+		
+		private function deactivateDragItemImage():void
+		{
+			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
 		}
 		
 		private function gotoScreen4():void
 		{
+			deactivateDragItemImage();
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 2));
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 3));
 			hidePopup();
 		}
