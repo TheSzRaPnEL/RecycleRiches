@@ -37,11 +37,6 @@ package services
 		
 		public function showScreen(screenId:int):void
 		{
-			if (currentScreenId != -1)
-			{
-				hideScreen(currentScreenId);
-			}
-			
 			if (screens[screenId].parent == null)
 				addChild(screens[screenId]);
 			

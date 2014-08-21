@@ -25,7 +25,6 @@ package screen
 	{
 		private var container:Sprite;
 		private var background:Quad;
-		private var robotArm:RobotArm;
 		private var basket1:Image;
 		private var basket2:Image;
 		private var basket3:Image;
@@ -43,9 +42,6 @@ package screen
 			background = new Quad(1024, 768, 0);
 			background.alpha = 0.8;
 			container.addChild(background);
-			
-			robotArm = new RobotArm;
-			container.addChild(robotArm);
 			
 			basket1 = new Image(Assets.getTexture("kosz_Odzysk"));
 			basket1.pivotX = basket1.width / 2;
@@ -75,7 +71,7 @@ package screen
 			basket4.y = 768;
 			container.addChild(basket4);
 			
-			addEventListener(TouchEvent.TOUCH, onBasketsTouch_handler);
+			addEventListener(TouchEvent.TOUCH, onItemMove_handler);
 			
 			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
 		}
@@ -90,10 +86,9 @@ package screen
 			if (itemImage == null)
 			{
 				itemImage = new ItemImage(item.itemTexture);
+				itemImage.touchable = false;
 				itemImage.itemRef = item;
-				itemImage.x = robotArm.handlingPoint.x;
-				itemImage.y = robotArm.handlingPoint.y;
-				container.addChild(itemImage);
+				container.addChildAt(itemImage, container.getChildIndex(basket1));
 			}
 			else
 			{
@@ -103,11 +98,13 @@ package screen
 			}
 		}
 		
-		private function onBasketsTouch_handler(e:TouchEvent):void 
+		private function onItemMove_handler(e:TouchEvent):void 
 		{
 			if (e.getTouch(stage))
 			{
 				var touch:Touch = e.getTouch(stage);
+				itemImage.x = touch.globalX - itemImage.width / 2;
+				itemImage.y = touch.globalY - itemImage.height / 2;
 				if (touch.phase == TouchPhase.HOVER)
 				{
 					basket1.alpha = 0.5;
@@ -153,6 +150,8 @@ package screen
 		
 		private function onBasket1Selected_handler():void
 		{
+			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			
 			if (itemImage.itemRef.type == ItemType.ODZYSK)
 			{
 				if (popup == null)
@@ -195,6 +194,8 @@ package screen
 		
 		private function onBasket2Selected_handler():void
 		{
+			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			
 			if (itemImage.itemRef.type == ItemType.RECYKLING)
 			{
 				if (popup == null)
@@ -237,6 +238,8 @@ package screen
 		
 		private function onBasket3Selected_handler():void
 		{
+			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			
 			if (itemImage.itemRef.type == ItemType.ODZYSK_I_RECYKLING)
 			{
 				if (popup == null)
@@ -279,6 +282,8 @@ package screen
 		
 		private function onBasket4Selected_handler():void
 		{
+			removeEventListener(TouchEvent.TOUCH, onItemMove_handler);
+			
 			if (itemImage.itemRef.type == ItemType.SKLADOWISKO)
 			{
 				if (popup == null)
@@ -321,6 +326,7 @@ package screen
 		
 		private function hidePopup():void
 		{
+			addEventListener(TouchEvent.TOUCH, onItemMove_handler);
 			popup.visible = false;
 		}
 		
