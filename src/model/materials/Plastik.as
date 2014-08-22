@@ -1,6 +1,5 @@
 package model.materials 
 {
-	import model.MapPoint;
 	import model.Material;
 	/**
 	 * ...
@@ -27,8 +26,6 @@ package model.materials
 			addInfo("523 PLN/t");
 			addInfo("523 PLN/t");
 			addInfo("523 PLN/t");
-			
-			addMapPointId(0);
 		}
 		
 	}

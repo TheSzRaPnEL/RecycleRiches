@@ -1,18 +1,13 @@
 package screen
 {
 	import components.ItemImage;
-	import components.Map;
-	import components.MapPopup;
 	import components.MaterialList;
 	import components.TextFieldList;
 	import events.GameEvent;
 	import events.ItemEvent;
-	import events.MapPointEvent;
 	import events.MaterialEvent;
 	import events.ScreenEvent;
 	import model.Item;
-	import model.MapPoint;
-	import model.maps.MazowszeMap;
 	import model.Material;
 	import services.Assets;
 	import starling.core.Starling;
@@ -33,8 +28,6 @@ package screen
 		private var background:Image;
 		private var messageArea:Image;
 		private var grassSpot:Image;
-		private var map:Map;
-		private var mapPopup:MapPopup;
 		private var itemImage:ItemImage;
 		private var textFieldList:TextFieldList;
 		private var materialList:MaterialList;
@@ -100,9 +93,6 @@ package screen
 			
 			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
 			Starling.current.stage.addEventListener(ItemEvent.ALL_ITEMS_PICKED, allItemsPicked_handler);
-			Starling.current.stage.addEventListener(MaterialEvent.SELECTED, materialSelected_handler);
-			Starling.current.stage.addEventListener(MapPointEvent.MOUSE_OVER, mouseOverMapPoint_handler);
-			Starling.current.stage.addEventListener(MapPointEvent.MOUSE_OUT, mouseOutMapPoint_handler);
 			Starling.current.stage.addEventListener(GameEvent.RESTART_GAME, restartGame_handler);
 		}
 		
@@ -134,53 +124,6 @@ package screen
 					}
 				}
 			}
-		}
-		
-		private function mouseOutMapPoint_handler(e:MapPointEvent):void
-		{
-			if (mapPopup != null)
-				mapPopup.visible = false;
-		}
-		
-		private function mouseOverMapPoint_handler(e:MapPointEvent):void
-		{
-			if (mapPopup == null)
-			{
-				mapPopup = new MapPopup();
-				mapPopup.touchable = false;
-				container.addChild(mapPopup);
-			}
-			
-			mapPopup.x = map.x + MapPoint(e.data).position.x;
-			mapPopup.y = map.y + MapPoint(e.data).position.y;
-			mapPopup.text = MapPoint(e.data).info;
-			mapPopup.visible = true;
-		}
-		
-		private function materialSelected_handler(e:MaterialEvent):void
-		{
-			updateMaterialLifeCycle(Material(e.data));
-			updateMaterialInfo(Material(e.data));
-			updateMaterialMap(Material(e.data));
-		}
-		
-		private function updateMaterialMap(material:Material):void
-		{
-			if (map == null)
-			{
-				map = new MazowszeMap();
-				map.x = 477;
-				map.y = 388;
-				container.addChild(map);
-			}
-			
-			map.hideMapPoints();
-			for (var i:int = 0; i < material.mapPointIdList.length; i++)
-			{
-				map.showMapPoint(material.mapPointIdList[i]);
-			}
-			
-			map.visible = true;
 		}
 		
 		private function updateMaterialLifeCycle(material:Material):void
@@ -270,9 +213,6 @@ package screen
 		{
 			if (materialLifeCycle != null)
 				materialLifeCycle.visible = false;
-			
-			if (map != null)
-				map.visible = false;
 			
 			if (textFieldList != null)
 				textFieldList.visible = false;
