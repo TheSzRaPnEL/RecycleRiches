@@ -20,6 +20,7 @@ package
 	import starling.core.Starling;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import starling.text.BitmapFont;
 	import starling.text.TextField;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
@@ -50,7 +51,9 @@ package
 			
 			assetLoader = new LoaderMax();
 			assetLoader.append(new XMLLoader("RR01.xml", {name: "RR01xml"}));
+			assetLoader.append(new XMLLoader("KarnivatFont.fnt", {name: "KarnivatFontFnt"}));
 			assetLoader.append(new ImageLoader("RR01.png", {name: "RR01png"}));
+			assetLoader.append(new ImageLoader("KarnivatFont.png", {name: "KarnivatFontPng"}));
 			assetLoader.append(new MP3Loader("gameMusic.mp3", {name: "GameMusic", autoPlay:false}));
 			assetLoader.load();
 			assetLoader.addEventListener(LoaderEvent.PROGRESS, onFilesDownloading);
@@ -73,6 +76,11 @@ package
 			var xml:XML = XML(assetLoader.getContent("RR01xml"));
 			
 			assetManager.addTextureAtlas("RR01", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
+			
+			var bitmap2:Bitmap  = ContentDisplay(assetLoader.getContent("KarnivatFontPng")).rawContent;
+			var xml2:XML = XML(assetLoader.getContent("KarnivatFontFnt"));
+			
+			TextField.registerBitmapFont(new BitmapFont(Texture.fromBitmap(bitmap2), xml2), "KarnivatFont");
 			
 			var music:Sound = assetLoader.getContent("GameMusic");
 			

@@ -50,13 +50,13 @@ package components
 			sortBtn.addEventListener(Event.TRIGGERED, onSortBtn_handler);
 			container.addChild(sortBtn);
 			
-			headline = new TextField(340, 60, "", "Verdana", 50);
-			headline.vAlign = VAlign.CENTER;
-			headline.color = Color.WHITE;
-			headline.hAlign = HAlign.CENTER;
+			headline = new TextField(340, 60, "", "KarnivatFont", 60);
 			headline.autoScale = true;
+			headline.color = Color.WHITE;
+			headline.vAlign = VAlign.CENTER;
+			headline.hAlign = HAlign.CENTER;
 			headline.x = 35;
-			headline.y = 18;
+			headline.y = 10;
 			container.addChild(headline);
 			
 			container.x = 0;

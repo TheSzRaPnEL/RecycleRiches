@@ -18,7 +18,7 @@ package model.items
 			addMaterial(new Metal());
 			addMaterial(new Metal());
 			
-			name = "ŚWIETLÓWKA";
+			name = "SWIETLÓWKA";
 			
 			itemTexture = Assets.getTexture("przedmiot_Jarzeniowka");
 		}

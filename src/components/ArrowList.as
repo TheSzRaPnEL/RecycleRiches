@@ -41,7 +41,7 @@ package components
 				}
 				else
 				{
-					var txtF:TextField = new TextField(50, 25, "");
+					var txtF:TextField = new TextField(50, 32, "", "KarnivatFont", 60);
 					txtF.autoScale = true;
 					txtF.vAlign = VAlign.CENTER;
 					txtF.hAlign = HAlign.CENTER;
