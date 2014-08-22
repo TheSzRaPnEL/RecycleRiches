@@ -20,18 +20,14 @@ package components
 			addChild(container);
 			
 			grass = new Image(Assets.getTexture("jasnePoleTrawy"));
-			grass.x = -20;
 			container.addChild(grass);
 			
-			item = new Image(Assets.getTexture("przedmiot_Karton"));
+			item = new Image(Assets.getTexture("przedmiot_Butelka"));
 			item.pivotX = item.width / 2;
 			item.pivotY = item.height / 2;
-			item.x = grass.width / 2 ;
-			item.y = grass.height / 2;
+			item.x = 133;
+			item.y = 81;
 			container.addChild(item);
-			
-			container.x = -grass.width / 2;
-			container.y = -grass.height / 2;
 		}
 		
 		public function setItem(itemTexture:Texture):void

@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>3</int>
         <key>texturePackerVersion</key>
-        <string>3.3.4</string>
+        <string>3.4.0</string>
         <key>fileName</key>
         <string>E:/Projects/RecycleRiches/gfx/RR01.tps</string>
         <key>autoSDSettings</key>
@@ -149,6 +149,8 @@
         <true/>
         <key>trimSpriteNames</key>
         <false/>
+        <key>prependSmartFolderName</key>
+        <false/>
         <key>cleanTransparentPixels</key>
         <true/>
         <key>globalSpriteSettings</key>
@@ -174,7 +176,6 @@
         <array>
             <filename>images/button_Anuluj.png</filename>
             <filename>images/button_Exit.png</filename>
-            <filename>images/button_Info.png</filename>
             <filename>images/button_Segreguj.png</filename>
             <filename>images/button_SoundOff.png</filename>
             <filename>images/button_SoundOn.png</filename>
@@ -187,38 +188,38 @@
             <filename>images/popup_Brawo.png</filename>
             <filename>images/popup_Fail.png</filename>
             <filename>images/popup_Info.png</filename>
-            <filename>images/przedmiot_Banan.png</filename>
-            <filename>images/przedmiot_BrazoweCos.png</filename>
             <filename>images/przedmiot_Butelka.png</filename>
             <filename>images/przedmiot_ButelkaPet.png</filename>
-            <filename>images/przedmiot_Chleb.png</filename>
-            <filename>images/przedmiot_Karton.png</filename>
-            <filename>images/przedmiot_Karton2.png</filename>
-            <filename>images/przedmiot_Karton3.png</filename>
-            <filename>images/przedmiot_Konserwa.png</filename>
-            <filename>images/przedmiot_Kurczak.png</filename>
             <filename>images/przedmiot_Ogryzek.png</filename>
             <filename>images/przedmiot_Puszka.png</filename>
-            <filename>images/przedmiot_Rura.png</filename>
             <filename>images/przedmiot_Siatka.png</filename>
-            <filename>images/przedmiot_Skarpeta.png</filename>
-            <filename>images/przedmiot_Sloik.png</filename>
-            <filename>images/przedmiot_Szalik.png</filename>
-            <filename>images/przedmiot_Szklo.png</filename>
-            <filename>images/przedmiot_UkladScalony.png</filename>
-            <filename>images/przedmiot_Widelec.png</filename>
-            <filename>images/robotArm_part1.png</filename>
-            <filename>images/robotArm_part2.png</filename>
-            <filename>images/robotArm_part3a.png</filename>
-            <filename>images/robotArm_part3b.png</filename>
-            <filename>images/screen001.jpg</filename>
-            <filename>images/screen002.jpg</filename>
-            <filename>images/screen005.jpg</filename>
             <filename>images/strzalka.png</filename>
             <filename>images/popup_Mapa.png</filename>
             <filename>images/punkt.png</filename>
             <filename>images/lifeCycle1.png</filename>
             <filename>images/strzalka2.png</filename>
+            <filename>images/screenBotWhite.png</filename>
+            <filename>images/screenTopWhite.png</filename>
+            <filename>images/screenCorkBackground.jpg</filename>
+            <filename>images/screenPlaneta.png</filename>
+            <filename>images/logoGry.png</filename>
+            <filename>images/miejsceNaNapis.png</filename>
+            <filename>images/strzalka3.png</filename>
+            <filename>images/przedmiot_Akumulator.png</filename>
+            <filename>images/przedmiot_Baterie.png</filename>
+            <filename>images/przedmiot_Cd.png</filename>
+            <filename>images/przedmiot_Garnek.png</filename>
+            <filename>images/przedmiot_Gazeta.png</filename>
+            <filename>images/przedmiot_Jarzeniowka.png</filename>
+            <filename>images/przedmiot_Jogurt.png</filename>
+            <filename>images/przedmiot_Komorka.png</filename>
+            <filename>images/przedmiot_Krzeslo.png</filename>
+            <filename>images/przedmiot_Leki.png</filename>
+            <filename>images/przedmiot_Mis.png</filename>
+            <filename>images/przedmiot_Opona.png</filename>
+            <filename>images/przedmiot_Patyki.png</filename>
+            <filename>images/przedmiot_Rower.png</filename>
+            <filename>images/przedmiot_Spryskiwacz.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

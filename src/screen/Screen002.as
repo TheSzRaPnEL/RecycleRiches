@@ -8,26 +8,26 @@ package screen
 	import events.ScreenEvent;
 	import flash.geom.Rectangle;
 	import model.Item;
-	import model.items.Banan;
-	import model.items.BrazoweCos;
+	import model.items.Akumulator;
+	import model.items.Baterie;
 	import model.items.Butelka;
 	import model.items.ButelkaPet;
-	import model.items.Chleb;
-	import model.items.Karton;
-	import model.items.Karton2;
-	import model.items.Karton3;
-	import model.items.Konserwa;
-	import model.items.Kurczak;
+	import model.items.Cd;
+	import model.items.Garnek;
+	import model.items.Gazeta;
+	import model.items.Jarzeniowka;
+	import model.items.Jogurt;
+	import model.items.Spryskiwacz;
 	import model.items.Ogryzek;
 	import model.items.Puszka;
-	import model.items.Rura;
+	import model.items.Komorka;
 	import model.items.Siatka;
-	import model.items.Skarpeta;
-	import model.items.Sloik;
-	import model.items.Szalik;
-	import model.items.Szklo;
-	import model.items.UkladScalony;
-	import model.items.Widelec;
+	import model.items.Krzeslo;
+	import model.items.Opona;
+	import model.items.Leki;
+	import model.items.Mis;
+	import model.items.Patyki;
+	import model.items.Rower;
 	import services.Assets;
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
@@ -48,10 +48,12 @@ package screen
 		private var background:Image;
 		private var items:Vector.<Item>;
 		private var itemImages:Vector.<ItemImage>;
+		private var grassImages:Vector.<Image>;
 		private var popupInfo:Popup;
 		private var grassItemOverlay:GrassItemOverlay;
 		private var blackOverlay:Quad;
 		private var selectedItemImage:ItemImage;
+		private var topBorder:Image;
 		
 		public function Screen002()
 		{
@@ -61,30 +63,28 @@ package screen
 			addChild(container);
 			
 			items = new Vector.<Item>;
-			items.push(new Karton());
-			items.push(new Sloik());
-			items.push(new Kurczak());
+			items.push(new Garnek());
+			items.push(new Opona());
+			items.push(new Spryskiwacz());
 			items.push(new Ogryzek());
-			items.push(new Rura());
-			items.push(new Skarpeta());
+			items.push(new Komorka());
+			items.push(new Krzeslo());
 			items.push(new Puszka());
-			items.push(new UkladScalony());
-			items.push(new BrazoweCos());
+			items.push(new Patyki());
+			items.push(new Baterie());
 			items.push(new Butelka());
-			items.push(new Karton2());
-			items.push(new Widelec());
-			items.push(new Karton3());
-			items.push(new Szalik());
-			items.push(new Konserwa());
-			items.push(new Banan());
+			items.push(new Gazeta());
+			items.push(new Rower());
+			items.push(new Jarzeniowka());
+			items.push(new Leki());
+			items.push(new Jogurt());
+			items.push(new Akumulator());
 			items.push(new ButelkaPet());
-			items.push(new Chleb());
+			items.push(new Cd());
 			items.push(new Siatka());
-			items.push(new Szklo());
+			items.push(new Mis());
 			
-			background = new Image(Assets.getTexture("screen002"));
-			background.x = -2;
-			background.y = -2;
+			background = new Image(Assets.getTexture("screenCorkBackground"));
 			container.addChild(background);
 			
 			popupInfo = new Popup();
@@ -92,15 +92,22 @@ package screen
 			addChild(popupInfo);
 			
 			itemImages = new Vector.<ItemImage>;
+			grassImages = new Vector.<Image>;
 			for (var i:int = 0; i < items.length; i++)
 			{
+				var grass:Image = new Image(Assets.getTexture("jasnePoleTrawy"));
+				grass.x = 60 + 162 * (i % 5);
+				grass.y = 100 + 148 * int(i / 5);
+				grassImages.push(grass);
+				container.addChild(grass);
+				
 				items[i].available = true;
 				var item:ItemImage = new ItemImage(items[i].itemTexture);
 				item.itemRef = items[i];
 				item.pivotX = item.width / 2;
 				item.pivotY = item.height / 2;
-				item.x = 185 + 162 * (i % 5);
-				item.y = 181 + 148 * int(i / 5);
+				item.x = grass.x + 133;
+				item.y = grass.y + 81;
 				item.addEventListener(TouchEvent.TOUCH, onItemImageTouch);
 				itemImages.push(item);
 				container.addChild(item);
@@ -116,6 +123,9 @@ package screen
 			grassItemOverlay.visible = false;
 			grassItemOverlay.touchable = false;
 			container.addChild(grassItemOverlay);
+			
+			topBorder = new Image(Assets.getTexture("screenTopWhite"));
+			container.addChild(topBorder);
 			
 			Starling.current.stage.addEventListener(ScreenEvent.POPUP_CANCEL, cancelSelection_handler);
 			Starling.current.stage.addEventListener(ScreenEvent.POPUP_SORT, sortSelection_handler);
@@ -152,8 +162,8 @@ package screen
 				popupInfo.setItem(ItemImage(e.target).itemRef);
 				
 				grassItemOverlay.visible = true;
-				grassItemOverlay.x = DisplayObject(e.target).x;
-				grassItemOverlay.y = DisplayObject(e.target).y;
+				grassItemOverlay.x = grassImages[itemImages.indexOf(e.target)].x;
+				grassItemOverlay.y = grassImages[itemImages.indexOf(e.target)].y;
 				grassItemOverlay.setItem(Image(e.target).texture);
 				
 				Starling.current.stage.dispatchEvent(new ItemEvent(ItemEvent.SELECTED, false, ItemImage(e.target).itemRef));

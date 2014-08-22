@@ -24,9 +24,7 @@ package screen
 			container = new Sprite();
 			addChild(container);
 			
-			background = new Image(Assets.getTexture("screen001"));
-			background.x = -2;
-			background.y = -2;
+			background = new Image(Assets.getTexture("screenCorkBackground"));
 			container.addChild(background);
 			
 			startBtn = new SimpleButton(Assets.getTexture("button_Start"));

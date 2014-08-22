@@ -30,6 +30,7 @@ package screen
 		private var basket4:Image;
 		private var itemImage:ItemImage;
 		private var popup:Image;
+		private var topBorder:Image;
 		
 		public function Screen003()
 		{
@@ -69,6 +70,9 @@ package screen
 			basket4.x = 7 * 1024 / 8;
 			basket4.y = 768;
 			container.addChild(basket4);
+			
+			topBorder = new Image(Assets.getTexture("screenTopWhite"));
+			container.addChild(topBorder);
 			
 			activateDragItemImage();
 			
@@ -179,7 +183,7 @@ package screen
 					popup.visible = true;
 				}
 				
-				setTimeout(gotoScreen4, 3000);
+				setTimeout(gotoScreen4, 2000);
 			}
 			else
 			{
@@ -224,7 +228,7 @@ package screen
 					popup.visible = true;
 				}
 				
-				setTimeout(gotoScreen4, 3000);
+				setTimeout(gotoScreen4, 2000);
 			}
 			else
 			{
@@ -269,7 +273,7 @@ package screen
 					popup.visible = true;
 				}
 				
-				setTimeout(gotoScreen4, 3000);
+				setTimeout(gotoScreen4, 2000);
 			}
 			else
 			{
@@ -314,7 +318,7 @@ package screen
 					popup.visible = true;
 				}
 				
-				setTimeout(gotoScreen4, 3000);
+				setTimeout(gotoScreen4, 2000);
 			}
 			else
 			{

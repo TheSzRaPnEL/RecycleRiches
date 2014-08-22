@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>RecycleRiches</title>
+	<meta name="description" content="" />
+	
+	<script src="js/swfobject.js"></script>
+	<script>
+		var flashvars = {
+		};
+		var params = {
+			menu: "false",
+			scale: "noScale",
+			allowFullscreen: "true",
+			allowScriptAccess: "always",
+			bgcolor: "",
+			wmode: "direct"
+		};
+		var attributes = {
+			id:"RecycleRiches"
+		};
+		swfobject.embedSWF(
+			"RecycleRiches.swf", 
+			"altContent", "800", "600", "14.0.0", 
+			"expressInstall.swf", 
+			flashvars, params, attributes);
+	</script>
+	<style>
+		body { height:600px; }
+	</style>
+</head>
+<body>
+	<center>
+	<div id="altContent">
+		<h1>RecycleRiches</h1>
+		<p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
+	</div>
+	<div id="background">
+		<img src="webBackground.jpg></img>
+	</div>
+	</center>
+</body>
+</html>

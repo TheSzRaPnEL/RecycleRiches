@@ -17,6 +17,7 @@ package screen
 	import services.Assets;
 	import starling.core.Starling;
 	import starling.display.Image;
+	import starling.display.Quad;
 	import starling.display.Sprite;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
@@ -30,6 +31,8 @@ package screen
 	{
 		private var container:Sprite;
 		private var background:Image;
+		private var messageArea:Image;
+		private var grassSpot:Image;
 		private var map:Map;
 		private var mapPopup:MapPopup;
 		private var itemImage:ItemImage;
@@ -38,6 +41,7 @@ package screen
 		private var materialLifeCycle:Image;
 		private var nextArrow:Image;
 		private var allItemsPicked:Boolean;
+		private var topBorder:Image;
 		
 		public function Screen004()
 		{
@@ -46,12 +50,51 @@ package screen
 			container = new Sprite();
 			addChild(container);
 			
-			background = new Image(Assets.getTexture("screen005"));
+			background = new Image(Assets.getTexture("screenCorkBackground"));
 			container.addChild(background);
 			
-			nextArrow = new Image(Assets.getTexture("strzalka2"));
-			nextArrow.x = 800;
-			nextArrow.y = 700;
+			topBorder = new Image(Assets.getTexture("screenTopWhite"));
+			container.addChild(topBorder);
+			
+			messageArea = new Image(Assets.getTexture("miejsceNaNapis"));
+			messageArea.x = 220;
+			messageArea.y = 95;
+			container.addChild(messageArea);
+			
+			grassSpot = new Image(Assets.getTexture("jasnePoleTrawy"));
+			grassSpot.x = 0;
+			grassSpot.y = 120;
+			container.addChild(grassSpot);
+			
+			var quad:Quad;
+			
+			quad = new Quad(300, 400, 0x3e8b21);
+			quad.alpha = 0.3;
+			quad.x = 40;
+			quad.y = 300;
+			container.addChild(quad)
+			
+			quad = new Quad(300, 400, 0x3e8b21);
+			quad.alpha = 0.3;
+			quad.x = 360;
+			quad.y = 300;
+			container.addChild(quad)
+			
+			quad = new Quad(300, 100, 0x3e8b21);
+			quad.alpha = 0.3;
+			quad.x = 680
+			quad.y = 300;
+			container.addChild(quad)
+			
+			quad = new Quad(300, 280, 0x3e8b21);
+			quad.alpha = 0.3;
+			quad.x = 680
+			quad.y = 420;
+			container.addChild(quad)
+			
+			nextArrow = new Image(Assets.getTexture("strzalka3"));
+			nextArrow.x = 930;
+			nextArrow.y = 710;
 			nextArrow.addEventListener(TouchEvent.TOUCH, onNextArrowTouch_handler);
 			container.addChild(nextArrow);
 			

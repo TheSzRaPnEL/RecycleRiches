@@ -16,17 +16,36 @@ package screen
 	{
 		private var container:Sprite;
 		private var background:Image;
+		private var topBorder:Image;
+		private var botBorder:Image;
 		private var startBtn:SimpleButton;
+		private var planeta:Image;
+		private var gameLogo:Image;
 		
 		public function Screen001()
 		{
 			container = new Sprite();
 			addChild(container);
 			
-			background = new Image(Assets.getTexture("screen001"));
-			background.x = -2;
-			background.y = -2;
+			background = new Image(Assets.getTexture("screenCorkBackground"));
 			container.addChild(background);
+			
+			planeta = new Image(Assets.getTexture("screenPlaneta"));
+			planeta.x = 260;
+			planeta.y = 70;
+			container.addChild(planeta);
+			
+			topBorder = new Image(Assets.getTexture("screenTopWhite"));
+			container.addChild(topBorder);
+			
+			gameLogo = new Image(Assets.getTexture("logoGry"));
+			gameLogo.x = 250;
+			gameLogo.y = 5;
+			container.addChild(gameLogo);
+			
+			botBorder = new Image(Assets.getTexture("screenBotWhite"));
+			botBorder.y = 768 - botBorder.height;
+			container.addChild(botBorder);
 			
 			startBtn = new SimpleButton(Assets.getTexture("button_Start"));
 			startBtn.pivotX = startBtn.width / 2;
