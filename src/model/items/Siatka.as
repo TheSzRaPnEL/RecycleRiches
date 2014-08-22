@@ -22,6 +22,8 @@ package model.items
 			addMaterial(new Plastik());
 			addMaterial(new Metal());
 			
+			name = "SIATKA";
+			
 			itemTexture = Assets.getTexture("przedmiot_Siatka");
 		}
 		

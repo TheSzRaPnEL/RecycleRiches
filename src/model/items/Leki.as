@@ -18,6 +18,8 @@ package model.items
 			addMaterial(new Metal());
 			addMaterial(new Metal());
 			
+			name = "LEKI";
+			
 			itemTexture = Assets.getTexture("przedmiot_Leki");
 		}
 		

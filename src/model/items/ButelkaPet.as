@@ -18,6 +18,8 @@ package model.items
 			addMaterial(new Metal());
 			addMaterial(new Metal());
 			
+			name = "BUTELKA PET";
+			
 			itemTexture = Assets.getTexture("przedmiot_ButelkaPet");
 		}
 		

@@ -28,6 +28,8 @@ package model.items
 			addMaterial(new Metal());
 			addMaterial(new Plastik());
 			
+			name = "AKUMULATOR";
+			
 			itemTexture = Assets.getTexture("przedmiot_Akumulator");
 		}
 		

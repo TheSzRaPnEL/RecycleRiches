@@ -18,6 +18,8 @@ package model.items
 			addMaterial(new Metal());
 			addMaterial(new Metal());
 			
+			name = "PŁYTA CD";
+			
 			itemTexture = Assets.getTexture("przedmiot_Cd");
 		}
 		

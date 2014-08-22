@@ -8,6 +8,7 @@ package components
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.text.TextField;
+	import starling.utils.Color;
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
 	
@@ -49,12 +50,13 @@ package components
 			sortBtn.addEventListener(Event.TRIGGERED, onSortBtn_handler);
 			container.addChild(sortBtn);
 			
-			headline = new TextField(340, 40, "");
+			headline = new TextField(340, 60, "", "Verdana", 50);
 			headline.vAlign = VAlign.CENTER;
+			headline.color = Color.WHITE;
 			headline.hAlign = HAlign.CENTER;
 			headline.autoScale = true;
 			headline.x = 35;
-			headline.y = 22;
+			headline.y = 18;
 			container.addChild(headline);
 			
 			container.x = 0;
@@ -115,6 +117,7 @@ package components
 		public function set swapTexture(value:Boolean):void
 		{
 			background.scaleX = (value ? -1 : 1);
+			headline.x = (value ? 70 : 35);
 			background.x = (value ? background.width + 50 : 0);
 			container.x = (value ? 170 : 0);
 		}
