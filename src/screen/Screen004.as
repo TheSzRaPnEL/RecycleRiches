@@ -1,13 +1,19 @@
 package screen
 {
 	import components.ItemImage;
+	import components.LifeCyclePopup;
 	import components.MaterialList;
+	import components.RecycleSystemPopup;
+	import components.ReuseCycleBtn;
+	import components.ReuseSystemBtn;
 	import components.TextFieldList;
 	import events.GameEvent;
 	import events.ItemEvent;
 	import events.MaterialEvent;
 	import events.ScreenEvent;
 	import model.Item;
+	import model.lifeCycles.LifeCycle001;
+	import model.lifeCycles.LifeCycle002;
 	import model.Material;
 	import services.Assets;
 	import starling.core.Starling;
@@ -45,6 +51,11 @@ package screen
 		private var logo2TxtF:TextField;
 		private var messageAreaTxtF:TextField;
 		private var cenaTxtF:TextField;
+		private var reuseCycleBtn:ReuseCycleBtn;
+		private var reuseSystemBtn:ReuseSystemBtn;
+		private var blackOverlay:Quad;
+		private var lifeCyclePopup:LifeCyclePopup;
+		private var recycleSystemPopup:RecycleSystemPopup;
 		
 		public function Screen004()
 		{
@@ -83,19 +94,35 @@ package screen
 			quad.alpha = 0.3;
 			quad.x = 40;
 			quad.y = 300;
-			container.addChild(quad)
+			container.addChild(quad);
+			
+			reuseCycleBtn = new ReuseCycleBtn();
+			reuseCycleBtn.scaleX = 0.8;
+			reuseCycleBtn.scaleY = reuseCycleBtn.scaleX;
+			reuseCycleBtn.x = 80;
+			reuseCycleBtn.y = 400;
+			container.addChild(reuseCycleBtn);
+			reuseCycleBtn.addEventListener(TouchEvent.TOUCH, onReuseCycleBtnTouch_handler);
 			
 			quad = new Quad(300, 400, 0x3e8b21);
 			quad.alpha = 0.3;
 			quad.x = 360;
 			quad.y = 300;
-			container.addChild(quad)
+			container.addChild(quad);
+			
+			reuseSystemBtn = new ReuseSystemBtn();
+			reuseSystemBtn.scaleX = 1;
+			reuseSystemBtn.scaleY = reuseSystemBtn.scaleX;
+			reuseSystemBtn.x = 375;
+			reuseSystemBtn.y = 370;
+			container.addChild(reuseSystemBtn);
+			reuseSystemBtn.addEventListener(TouchEvent.TOUCH, onReuseSystemBtnTouch_handler);
 			
 			quad = new Quad(300, 100, 0x3e8b21);
 			quad.alpha = 0.3;
 			quad.x = 680
 			quad.y = 300;
-			container.addChild(quad)
+			container.addChild(quad);
 			
 			cenaTxtF = new TextField(2 * quad.width / 3, 2 * quad.height / 3, "CENA SUROWCÓW WTÓRNYCH", "KarnivatFont", 50, 0xFFFFFF);
 			cenaTxtF.color = 0x2e6519;
@@ -110,7 +137,7 @@ package screen
 			quad.alpha = 0.3;
 			quad.x = 680
 			quad.y = 420;
-			container.addChild(quad)
+			container.addChild(quad);
 			
 			nextArrow = new Image(Assets.getTexture("strzalka3"));
 			nextArrow.x = 930;
@@ -155,9 +182,94 @@ package screen
 			logo2TxtF.y = logo2.y - logo2TxtF.height;
 			container.addChild(logo2TxtF);
 			
+			blackOverlay = new Quad(1024, 768, 0);
+			blackOverlay.alpha = 0.8;
+			blackOverlay.visible = false;
+			container.addChild(blackOverlay);
+			
 			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
 			Starling.current.stage.addEventListener(ItemEvent.ALL_ITEMS_PICKED, allItemsPicked_handler);
 			Starling.current.stage.addEventListener(GameEvent.RESTART_GAME, restartGame_handler);
+			Starling.current.stage.addEventListener(ScreenEvent.SHOW_LIFECYCLE_POPUP, showLifeCycle_handler);
+			Starling.current.stage.addEventListener(ScreenEvent.HIDE_LIFECYCLE_POPUP, hideLifeCycle_handler);
+			Starling.current.stage.addEventListener(ScreenEvent.SHOW_RECYCLESYSTEM_POPUP, showRecycleSystem_handler);
+			Starling.current.stage.addEventListener(ScreenEvent.HIDE_RECYCLESYSTEM_POPUP, hideRecycleSystem_handler);
+		}
+		
+		private function showLifeCycle_handler(e:ScreenEvent):void 
+		{
+			blackOverlay.visible = true;
+			
+			if (lifeCyclePopup == null)
+			{
+				lifeCyclePopup = new LifeCyclePopup();
+				lifeCyclePopup.x = 35;
+				lifeCyclePopup.y = 100;
+				addChild(lifeCyclePopup);
+			}
+			else
+			{
+				lifeCyclePopup.visible = true;
+			}
+			
+			lifeCyclePopup.lifeCycle = new LifeCycle002();
+		}
+		
+		private function hideLifeCycle_handler(e:ScreenEvent):void 
+		{
+			blackOverlay.visible = false;
+			
+			if (lifeCyclePopup)
+				lifeCyclePopup.visible = false;
+		}
+		
+		private function showRecycleSystem_handler(e:ScreenEvent):void 
+		{
+			blackOverlay.visible = true;
+			
+			if (recycleSystemPopup == null)
+			{
+				recycleSystemPopup = new RecycleSystemPopup();
+				recycleSystemPopup.x = 35;
+				recycleSystemPopup.y = 100;
+				addChild(recycleSystemPopup);
+			}
+			else
+			{
+				recycleSystemPopup.visible = true;
+			}
+		}
+		
+		private function hideRecycleSystem_handler(e:ScreenEvent):void 
+		{
+			blackOverlay.visible = false;
+			
+			if (recycleSystemPopup)
+				recycleSystemPopup.visible = false;
+		}
+		
+		private function onReuseCycleBtnTouch_handler(e:TouchEvent):void 
+		{
+			if (e.getTouch(stage))
+			{
+				var touch:Touch = e.getTouch(stage)
+				if (touch.phase == TouchPhase.BEGAN)
+				{
+					Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_LIFECYCLE_POPUP));
+				}
+			}
+		}
+		
+		private function onReuseSystemBtnTouch_handler(e:TouchEvent):void 
+		{
+			if (e.getTouch(stage))
+			{
+				var touch:Touch = e.getTouch(stage)
+				if (touch.phase == TouchPhase.BEGAN)
+				{
+					Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_RECYCLESYSTEM_POPUP));
+				}
+			}
 		}
 		
 		private function restartGame_handler(e:GameEvent):void

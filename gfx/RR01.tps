@@ -223,6 +223,9 @@
             <filename>images/logoAmest.png</filename>
             <filename>images/logoChlorofil.png</filename>
             <filename>images/logoFundusz.png</filename>
+            <filename>images/spinArrow.png</filename>
+            <filename>images/popup_LifeCycle.png</filename>
+            <filename>images/systemOdzyskuText.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
