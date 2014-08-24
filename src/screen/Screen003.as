@@ -144,6 +144,7 @@ package screen
 				itemImage.texture = item.itemTexture;
 				itemImage.width = itemImage.texture.width;
 				itemImage.height = itemImage.texture.height;
+				itemImage.itemRef = item;
 			}
 		}
 		
