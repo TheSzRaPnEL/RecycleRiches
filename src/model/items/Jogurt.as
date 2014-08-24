@@ -1,9 +1,12 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
+	import model.materials.PolichlorekWinylu;
+	import model.materials.Polietylen;
+	import model.materials.Polipropylen;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,14 +14,15 @@ package model.items
 	public class Jogurt extends Item
 	{
 		
-		public function Jogurt() 
+		public function Jogurt()
 		{
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
+			addMaterial(new Polietylen());
+			addMaterial(new Polipropylen());
+			addMaterial(new PolichlorekWinylu());
 			
-			name = "JOGURT";
+			name = "Opakowanie po jogurcie";
 			
 			itemTexture = Assets.getTexture("przedmiot_Jogurt");
 		}

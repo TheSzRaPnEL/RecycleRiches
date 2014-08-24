@@ -188,8 +188,6 @@ package screen
 				}
 				else if (touch.phase == TouchPhase.ENDED)
 				{
-					trace(itemImage.itemRef.type);
-					
 					if (touch.target == basket1)
 					{
 						onBasket1Selected_handler();

@@ -1,10 +1,10 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
-	import model.materials.Plastik;
+	import model.materials.Polietylen;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -12,17 +12,13 @@ package model.items
 	public class Siatka extends Item
 	{
 		
-		public function Siatka() 
+		public function Siatka()
 		{
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
-			addMaterial(new Metal());
-			addMaterial(new Plastik());
-			addMaterial(new Metal());
-			addMaterial(new Plastik());
-			addMaterial(new Metal());
+			addMaterial(new Polietylen());
 			
-			name = "SIATKA";
+			name = "Torba foliowa";
 			
 			itemTexture = Assets.getTexture("przedmiot_Siatka");
 		}

@@ -6,13 +6,13 @@ package model.materials
 	 * ...
 	 * @author SzRaPnEL
 	 */
-	public class Metal extends Material
+	public class Zloto extends Material
 	{
 		
-		public function Metal()
+		public function Zloto()
 		{
-			name = "Metal";
-			price = "500 zł/t";
+			name = "Złoto";
+			price = "122 zł/g";
 		}
 	
 	}

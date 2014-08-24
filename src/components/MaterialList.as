@@ -10,6 +10,7 @@ package components
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+	import starling.text.TextField;
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
 	
@@ -20,17 +21,11 @@ package components
 	public class MaterialList extends Sprite
 	{
 		private var textfields:Vector.<MaterialTextField>;
-		private var arrow:Image;
 		
 		public function MaterialList(materials:Vector.<Material>)
 		{
 			if (textfields == null)
 				textfields = new Vector.<MaterialTextField>;
-			
-			arrow = new Image(Assets.getTexture("strzalka"));
-			arrow.pivotY = arrow.height / 2;
-			arrow.visible = false;
-			addChild(arrow);
 			
 			update(materials);
 		}
@@ -41,50 +36,31 @@ package components
 			{
 				if (textfields.length > i)
 				{
-					textfields[i].text = String(i + 1) + ". " + materials[i].name;
+					textfields[i].text = materials[i].name + " " + materials[i].price;
 					textfields[i].visible = true;
 				}
 				else
 				{
-					var txtF:MaterialTextField = new MaterialTextField(150, 75, "", "Arial", 30, 0, true);
+					var txtF:MaterialTextField = new MaterialTextField(300, 40, "", "KarnivatFont", 30, 0xFFFFFF, true);
+					txtF.color = 0x2e6519;
 					txtF.autoScale = true;
 					txtF.vAlign = VAlign.CENTER;
-					txtF.hAlign = HAlign.LEFT;
-					txtF.text = String(i + 1) + ". " + materials[i].name;
+					txtF.hAlign = HAlign.CENTER;
+					txtF.text = materials[i].name + " " + materials[i].price;
 					addChild(txtF);
 					textfields.push(txtF);
 				}
 				
 				textfields[i].material = materials[i];
-				textfields[i].x = 30;
+				textfields[i].touchable = false;
+				textfields[i].x = 0;
 				textfields[i].y = i * 50;
-				textfields[i].removeEventListener(TouchEvent.TOUCH, onTextFieldTouch_handler);
-				textfields[i].addEventListener(TouchEvent.TOUCH, onTextFieldTouch_handler);
 			}
 			
 			for (i = materials.length; i < textfields.length; i++)
 			{
 				textfields[i].visible = false;
 			}
-		}
-		
-		private function onTextFieldTouch_handler(e:TouchEvent):void
-		{
-			if (e.getTouch(DisplayObject(e.target)))
-			{
-				var touch:Touch = e.getTouch(DisplayObject(e.target));
-				if (touch.phase == TouchPhase.BEGAN)
-				{
-					arrow.visible = true;
-					arrow.y = touch.target.y + MaterialTextField(e.target).textBounds.y + MaterialTextField(e.target).textBounds.height / 2;
-					Starling.current.stage.dispatchEvent(new MaterialEvent(MaterialEvent.SELECTED, false, MaterialTextField(e.target).material));
-				}
-			}
-		}
-		
-		public function unselect():void
-		{
-			arrow.visible = false;
 		}
 	
 	}

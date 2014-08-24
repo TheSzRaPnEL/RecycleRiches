@@ -1,9 +1,11 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
+	import model.materials.Pet;
+	import model.materials.Polietylen;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,12 +13,12 @@ package model.items
 	public class ButelkaPet extends Item
 	{
 		
-		public function ButelkaPet() 
+		public function ButelkaPet()
 		{
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
+			addMaterial(new Pet());
+			addMaterial(new Polietylen());
 			
 			name = "BUTELKA PET";
 			

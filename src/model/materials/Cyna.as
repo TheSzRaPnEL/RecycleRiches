@@ -6,13 +6,13 @@ package model.materials
 	 * ...
 	 * @author SzRaPnEL
 	 */
-	public class Metal extends Material
+	public class Cyna extends Material
 	{
 		
-		public function Metal()
+		public function Cyna()
 		{
-			name = "Metal";
-			price = "500 zł/t";
+			name = "Cyna";
+			price = "53 zł/kg";
 		}
 	
 	}

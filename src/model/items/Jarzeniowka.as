@@ -1,9 +1,13 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
+	import model.materials.Aluminium;
+	import model.materials.Rtec;
+	import model.materials.Szklo;
+	import model.materials.Zns;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,12 +15,14 @@ package model.items
 	public class Jarzeniowka extends Item
 	{
 		
-		public function Jarzeniowka() 
+		public function Jarzeniowka()
 		{
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
+			addMaterial(new Rtec());
+			addMaterial(new Aluminium());
+			addMaterial(new Szklo());
+			addMaterial(new Zns());
 			
 			name = "SWIETLÓWKA";
 			

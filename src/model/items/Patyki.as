@@ -1,9 +1,10 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
+	import model.materials.KompostOgrodniczy;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,14 +12,13 @@ package model.items
 	public class Patyki extends Item
 	{
 		
-		public function Patyki() 
+		public function Patyki()
 		{
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.SKLADOWISKO;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
+			addMaterial(new KompostOgrodniczy());
 			
-			name = "PATYKI";
+			name = "Gałęzie";
 			
 			itemTexture = Assets.getTexture("przedmiot_Patyki");
 		}

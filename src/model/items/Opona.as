@@ -1,9 +1,11 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
+	import model.materials.Guma;
+	import model.materials.KordyNylonowe;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,17 +13,17 @@ package model.items
 	public class Opona extends Item
 	{
 		
-		public function Opona() 
+		public function Opona()
 		{
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
+			addMaterial(new Guma());
+			addMaterial(new KordyNylonowe());
 			
-			name = "OPONA";
+			name = "Zużyta opona";
 			
 			itemTexture = Assets.getTexture("przedmiot_Opona");
 		}
-		
+	
 	}
 }

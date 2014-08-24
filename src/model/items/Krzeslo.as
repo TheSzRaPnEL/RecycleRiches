@@ -1,9 +1,9 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,14 +11,11 @@ package model.items
 	public class Krzeslo extends Item
 	{
 		
-		public function Krzeslo() 
+		public function Krzeslo()
 		{
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.SKLADOWISKO;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
-			
-			name = "KRZESŁO";
+			name = "Drewno impregnowane i meble";
 			
 			itemTexture = Assets.getTexture("przedmiot_Krzeslo");
 		}

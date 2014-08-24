@@ -1,10 +1,12 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
-	import model.materials.Plastik;
+	import model.materials.KwasSiarkowy;
+	import model.materials.Olow;
+	import model.materials.Polipropylen;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -12,21 +14,13 @@ package model.items
 	public class Akumulator extends Item
 	{
 		
-		public function Akumulator() 
+		public function Akumulator()
 		{
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
-			addMaterial(new Metal());
-			addMaterial(new Plastik());
-			addMaterial(new Plastik());
-			addMaterial(new Plastik());
-			addMaterial(new Plastik());
-			addMaterial(new Plastik());
-			addMaterial(new Plastik());
-			addMaterial(new Plastik());
-			addMaterial(new Plastik());
-			addMaterial(new Metal());
-			addMaterial(new Plastik());
+			addMaterial(new KwasSiarkowy());
+			addMaterial(new Olow());
+			addMaterial(new Polipropylen());
 			
 			name = "AKUMULATOR";
 			

@@ -1,9 +1,11 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
+	import model.materials.SztucznaSkora;
+	import model.materials.Tekstylia;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,17 +13,17 @@ package model.items
 	public class Mis extends Item
 	{
 		
-		public function Mis() 
+		public function Mis()
 		{
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.ODZYSK;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
+			addMaterial(new Tekstylia());
+			addMaterial(new SztucznaSkora());
 			
-			name = "LEKI";
+			name = "Miś";
 			
 			itemTexture = Assets.getTexture("przedmiot_Mis");
 		}
-		
+	
 	}
 }

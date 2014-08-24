@@ -1,9 +1,9 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,17 +11,14 @@ package model.items
 	public class Leki extends Item
 	{
 		
-		public function Leki() 
+		public function Leki()
 		{
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.SKLADOWISKO;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
-			
-			name = "LEKI";
+			name = "Zużyte lekarstwa";
 			
 			itemTexture = Assets.getTexture("przedmiot_Leki");
 		}
-		
+	
 	}
 }

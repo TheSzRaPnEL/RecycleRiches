@@ -6,13 +6,13 @@ package model.materials
 	 * ...
 	 * @author SzRaPnEL
 	 */
-	public class Metal extends Material
+	public class Rtec extends Material
 	{
 		
-		public function Metal()
+		public function Rtec()
 		{
-			name = "Metal";
-			price = "500 zł/t";
+			name = "Rtęć";
+			price = "";
 		}
 	
 	}

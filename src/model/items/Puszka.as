@@ -1,9 +1,10 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
+	import model.materials.Aluminium;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,14 +12,13 @@ package model.items
 	public class Puszka extends Item
 	{
 		
-		public function Puszka() 
+		public function Puszka()
 		{
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.RECYKLING;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
+			addMaterial(new Aluminium());
 			
-			name = "PUSZKA";
+			name = "Puszka aluminiowa";
 			
 			itemTexture = Assets.getTexture("przedmiot_Puszka");
 		}

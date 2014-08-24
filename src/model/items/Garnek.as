@@ -1,9 +1,11 @@
-package model.items 
+package model.items
 {
 	import model.Item;
 	import model.ItemType;
-	import model.materials.Metal;
+	import model.materials.Stal;
+	import model.materials.Zelazo;
 	import services.Assets;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -11,14 +13,14 @@ package model.items
 	public class Garnek extends Item
 	{
 		
-		public function Garnek() 
+		public function Garnek()
 		{
 			type = ItemType.ODZYSK;
 			
-			addMaterial(new Metal());
-			addMaterial(new Metal());
+			addMaterial(new Zelazo());
+			addMaterial(new Stal());
 			
-			name = "GARNEK";
+			name = "GARNEK STALOWY";
 			
 			itemTexture = Assets.getTexture("przedmiot_Garnek");
 		}
