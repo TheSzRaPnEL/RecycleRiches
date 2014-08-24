@@ -63,8 +63,8 @@ package
 			preloader.autoSize = TextFieldAutoSize.CENTER;
 			addChild(preloader);
 			preloader.text = "0%";
-			//preloader.x = splashScreen.width - preloader.width / 2;
-			//preloader.y = splashScreen.height - 200;
+			preloader.y = 585;
+			preloader.x = 512;
 			
 			star = new Starling(StarlingMain, stage, new Rectangle(0, 0, splashScreen.width, splashScreen.height));
 			star.addEventListener(starling.events.Event.CONTEXT3D_CREATE, onStarlingContext3DCreated_handler);

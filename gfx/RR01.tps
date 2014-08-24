@@ -195,8 +195,6 @@
             <filename>images/przedmiot_Siatka.png</filename>
             <filename>images/strzalka.png</filename>
             <filename>images/popup_Mapa.png</filename>
-            <filename>images/punkt.png</filename>
-            <filename>images/lifeCycle1.png</filename>
             <filename>images/strzalka2.png</filename>
             <filename>images/screenBotWhite.png</filename>
             <filename>images/screenTopWhite.png</filename>
@@ -220,6 +218,11 @@
             <filename>images/przedmiot_Patyki.png</filename>
             <filename>images/przedmiot_Rower.png</filename>
             <filename>images/przedmiot_Spryskiwacz.png</filename>
+            <filename>images/bialeKolo.png</filename>
+            <filename>images/button_Koniec.png</filename>
+            <filename>images/logoAmest.png</filename>
+            <filename>images/logoChlorofil.png</filename>
+            <filename>images/logoFundusz.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

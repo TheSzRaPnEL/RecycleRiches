@@ -18,6 +18,7 @@ package
 	import services.ScreenManager;
 	import services.SoundController;
 	import starling.core.Starling;
+	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.text.BitmapFont;
@@ -39,6 +40,7 @@ package
 		private var preloader:TextField;
 		private var selectedItem:Item;
 		private var soundBtn:SimpleButton;
+		private var soundBtnImage:Image;
 		
 		public function StarlingMain()
 		{
@@ -97,11 +99,17 @@ package
 			
 			soundController = new SoundController();
 			
-			soundBtn = new SimpleButton(Assets.getTexture("button_SoundOn"), Assets.getTexture("button_SoundOff"));
-			soundBtn.x = 900;
+			soundBtn = new SimpleButton(Assets.getTexture("button_SoundOff"), Assets.getTexture("button_SoundOff"));
+			soundBtn.x = 960;
 			soundBtn.y = 25;
 			soundBtn.addEventListener(starling.events.Event.TRIGGERED, onSoundBtn_handler);
 			addChild(soundBtn);
+			
+			soundBtnImage = new Image(Assets.getTexture("button_SoundOn"));
+			soundBtnImage.touchable = false;
+			soundBtnImage.x = 960;
+			soundBtnImage.y = 25;
+			addChild(soundBtnImage);
 			
 			Starling.current.stage.addEventListener(ScreenEvent.SHOW_SCREEN, showScreen_handler);
 			Starling.current.stage.addEventListener(ScreenEvent.HIDE_SCREEN, hideScreen_handler);
@@ -121,6 +129,7 @@ package
 		private function onSoundBtn_handler(e:starling.events.Event):void
 		{
 			soundController.mute = !soundController.mute;
+			soundBtnImage.texture = soundController.mute ? Assets.getTexture("button_SoundOff") : Assets.getTexture("button_SoundOn");
 		}
 		
 		private function mute_handler(e:SoundEvent):void
