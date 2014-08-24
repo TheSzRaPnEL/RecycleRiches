@@ -15,6 +15,9 @@ package screen
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+	import starling.text.TextField;
+	import starling.utils.HAlign;
+	import starling.utils.VAlign;
 	
 	/**
 	 * ...
@@ -31,6 +34,11 @@ package screen
 		private var itemImage:ItemImage;
 		private var popup:Image;
 		private var topBorder:Image;
+		private var logo1:Image;
+		private var logo2:Image;
+		private var logoGry:Image;
+		private var logo1TxtF:TextField;
+		private var logo2TxtF:TextField;
 		
 		public function Screen003()
 		{
@@ -73,6 +81,43 @@ package screen
 			
 			topBorder = new Image(Assets.getTexture("screenTopWhite"));
 			container.addChild(topBorder);
+			
+			logoGry = new Image(Assets.getTexture("logoGry"));
+			logoGry.scaleX = 0.7;
+			logoGry.scaleY = logoGry.scaleX;
+			logoGry.x = 20;
+			logoGry.y = 10;
+			container.addChild(logoGry);
+			
+			logo1 = new Image(Assets.getTexture("logoFundusz"));
+			logo1.scaleX = 0.7;
+			logo1.scaleY = logo1.scaleX;
+			logo1.x = 500;
+			logo1.y = 20;
+			container.addChild(logo1);
+			
+			logo1TxtF = new TextField(logo1.width, 15, "Instytucja finansujaca:", "KarnivatFont", 50, 0xa0522d);
+			logo1TxtF.autoScale = true;
+			logo1TxtF.vAlign = VAlign.CENTER;
+			logo1TxtF.hAlign = HAlign.LEFT;
+			logo1TxtF.x = logo1.x + 5;
+			logo1TxtF.y = logo1.y - logo1TxtF.height;
+			container.addChild(logo1TxtF);
+			
+			logo2 = new Image(Assets.getTexture("logoAmest"));
+			logo2.scaleX = 0.7;
+			logo2.scaleY = logo2.scaleX;
+			logo2.x = 760;
+			logo2.y = 35;
+			container.addChild(logo2);
+			
+			logo2TxtF = new TextField(logo1.width, 15, "Partner merytoryczny:", "KarnivatFont", 50, 0xa0522d);
+			logo2TxtF.autoScale = true;
+			logo2TxtF.vAlign = VAlign.CENTER;
+			logo2TxtF.hAlign = HAlign.LEFT;
+			logo2TxtF.x = logo2.x + 5 - (logo2TxtF.textBounds.width - logo2.width) / 2;
+			logo2TxtF.y = logo2.y - logo2TxtF.height;
+			container.addChild(logo2TxtF);
 			
 			activateDragItemImage();
 			
