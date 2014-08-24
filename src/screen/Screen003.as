@@ -187,6 +187,8 @@ package screen
 				}
 				else if (touch.phase == TouchPhase.ENDED)
 				{
+					trace(itemImage.itemRef.type);
+					
 					if (touch.target == basket1)
 					{
 						onBasket1Selected_handler();
@@ -216,8 +218,8 @@ package screen
 				if (popup == null)
 				{
 					popup = new Image(Assets.getTexture("popup_Brawo"));
-					popup.x = 512 - popup.width;
-					popup.y = 384 - popup.height;
+					popup.x = 512 - popup.width / 2;
+					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
@@ -235,8 +237,8 @@ package screen
 				if (popup == null)
 				{
 					popup = new Image(Assets.getTexture("popup_Fail"));
-					popup.x = 512 - popup.width;
-					popup.y = 384 - popup.height;
+					popup.x = 512 - popup.width / 2;
+					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
@@ -261,8 +263,8 @@ package screen
 				if (popup == null)
 				{
 					popup = new Image(Assets.getTexture("popup_Brawo"));
-					popup.x = 512 - popup.width;
-					popup.y = 384 - popup.height;
+					popup.x = 512 - popup.width / 2;
+					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
@@ -280,8 +282,8 @@ package screen
 				if (popup == null)
 				{
 					popup = new Image(Assets.getTexture("popup_Fail"));
-					popup.x = 512 - popup.width;
-					popup.y = 384 - popup.height;
+					popup.x = 512 - popup.width / 2;
+					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
