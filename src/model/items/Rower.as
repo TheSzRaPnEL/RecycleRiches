@@ -17,6 +17,8 @@ package model.items
 		
 		public function Rower()
 		{
+			lifeCycleId = 5;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Stal());

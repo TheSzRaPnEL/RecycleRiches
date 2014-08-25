@@ -13,6 +13,8 @@ package model.items
 		
 		public function Krzeslo()
 		{
+			lifeCycleId = 17;
+			
 			type = ItemType.SKLADOWISKO;
 			
 			name = "Drewno impregnowane i meble";

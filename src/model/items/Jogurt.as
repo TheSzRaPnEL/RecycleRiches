@@ -16,6 +16,8 @@ package model.items
 		
 		public function Jogurt()
 		{
+			lifeCycleId = 12;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Polietylen());

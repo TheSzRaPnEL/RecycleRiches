@@ -14,6 +14,8 @@ package model.items
 		
 		public function Gazeta()
 		{
+			lifeCycleId = 2;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Makulatura());

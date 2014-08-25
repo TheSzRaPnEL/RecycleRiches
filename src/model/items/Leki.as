@@ -13,6 +13,8 @@ package model.items
 		
 		public function Leki()
 		{
+			lifeCycleId = 20;
+			
 			type = ItemType.SKLADOWISKO;
 			
 			name = "Zużyte lekarstwa";

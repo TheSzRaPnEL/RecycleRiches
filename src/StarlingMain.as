@@ -53,8 +53,14 @@ package
 			
 			assetLoader = new LoaderMax();
 			assetLoader.append(new XMLLoader("RR01.xml", {name: "RR01xml"}));
+			assetLoader.append(new XMLLoader("RRLC00.xml", {name: "RRLC00xml"}));
+			assetLoader.append(new XMLLoader("RRLC01.xml", {name: "RRLC01xml"}));
+			assetLoader.append(new XMLLoader("RRLC02.xml", {name: "RRLC02xml"}));
 			assetLoader.append(new XMLLoader("KarnivatFont.fnt", {name: "KarnivatFontFnt"}));
 			assetLoader.append(new ImageLoader("RR01.png", {name: "RR01png"}));
+			assetLoader.append(new ImageLoader("RRLC00.png", {name: "RRLC00png"}));
+			assetLoader.append(new ImageLoader("RRLC01.png", {name: "RRLC01png"}));
+			assetLoader.append(new ImageLoader("RRLC02.png", {name: "RRLC02png"}));
 			assetLoader.append(new ImageLoader("KarnivatFont.png", {name: "KarnivatFontPng"}));
 			assetLoader.append(new MP3Loader("gameMusic.mp3", {name: "GameMusic", autoPlay:false}));
 			assetLoader.load();
@@ -78,6 +84,21 @@ package
 			var xml:XML = XML(assetLoader.getContent("RR01xml"));
 			
 			assetManager.addTextureAtlas("RR01", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
+			
+			bitmap = ContentDisplay(assetLoader.getContent("RRLC00png")).rawContent;
+			xml = XML(assetLoader.getContent("RRLC00xml"));
+			
+			assetManager.addTextureAtlas("RRLC00", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
+			
+			bitmap = ContentDisplay(assetLoader.getContent("RRLC01png")).rawContent;
+			xml = XML(assetLoader.getContent("RRLC01xml"));
+			
+			assetManager.addTextureAtlas("RRLC01", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
+			
+			bitmap = ContentDisplay(assetLoader.getContent("RRLC02png")).rawContent;
+			xml = XML(assetLoader.getContent("RRLC02xml"));
+			
+			assetManager.addTextureAtlas("RRLC02", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
 			
 			var bitmap2:Bitmap  = ContentDisplay(assetLoader.getContent("KarnivatFontPng")).rawContent;
 			var xml2:XML = XML(assetLoader.getContent("KarnivatFontFnt"));

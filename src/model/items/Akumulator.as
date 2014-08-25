@@ -16,6 +16,8 @@ package model.items
 		
 		public function Akumulator()
 		{
+			lifeCycleId = 8;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new KwasSiarkowy());

@@ -15,6 +15,8 @@ package model.items
 		
 		public function ButelkaPet()
 		{
+			lifeCycleId = 10;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Pet());

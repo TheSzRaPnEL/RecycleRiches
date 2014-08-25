@@ -16,6 +16,8 @@ package model.items
 		
 		public function Baterie()
 		{
+			lifeCycleId = 1;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Kadm());

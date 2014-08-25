@@ -16,6 +16,8 @@ package model.items
 		
 		public function Spryskiwacz()
 		{
+			lifeCycleId = 7;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Polietylen());

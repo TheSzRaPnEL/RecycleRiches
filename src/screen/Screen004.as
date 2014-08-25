@@ -12,8 +12,6 @@ package screen
 	import events.MaterialEvent;
 	import events.ScreenEvent;
 	import model.Item;
-	import model.lifeCycles.LifeCycle001;
-	import model.lifeCycles.LifeCycle002;
 	import model.Material;
 	import services.Assets;
 	import starling.core.Starling;
@@ -212,7 +210,7 @@ package screen
 				lifeCyclePopup.visible = true;
 			}
 			
-			lifeCyclePopup.lifeCycle = new LifeCycle002();
+			lifeCyclePopup.lifeCycle = itemImage.itemRef.lifeCycleId;
 		}
 		
 		private function hideLifeCycle_handler(e:ScreenEvent):void 
@@ -321,6 +319,7 @@ package screen
 			}
 			else
 			{
+				itemImage.itemRef = item;
 				itemImage.texture = item.itemTexture;
 				itemImage.width = itemImage.texture.width;
 				itemImage.height = itemImage.texture.height;

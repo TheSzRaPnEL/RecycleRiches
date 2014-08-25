@@ -14,6 +14,8 @@ package model.items
 		
 		public function Patyki()
 		{
+			lifeCycleId = 13;
+			
 			type = ItemType.SKLADOWISKO;
 			
 			addMaterial(new KompostOgrodniczy());

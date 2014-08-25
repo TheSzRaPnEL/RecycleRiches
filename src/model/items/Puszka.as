@@ -14,6 +14,8 @@ package model.items
 		
 		public function Puszka()
 		{
+			lifeCycleId = 14;
+			
 			type = ItemType.RECYKLING;
 			
 			addMaterial(new Aluminium());

@@ -15,6 +15,8 @@ package model.items
 		
 		public function Mis()
 		{
+			lifeCycleId = 19;
+			
 			type = ItemType.ODZYSK;
 			
 			addMaterial(new Tekstylia());

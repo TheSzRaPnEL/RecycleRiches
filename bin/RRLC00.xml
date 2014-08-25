@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:882d440d0d59d5b0c11cc73a57f98ba8:0a61e6ff12e8cb5af5275c9900551515:5170d5bbe8b7b14fe9b3a5050d73ff03$ -->
+<TextureAtlas imagePath="RRLC00.png">
+    <SubTexture name="lifeCycle001" x="1435" y="485" rotated="true" width="475" height="846" frameX="-67" frameY="-5" frameWidth="1028" frameHeight="485"/>
+    <SubTexture name="lifeCycle002" x="4" y="4" width="868" height="475" frameX="-61" frameY="-5" frameWidth="1028" frameHeight="485"/>
+    <SubTexture name="lifeCycle003" x="4" y="1349" width="854" height="479" frameX="-92" frameY="-4" frameWidth="1028" frameHeight="485"/>
+    <SubTexture name="lifeCycle007" x="966" y="485" rotated="true" width="463" height="848" frameX="-86" frameY="-5" frameWidth="1028" frameHeight="485"/>
+    <SubTexture name="lifeCycle008" x="4" y="485" rotated="true" width="475" height="858" frameX="-81" frameY="-5" frameWidth="1028" frameHeight="485"/>
+    <SubTexture name="lifeCycle009" x="864" y="1343" width="838" height="479" frameX="-80" frameY="-5" frameWidth="1028" frameHeight="485"/>
+    <SubTexture name="lifeCycle016" x="878" y="4" width="864" height="475" frameX="-79" frameY="-5" frameWidth="1028" frameHeight="485"/>
+    <SubTexture name="lifeCycle020" x="485" y="485" rotated="true" width="475" height="852" frameX="-80" frameY="-5" frameWidth="1028" frameHeight="485"/>
+</TextureAtlas>

@@ -15,6 +15,8 @@ package model.items
 		
 		public function Garnek()
 		{
+			lifeCycleId = 4;
+			
 			type = ItemType.ODZYSK;
 			
 			addMaterial(new Zelazo());

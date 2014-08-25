@@ -215,6 +215,9 @@ package screen
 			{
 				items[i].available = true;
 				itemImages[i].visible = true;
+				itemImages[i].removeEventListener(TouchEvent.TOUCH, onItemImageTouch);
+				itemImages[i].addEventListener(TouchEvent.TOUCH, onItemImageTouch);
+				itemImages[i].itemRef.available = true;
 			}
 		}
 		

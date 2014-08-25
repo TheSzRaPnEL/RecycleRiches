@@ -14,6 +14,8 @@ package model.items
 		
 		public function Ogryzek()
 		{
+			lifeCycleId = 15;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new KompostOgrodniczy());

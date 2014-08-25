@@ -14,6 +14,8 @@ package model.items
 		
 		public function Cd()
 		{
+			lifeCycleId = 11;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Poliweglan());

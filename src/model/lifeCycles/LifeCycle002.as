@@ -2,6 +2,8 @@ package model.lifeCycles
 {
 	import components.ColorCircle;
 	import model.LifeCycle;
+	import services.Assets;
+	import starling.display.Image;
 	import starling.text.TextField;
 	import starling.utils.Color;
 	import starling.utils.HAlign;
@@ -19,14 +21,12 @@ package model.lifeCycles
 		{
 			super();
 			
-			id = 1;
+			id = 2;
 			type = "Recykling\nSkładowanie >>";
 			
-			addItemImage("przedmiot_Cd");
-			addItemImage("przedmiot_Garnek");
-			addItemImage("przedmiot_Komorka");
-			addItemImage("przedmiot_Opona");
+			addItemImage("przedmiot_Gazeta");
 			
+			/*
 			colorCircle = new ColorCircle();
 			colorCircle.scaleX = 0.7;
 			colorCircle.scaleY = colorCircle.scaleX;
@@ -93,6 +93,10 @@ package model.lifeCycles
 			txtF.x = spinArrow.x + spinArrow.width / 2;
 			txtF.y = spinArrow.y + spinArrow.height / 2;
 			container.addChild(txtF);
+			*/
+			
+			overlayGfx = new Image(Assets.getTexture("lifeCycle002"));
+			container.addChild(overlayGfx);
 		}
 		
 	}

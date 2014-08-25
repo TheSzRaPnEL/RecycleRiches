@@ -13,6 +13,7 @@ package model
 		private var _materialList:Vector.<Material>;
 		private var _available:Boolean;
 		private var _type:String;
+		private var _lifeCycleId:int;
 		
 		public function Item()
 		{
@@ -68,6 +69,16 @@ package model
 		public function set name(value:String):void 
 		{
 			_name = value;
+		}
+		
+		public function get lifeCycleId():int 
+		{
+			return _lifeCycleId;
+		}
+		
+		public function set lifeCycleId(value:int):void 
+		{
+			_lifeCycleId = value;
 		}
 	
 	}

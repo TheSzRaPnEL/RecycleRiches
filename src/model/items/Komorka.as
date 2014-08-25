@@ -24,6 +24,8 @@ package model.items
 		
 		public function Komorka()
 		{
+			lifeCycleId = 16;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Miedz());

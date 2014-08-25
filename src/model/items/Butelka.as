@@ -14,6 +14,8 @@ package model.items
 		
 		public function Butelka()
 		{
+			lifeCycleId = 3;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new TluczkaSzklana());

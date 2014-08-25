@@ -15,6 +15,7 @@ package model
 		private var _itemImages:Vector.<Texture>;
 		protected var container:Sprite;
 		protected var spinArrow:Image;
+		protected var overlayGfx:Image;
 		
 		public function LifeCycle() 
 		{
@@ -22,9 +23,6 @@ package model
 			
 			container = new Sprite();
 			addChild(container);
-			
-			spinArrow = new Image(Assets.getTexture("spinArrow"));
-			container.addChild(spinArrow);
 		}
 		
 		public function get id():int 

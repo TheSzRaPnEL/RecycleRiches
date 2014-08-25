@@ -15,6 +15,8 @@ package model.items
 		
 		public function Opona()
 		{
+			lifeCycleId = 18;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Guma());

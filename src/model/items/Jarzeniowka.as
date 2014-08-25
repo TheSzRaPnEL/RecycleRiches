@@ -17,6 +17,8 @@ package model.items
 		
 		public function Jarzeniowka()
 		{
+			lifeCycleId = 9;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Rtec());

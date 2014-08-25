@@ -14,6 +14,8 @@ package model.items
 		
 		public function Siatka()
 		{
+			lifeCycleId = 6;
+			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
 			addMaterial(new Polietylen());
