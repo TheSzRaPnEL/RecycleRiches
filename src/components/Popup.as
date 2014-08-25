@@ -100,15 +100,15 @@ package components
 			if (materialList == null)
 			{
 				materialList = new ArrowList(textList);
-				materialList.x = 310;
-				materialList.y = 150;
+				materialList.x = 230;
+				materialList.y = 160;
 				container.addChild(materialList);
-				materialList.pivotX = materialList.width / 2;
 				materialList.pivotY = materialList.height / 2;
 			}
 			else
 			{
 				materialList.update(textList);
+				materialList.pivotY = materialList.height / 2;
 			}
 			
 			headline.text = item.name;
