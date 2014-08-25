@@ -39,6 +39,7 @@ package screen
 		private var logoGry:Image;
 		private var logo1TxtF:TextField;
 		private var logo2TxtF:TextField;
+		private var botBorder:Image;
 		
 		public function Screen003()
 		{
@@ -50,6 +51,10 @@ package screen
 			background = new Quad(1024, 768, 0);
 			background.alpha = 0.8;
 			container.addChild(background);
+			
+			botBorder = new Image(Assets.getTexture("screenBotWhite"));
+			botBorder.y = 768 - botBorder.height;
+			container.addChild(botBorder);
 			
 			basket1 = new Image(Assets.getTexture("kosz_Odzysk"));
 			basket1.pivotX = basket1.width / 2;

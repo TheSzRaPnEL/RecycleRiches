@@ -54,6 +54,7 @@ package screen
 		private var blackOverlay:Quad;
 		private var lifeCyclePopup:LifeCyclePopup;
 		private var recycleSystemPopup:RecycleSystemPopup;
+		private var botBorder:Image;
 		
 		public function Screen004()
 		{
@@ -67,6 +68,10 @@ package screen
 			
 			topBorder = new Image(Assets.getTexture("screenTopWhite"));
 			container.addChild(topBorder);
+			
+			botBorder = new Image(Assets.getTexture("screenBotWhite"));
+			botBorder.y = 768 - botBorder.height;
+			container.addChild(botBorder);
 			
 			messageArea = new Image(Assets.getTexture("miejsceNaNapis"));
 			messageArea.x = 220;

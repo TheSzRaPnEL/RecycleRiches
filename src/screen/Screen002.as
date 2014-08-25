@@ -66,6 +66,7 @@ package screen
 		private var basket2:Image;
 		private var basket3:Image;
 		private var basket4:Image;
+		private var botBorder:Image;
 		
 		public function Screen002()
 		{
@@ -98,6 +99,10 @@ package screen
 			
 			background = new Image(Assets.getTexture("screenCorkBackground"));
 			container.addChild(background);
+			
+			botBorder = new Image(Assets.getTexture("screenBotWhite"));
+			botBorder.y = 768 - botBorder.height;
+			container.addChild(botBorder);
 			
 			popupInfo = new Popup();
 			popupInfo.visible = false;
