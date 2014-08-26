@@ -1,6 +1,7 @@
 package
 {
 	//import flash.desktop.NativeApplication;
+	import events.ScreenEvent;
 	import events.SoundEvent;
 	import flash.display.Bitmap;
 	import flash.display.Loader;
@@ -9,6 +10,8 @@ package
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.geom.Rectangle;
+	import flash.net.SharedObject;
+	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
@@ -33,6 +36,8 @@ package
 		private var percLoaded:int;
 		private var percShown:int;
 		private var showStarlingAllowed:Boolean;
+		private var myLoader:URLLoader;
+		private var visitorNum:int;
 		
 		public function Main():void
 		{
@@ -41,9 +46,30 @@ package
 			
 			Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 			
+			var sharedObject:SharedObject = SharedObject.getLocal("RecycleRichesCookie", "/");
+			if (sharedObject.data.visited==null)
+			{
+				var myRequest:URLRequest = new URLRequest("addVisitor.php");
+			}
+			else
+			{
+				myRequest = new URLRequest("getVisitorNum.php");
+			}
+			sharedObject.data.visited = true;
+			sharedObject.flush();
+			sharedObject.close();
+			myLoader = new URLLoader();
+			myLoader.addEventListener(flash.events.Event.COMPLETE, onLoad);
+			myLoader.load(myRequest);
+			
 			loader = new Loader();
 			loader.contentLoaderInfo.addEventListener(flash.events.Event.COMPLETE, onLoadingComplete_handler);
 			loader.load(new URLRequest("splashScreen.jpg"));
+		}
+		
+		private function onLoad(evt:flash.events.Event):void
+		{
+			visitorNum = evt.target.data;
 		}
 		
 		private function onLoadingComplete_handler(e:flash.events.Event):void
@@ -123,6 +149,7 @@ package
 			preloader = null;
 			
 			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_MUSIC));
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.UPDATE_VISITOR_NUM, false, visitorNum));
 		}
 	
 	}

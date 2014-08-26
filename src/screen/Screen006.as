@@ -1,14 +1,17 @@
 package screen
 {
+	import events.ScreenEvent;
 	import flash.net.navigateToURL;
 	import flash.net.URLRequest;
 	import services.Assets;
+	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	import starling.text.TextField;
+	import starling.text.TextFieldAutoSize;
 	import starling.utils.Color;
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
@@ -32,6 +35,7 @@ package screen
 		private var logo2TxtF:TextField;
 		private var endSpeach:TextField;
 		private var link:TextField;
+		private var logo3TxtF:TextField;
 		
 		public function Screen006()
 		{
@@ -91,6 +95,14 @@ package screen
 			logo3.y = 695;
 			container.addChild(logo3);
 			
+			logo3TxtF = new TextField(logo3.width, 60, "Licznik odwiedzin: 0", "GillSansMTFont", 30, 0xa0522d);
+			logo3TxtF.autoSize = TextFieldAutoSize.HORIZONTAL;
+			logo3TxtF.vAlign = VAlign.CENTER;
+			logo3TxtF.hAlign = HAlign.CENTER;
+			logo3TxtF.x = 1024 - logo3TxtF.width - 20;
+			logo3TxtF.y = logo3.y - logo3TxtF.height - 25;
+			container.addChild(logo3TxtF);
+			
 			endSpeach = new TextField(750, 130, "Kampania dofinansowana przez Wojewódzki Fundusz\nOchrony Środowiska i Gospodarki Wodnej w Warszawie\nw formie dotacji, w kwocie 24 366 zł.", "GillSansMTFont", 24, 0xFFFFFF);
 			endSpeach.color = Color.GREEN;
 			endSpeach.autoScale = true;
@@ -110,6 +122,15 @@ package screen
 			link.y = 590;
 			container.addChild(link);
 			link.addEventListener(TouchEvent.TOUCH, onLinkTouch);
+			
+			Starling.current.stage.addEventListener(ScreenEvent.UPDATE_VISITOR_NUM, updateVisitorNum_handler);
+		}
+		
+		private function updateVisitorNum_handler(e:ScreenEvent):void 
+		{
+			logo3TxtF.text = "Licznik odwiedzin: " + e.data;
+			logo3TxtF.x = 1024 - logo3TxtF.width - 20;
+			logo3TxtF.y = logo3.y - logo3TxtF.height - 25;
 		}
 		
 		private function onLinkTouch(e:TouchEvent):void
