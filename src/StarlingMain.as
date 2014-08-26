@@ -7,6 +7,7 @@ package
 	import com.greensock.loading.MP3Loader;
 	import com.greensock.loading.XMLLoader;
 	import components.SimpleButton;
+	import events.InfoBtnEvent;
 	import events.ItemEvent;
 	import events.ScreenEvent;
 	import events.SoundEvent;
@@ -41,6 +42,8 @@ package
 		private var selectedItem:Item;
 		private var soundBtn:SimpleButton;
 		private var soundBtnImage:Image;
+		private var infoBtn:SimpleButton;
+		private var infoBtnImage:Image;
 		
 		public function StarlingMain()
 		{
@@ -127,15 +130,27 @@ package
 			
 			soundController = new SoundController();
 			
+			infoBtn = new SimpleButton(Assets.getTexture("button_InfoOn"));
+			infoBtn.x = 960;
+			infoBtn.y = 22;
+			infoBtn.addEventListener(starling.events.Event.TRIGGERED, onInfoBtn_handler);
+			addChild(infoBtn);
+			
+			infoBtnImage = new Image(Assets.getTexture("button_InfoOn"));
+			infoBtnImage.touchable = false;
+			infoBtnImage.x = 960;
+			infoBtnImage.y = 22;
+			addChild(infoBtnImage);
+			
 			soundBtn = new SimpleButton(Assets.getTexture("button_SoundOff"), Assets.getTexture("button_SoundOff"));
-			soundBtn.x = 960;
+			soundBtn.x = 900;
 			soundBtn.y = 25;
 			soundBtn.addEventListener(starling.events.Event.TRIGGERED, onSoundBtn_handler);
 			addChild(soundBtn);
 			
 			soundBtnImage = new Image(Assets.getTexture("button_SoundOn"));
 			soundBtnImage.touchable = false;
-			soundBtnImage.x = 960;
+			soundBtnImage.x = 900;
 			soundBtnImage.y = 25;
 			addChild(soundBtnImage);
 			
@@ -144,6 +159,8 @@ package
 			Starling.current.stage.addEventListener(ItemEvent.SELECTED, itemSelected_handler);
 			Starling.current.stage.addEventListener(SoundEvent.MUTE, mute_handler);
 			Starling.current.stage.addEventListener(SoundEvent.UNMUTE, unmute_handler);
+			Starling.current.stage.addEventListener(InfoBtnEvent.SHOW, showInfoBtn_handler);
+			Starling.current.stage.addEventListener(InfoBtnEvent.HIDE, hideInfoBtn_handler);
 			Starling.current.stage.addEventListener(SoundEvent.PLAY_MUSIC, playMusic_handler);
 			
 			stage.dispatchEventWith(starling.events.Event.COMPLETE);
@@ -158,6 +175,30 @@ package
 		{
 			soundController.mute = !soundController.mute;
 			soundBtnImage.texture = soundController.mute ? Assets.getTexture("button_SoundOff") : Assets.getTexture("button_SoundOn");
+		}
+		
+		private function onInfoBtn_handler(e:starling.events.Event):void
+		{
+			if (screenManager.infoScreenOn)
+			{
+				Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 5));
+				Starling.current.stage.dispatchEvent(new InfoBtnEvent(InfoBtnEvent.SHOW));
+			}
+			else
+			{
+				Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 5));
+				Starling.current.stage.dispatchEvent(new InfoBtnEvent(InfoBtnEvent.HIDE));
+			}
+		}
+		
+		private function showInfoBtn_handler(e:InfoBtnEvent):void
+		{
+			infoBtnImage.texture = Assets.getTexture("button_InfoOn")
+		}
+		
+		private function hideInfoBtn_handler(e:InfoBtnEvent):void
+		{
+			infoBtnImage.texture = Assets.getTexture("button_InfoOff")
 		}
 		
 		private function mute_handler(e:SoundEvent):void

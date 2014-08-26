@@ -226,6 +226,8 @@
             <filename>images/popup_LifeCycle.png</filename>
             <filename>images/systemOdzyskuText.png</filename>
             <filename>images/kosz_OdzyskIRecykling.png</filename>
+            <filename>images/button_InfoOff.png</filename>
+            <filename>images/button_InfoOn.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

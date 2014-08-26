@@ -413,6 +413,7 @@ package screen
 		{
 			deactivateDragItemImage();
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 2));
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 5));
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 3));
 			hidePopup();
 		}
