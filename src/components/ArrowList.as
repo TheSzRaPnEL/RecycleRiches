@@ -57,7 +57,7 @@ package components
 			
 			for (i = 0; i < textList.length; i++)
 			{
-				var txtF:TextField = new TextField(150, 32, "", "Arial", 30);
+				var txtF:TextField = new TextField(150, 32, "", "GillSansMTFont", 30);
 				txtF.autoScale = true;
 				txtF.vAlign = VAlign.CENTER;
 				txtF.hAlign = HAlign.LEFT;

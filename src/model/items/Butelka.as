@@ -16,7 +16,7 @@ package model.items
 		{
 			lifeCycleId = 3;
 			
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.RECYKLING;
 			
 			addMaterial(new TluczkaSzklana());
 			

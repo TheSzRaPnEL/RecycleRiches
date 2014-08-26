@@ -15,7 +15,7 @@ package model.items
 		{
 			lifeCycleId = 20;
 			
-			type = ItemType.SKLADOWISKO;
+			type = ItemType.ODZYSK;
 			
 			name = "Zużyte lekarstwa";
 			

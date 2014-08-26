@@ -18,7 +18,7 @@ package model.items
 		{
 			lifeCycleId = 7;
 			
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.RECYKLING;
 			
 			addMaterial(new Polietylen());
 			addMaterial(new Polipropylen());

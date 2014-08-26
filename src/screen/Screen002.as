@@ -195,14 +195,14 @@ package screen
 			basket2.y = 768;
 			container.addChild(basket2);
 			
-			basket3 = new Image(Assets.getTexture("kosz_Skladowisko"));
+			basket3 = new Image(Assets.getTexture("kosz_OdzyskIRecykling"));
 			basket3.pivotX = basket3.width / 2;
 			basket3.pivotY = basket3.height;
 			basket3.x = 5 * 1024 / 8;
 			basket3.y = 768;
 			container.addChild(basket3);
 			
-			basket4 = new Image(Assets.getTexture("kosz_Unieszkodliwienie"));
+			basket4 = new Image(Assets.getTexture("kosz_Skladowisko"));
 			basket4.pivotX = basket4.width / 2;
 			basket4.pivotY = basket4.height;
 			basket4.x = 7 * 1024 / 8;

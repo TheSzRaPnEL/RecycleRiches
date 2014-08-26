@@ -17,7 +17,7 @@ package model.items
 		{
 			lifeCycleId = 18;
 			
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.ODZYSK;
 			
 			addMaterial(new Guma());
 			addMaterial(new KordyNylonowe());

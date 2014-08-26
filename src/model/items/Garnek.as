@@ -17,7 +17,7 @@ package model.items
 		{
 			lifeCycleId = 4;
 			
-			type = ItemType.ODZYSK;
+			type = ItemType.RECYKLING;
 			
 			addMaterial(new Zelazo());
 			addMaterial(new Stal());

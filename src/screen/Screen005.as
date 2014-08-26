@@ -105,7 +105,7 @@ package screen
 			endBtn.y = 340;
 			container.addChild(endBtn);
 			
-			endSpeach = new TextField(750, 130, "Kampania dofinansowana przez Wojewódzki Fundusz\nOchrony Środowiska i Gospodarki Wodnej w Warszawie\nw formie dotacji, w kwocie 24 366 zł.", "Arial", 24, 0xFFFFFF);
+			endSpeach = new TextField(750, 130, "Kampania dofinansowana przez Wojewódzki Fundusz\nOchrony Środowiska i Gospodarki Wodnej w Warszawie\nw formie dotacji, w kwocie 24 366 zł.", "GillSansMTFont", 24, 0xFFFFFF);
 			endSpeach.color = Color.GREEN;
 			endSpeach.autoScale = true;
 			endSpeach.vAlign = VAlign.CENTER;
@@ -114,7 +114,7 @@ package screen
 			endSpeach.y = 450;
 			container.addChild(endSpeach);
 			
-			link = new TextField(600, 35, "wfosigw.pl", "Arial", 30, 0xFFFFFF, true);
+			link = new TextField(600, 35, "wfosigw.pl", "GillSansMTFont", 30, 0xFFFFFF, true);
 			link.underline = true;
 			link.color = Color.GREEN;
 			link.autoScale = true;

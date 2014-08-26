@@ -184,7 +184,6 @@
             <filename>images/kosz_Odzysk.png</filename>
             <filename>images/kosz_Recykling.png</filename>
             <filename>images/kosz_Skladowisko.png</filename>
-            <filename>images/kosz_Unieszkodliwienie.png</filename>
             <filename>images/popup_Brawo.png</filename>
             <filename>images/popup_Fail.png</filename>
             <filename>images/popup_Info.png</filename>
@@ -226,6 +225,7 @@
             <filename>images/spinArrow.png</filename>
             <filename>images/popup_LifeCycle.png</filename>
             <filename>images/systemOdzyskuText.png</filename>
+            <filename>images/kosz_OdzyskIRecykling.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

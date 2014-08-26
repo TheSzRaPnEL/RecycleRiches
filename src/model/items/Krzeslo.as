@@ -15,7 +15,7 @@ package model.items
 		{
 			lifeCycleId = 17;
 			
-			type = ItemType.SKLADOWISKO;
+			type = ItemType.ODZYSK;
 			
 			name = "Drewno impregnowane i meble";
 			

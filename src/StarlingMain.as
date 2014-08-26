@@ -57,11 +57,13 @@ package
 			assetLoader.append(new XMLLoader("RRLC01.xml", {name: "RRLC01xml"}));
 			assetLoader.append(new XMLLoader("RRLC02.xml", {name: "RRLC02xml"}));
 			assetLoader.append(new XMLLoader("KarnivatFont.fnt", {name: "KarnivatFontFnt"}));
+			assetLoader.append(new XMLLoader("GillSansMTFont.fnt", {name: "GillSansMTFontFnt"}));
 			assetLoader.append(new ImageLoader("RR01.png", {name: "RR01png"}));
 			assetLoader.append(new ImageLoader("RRLC00.png", {name: "RRLC00png"}));
 			assetLoader.append(new ImageLoader("RRLC01.png", {name: "RRLC01png"}));
 			assetLoader.append(new ImageLoader("RRLC02.png", {name: "RRLC02png"}));
 			assetLoader.append(new ImageLoader("KarnivatFont.png", {name: "KarnivatFontPng"}));
+			assetLoader.append(new ImageLoader("GillSansMTFont.png", {name: "GillSansMTFontPng"}));
 			assetLoader.append(new MP3Loader("gameMusic.mp3", {name: "GameMusic", autoPlay:false}));
 			assetLoader.load();
 			assetLoader.addEventListener(LoaderEvent.PROGRESS, onFilesDownloading);
@@ -104,6 +106,11 @@ package
 			var xml2:XML = XML(assetLoader.getContent("KarnivatFontFnt"));
 			
 			TextField.registerBitmapFont(new BitmapFont(Texture.fromBitmap(bitmap2), xml2), "KarnivatFont");
+			
+			bitmap2  = ContentDisplay(assetLoader.getContent("GillSansMTFontPng")).rawContent;
+			xml2 = XML(assetLoader.getContent("GillSansMTFontFnt"));
+			
+			TextField.registerBitmapFont(new BitmapFont(Texture.fromBitmap(bitmap2), xml2), "GillSansMTFont");
 			
 			var music:Sound = assetLoader.getContent("GameMusic");
 			

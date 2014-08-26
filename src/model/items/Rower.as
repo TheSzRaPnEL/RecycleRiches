@@ -19,7 +19,7 @@ package model.items
 		{
 			lifeCycleId = 5;
 			
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.RECYKLING;
 			
 			addMaterial(new Stal());
 			addMaterial(new WloknaPoliweglanowe());

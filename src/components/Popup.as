@@ -50,7 +50,7 @@ package components
 			sortBtn.addEventListener(Event.TRIGGERED, onSortBtn_handler);
 			container.addChild(sortBtn);
 			
-			headline = new TextField(340, 60, "", "KarnivatFont", 60);
+			headline = new TextField(340, 60, "", "GillSansMTFont", 60);
 			headline.autoScale = true;
 			headline.color = Color.WHITE;
 			headline.vAlign = VAlign.CENTER;

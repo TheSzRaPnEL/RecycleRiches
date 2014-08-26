@@ -80,7 +80,7 @@ package components
 			background = new Image(Assets.getTexture("popup_LifeCycle"));
 			container.addChild(background);
 			
-			cycleTxtF = new TextField(200, 60, "CYKL DOTYCZY:", "KarnivatFont", 50, 0xFFFFFF);
+			cycleTxtF = new TextField(200, 60, "CYKL DOTYCZY:", "GillSansMTFont", 50, 0xFFFFFF);
 			cycleTxtF.color = 0xFFFFFF;
 			cycleTxtF.autoScale = true;
 			cycleTxtF.vAlign = VAlign.CENTER;
@@ -89,7 +89,7 @@ package components
 			cycleTxtF.y = 25;
 			container.addChild(cycleTxtF);
 			
-			typeTxtF = new TextField(250, 100, "", "KarnivatFont", 50, 0xFFFFFF);
+			typeTxtF = new TextField(250, 100, "", "GillSansMTFont", 50, 0xFFFFFF);
 			typeTxtF.color = 0x2e6519;
 			typeTxtF.autoScale = true;
 			typeTxtF.vAlign = VAlign.CENTER;

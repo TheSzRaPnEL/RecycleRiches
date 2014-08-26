@@ -54,7 +54,7 @@ package
 			addChild(splashScreen);
 			
 			var textFormat:TextFormat = new TextFormat();
-			textFormat.font = "Arial";
+			textFormat.font = "GillSansMTFont";
 			textFormat.size = 30;
 			textFormat.align = TextFormatAlign.CENTER;
 			preloader = new TextField();

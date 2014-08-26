@@ -34,7 +34,7 @@ package components
 				}
 				else
 				{
-					var txtF:TextField = new TextField(200, 60, "", "Arial", 30, 0, true);
+					var txtF:TextField = new TextField(200, 60, "", "GillSansMTFont", 30, 0, true);
 					txtF.autoScale = true;
 					txtF.vAlign = VAlign.CENTER;
 					txtF.hAlign = HAlign.CENTER;

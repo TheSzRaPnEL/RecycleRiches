@@ -16,7 +16,7 @@ package model.items
 		{
 			lifeCycleId = 15;
 			
-			type = ItemType.ODZYSK_I_RECYKLING;
+			type = ItemType.ODZYSK;
 			
 			addMaterial(new KompostOgrodniczy());
 			
