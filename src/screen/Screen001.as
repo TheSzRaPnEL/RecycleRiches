@@ -2,6 +2,7 @@ package screen
 {
 	import components.SimpleButton;
 	import events.ScreenEvent;
+	import events.SoundEvent;
 	import services.Assets;
 	import starling.core.Starling;
 	import starling.display.Image;
@@ -98,6 +99,7 @@ package screen
 		private function onStartBtn_handler(e:Event):void
 		{
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 1));
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "NormalClick"));
 		}
 	
 	}

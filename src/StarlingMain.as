@@ -68,6 +68,10 @@ package
 			assetLoader.append(new ImageLoader("KarnivatFont.png", {name: "KarnivatFontPng"}));
 			assetLoader.append(new ImageLoader("GillSansMTFont.png", {name: "GillSansMTFontPng"}));
 			assetLoader.append(new MP3Loader("gameMusic.mp3", {name: "GameMusic", autoPlay:false}));
+			assetLoader.append(new MP3Loader("cancelClick.mp3", {name: "CancelClick", autoPlay:false}));
+			assetLoader.append(new MP3Loader("failSound.mp3", {name: "FailSound", autoPlay:false}));
+			assetLoader.append(new MP3Loader("goodSound.mp3", {name: "GoodSound", autoPlay:false}));
+			assetLoader.append(new MP3Loader("normalClick.mp3", {name: "NormalClick", autoPlay:false}));
 			assetLoader.load();
 			assetLoader.addEventListener(LoaderEvent.PROGRESS, onFilesDownloading);
 			assetLoader.addEventListener(LoaderEvent.COMPLETE, onFilesDownloaded);
@@ -116,8 +120,19 @@ package
 			TextField.registerBitmapFont(new BitmapFont(Texture.fromBitmap(bitmap2), xml2), "GillSansMTFont");
 			
 			var music:Sound = assetLoader.getContent("GameMusic");
-			
 			assetManager.addSound("Music", music);
+			
+			music = assetLoader.getContent("CancelClick");
+			assetManager.addSound("CancelClick", music);
+			
+			music = assetLoader.getContent("NormalClick");
+			assetManager.addSound("NormalClick", music);
+			
+			music = assetLoader.getContent("FailSound");
+			assetManager.addSound("FailSound", music);
+			
+			music = assetLoader.getContent("GoodSound");
+			assetManager.addSound("GoodSound", music);
 			
 			assetLoader.dispose(true);
 			assetLoader = null;
@@ -162,6 +177,7 @@ package
 			Starling.current.stage.addEventListener(InfoBtnEvent.SHOW, showInfoBtn_handler);
 			Starling.current.stage.addEventListener(InfoBtnEvent.HIDE, hideInfoBtn_handler);
 			Starling.current.stage.addEventListener(SoundEvent.PLAY_MUSIC, playMusic_handler);
+			Starling.current.stage.addEventListener(SoundEvent.PLAY_SOUND, playSound_handler);
 			
 			stage.dispatchEventWith(starling.events.Event.COMPLETE);
 		}
@@ -171,10 +187,16 @@ package
 			soundController.playMusic("Music");
 		}
 		
+		private function playSound_handler(e:SoundEvent):void 
+		{
+			soundController.playSound(String(e.data));
+		}
+		
 		private function onSoundBtn_handler(e:starling.events.Event):void
 		{
 			soundController.mute = !soundController.mute;
 			soundBtnImage.texture = soundController.mute ? Assets.getTexture("button_SoundOff") : Assets.getTexture("button_SoundOn");
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "NormalClick"));
 		}
 		
 		private function onInfoBtn_handler(e:starling.events.Event):void
@@ -183,11 +205,13 @@ package
 			{
 				Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 5));
 				Starling.current.stage.dispatchEvent(new InfoBtnEvent(InfoBtnEvent.SHOW));
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "NormalClick"));
 			}
 			else
 			{
 				Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 5));
 				Starling.current.stage.dispatchEvent(new InfoBtnEvent(InfoBtnEvent.HIDE));
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "CancelClick"));
 			}
 		}
 		

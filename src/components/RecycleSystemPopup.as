@@ -1,6 +1,7 @@
 package components
 {
 	import events.ScreenEvent;
+	import events.SoundEvent;
 	import services.Assets;
 	import starling.core.Starling;
 	import starling.display.Image;
@@ -54,6 +55,7 @@ package components
 		private function onExitBtnTriggered(e:Event):void
 		{
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_RECYCLESYSTEM_POPUP));
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "CancelClick"));
 		}
 		
 	}

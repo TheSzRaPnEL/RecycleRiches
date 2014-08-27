@@ -1,6 +1,7 @@
 package components 
 {
 	import events.ScreenEvent;
+	import events.SoundEvent;
 	import model.LifeCycle;
 	import model.lifeCycles.LifeCycle001;
 	import model.lifeCycles.LifeCycle002;
@@ -108,6 +109,7 @@ package components
 		private function onExitBtnTriggered(e:Event):void 
 		{
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_LIFECYCLE_POPUP));
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "CancelClick"));
 		}
 		
 		public function updateType(string:String):void

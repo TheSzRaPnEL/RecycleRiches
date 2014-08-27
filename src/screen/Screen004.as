@@ -11,6 +11,7 @@ package screen
 	import events.ItemEvent;
 	import events.MaterialEvent;
 	import events.ScreenEvent;
+	import events.SoundEvent;
 	import model.Item;
 	import model.Material;
 	import services.Assets;
@@ -259,6 +260,7 @@ package screen
 				if (touch.phase == TouchPhase.BEGAN)
 				{
 					Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_LIFECYCLE_POPUP));
+					Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "NormalClick"));
 				}
 			}
 		}
@@ -271,6 +273,7 @@ package screen
 				if (touch.phase == TouchPhase.BEGAN)
 				{
 					Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_RECYCLESYSTEM_POPUP));
+					Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "NormalClick"));
 				}
 			}
 		}
@@ -301,6 +304,7 @@ package screen
 						Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 3));
 						Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 1));
 					}
+					Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "NormalClick"));
 				}
 			}
 		}

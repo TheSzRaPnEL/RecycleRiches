@@ -3,6 +3,7 @@ package screen
 	import components.ItemImage;
 	import events.ItemEvent;
 	import events.ScreenEvent;
+	import events.SoundEvent;
 	import flash.geom.Rectangle;
 	import flash.utils.setTimeout;
 	import model.Item;
@@ -234,6 +235,7 @@ package screen
 					popup.visible = true;
 				}
 				
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "GoodSound"));
 				setTimeout(gotoScreen4, 2000);
 			}
 			else
@@ -253,6 +255,7 @@ package screen
 					popup.visible = true;
 				}
 				
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "FailSound"));
 				setTimeout(hidePopup, 2000);
 				setTimeout(activateDragItemImage, 2000);
 			}
@@ -279,6 +282,7 @@ package screen
 					popup.visible = true;
 				}
 				
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "GoodSound"));
 				setTimeout(gotoScreen4, 2000);
 			}
 			else
@@ -298,6 +302,7 @@ package screen
 					popup.visible = true;
 				}
 				
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "FailSound"));
 				setTimeout(hidePopup, 2000);
 				setTimeout(activateDragItemImage, 2000);
 			}
@@ -324,6 +329,7 @@ package screen
 					popup.visible = true;
 				}
 				
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "GoodSound"));
 				setTimeout(gotoScreen4, 2000);
 			}
 			else
@@ -343,6 +349,7 @@ package screen
 					popup.visible = true;
 				}
 				
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "FailSound"));
 				setTimeout(hidePopup, 2000);
 				setTimeout(activateDragItemImage, 2000);
 			}
@@ -369,6 +376,7 @@ package screen
 					popup.visible = true;
 				}
 				
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "GoodSound"));
 				setTimeout(gotoScreen4, 2000);
 			}
 			else
@@ -388,6 +396,7 @@ package screen
 					popup.visible = true;
 				}
 				
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "FailSound"));
 				setTimeout(hidePopup, 2000);
 				setTimeout(activateDragItemImage, 2000);
 			}

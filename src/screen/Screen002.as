@@ -6,6 +6,7 @@ package screen
 	import events.GameEvent;
 	import events.ItemEvent;
 	import events.ScreenEvent;
+	import events.SoundEvent;
 	import flash.geom.Rectangle;
 	import model.Item;
 	import model.items.Akumulator;
@@ -252,12 +253,14 @@ package screen
 				grassItemOverlay.setItem(Image(e.target).texture);
 				
 				Starling.current.stage.dispatchEvent(new ItemEvent(ItemEvent.SELECTED, false, ItemImage(e.target).itemRef));
+				Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "NormalClick"));
 			}
 		}
 		
 		private function cancelSelection_handler(e:ScreenEvent):void
 		{
 			cancelSelection();
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "CancelClick"));
 		}
 		
 		public function cancelSelection():void
@@ -278,6 +281,7 @@ package screen
 			selectedItemImage.visible = false;
 			
 			sortSelection();
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "NormalClick"));
 		}
 		
 		public function sortSelection():void

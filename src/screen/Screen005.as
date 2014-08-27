@@ -3,6 +3,7 @@ package screen
 	import components.SimpleButton;
 	import events.GameEvent;
 	import events.ScreenEvent;
+	import events.SoundEvent;
 	import flash.net.navigateToURL;
 	import flash.net.URLRequest;
 	import services.Assets;
@@ -146,6 +147,7 @@ package screen
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 3));
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_SCREEN, false, 4));
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, false, 0));
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "NormalClick"));
 		}
 	
 	}
