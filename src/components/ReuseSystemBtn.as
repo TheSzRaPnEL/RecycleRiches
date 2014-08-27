@@ -25,7 +25,7 @@ package components
 			spinArrow = new Image(Assets.getTexture("spinArrow"));
 			container.addChild(spinArrow);
 			
-			txtF = new TextField(2 * spinArrow.width / 3, 2 * spinArrow.height / 3, "system odzysku\ni recyklingu\nna Mazowszu", "KarnivatFont", 25, 0xFFFFFF);
+			txtF = new TextField(2 * spinArrow.width / 3, 2 * spinArrow.height / 3, "system odzysku\ni recyklingu\nna Mazowszu", "GillSansMTFont", 25, 0xFFFFFF);
 			txtF.pivotX = txtF.width / 2;
 			txtF.pivotY = txtF.height / 2;
 			txtF.color = 0x2e6519;

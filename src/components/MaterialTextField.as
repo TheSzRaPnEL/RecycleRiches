@@ -11,7 +11,7 @@ package components
 	{
 		private var _material:Material;
 		
-		public function MaterialTextField(width:int, height:int, text:String, fontName:String = "Verdana", fontSize:Number = 12, color:uint = 0x0, bold:Boolean = false)
+		public function MaterialTextField(width:int, height:int, text:String, fontName:String = "GillSansMTFont", fontSize:Number = 12, color:uint = 0x0, bold:Boolean = false)
 		{
 			super(width, height, text, fontName, fontSize, color, bold);
 		}

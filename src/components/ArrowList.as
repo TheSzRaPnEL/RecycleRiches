@@ -1,6 +1,5 @@
 package components
 {
-	import flash.geom.Rectangle;
 	import services.Assets;
 	import starling.display.Image;
 	import starling.display.Quad;
@@ -55,39 +54,48 @@ package components
 			
 			arrows.length = 0;
 			
-			for (i = 0; i < textList.length; i++)
+			if (textList.length)
 			{
-				var txtF:TextField = new TextField(150, 32, "", "GillSansMTFont", 30);
-				txtF.autoScale = true;
-				txtF.vAlign = VAlign.CENTER;
-				txtF.hAlign = HAlign.LEFT;
-				txtF.text = textList[i];
-				addChild(txtF);
-				textfields.push(txtF);
-				
-				var arrow:Image = new Image(Assets.getTexture("strzalka"));
-				arrow.pivotY = arrow.height / 2;
-				addChild(arrow);
-				arrows.push(arrow);
-				
-				textfields[i].x = 50;
-				textfields[i].y = i * 150 / textList.length;
-				textfields[i].scaleX = 1;
-				textfields[i].scaleY = textfields[i].scaleX;
-				if (textfields[i].textBounds.width * textfields[i].scaleX > 100)
+				var longestTxtFieldId:int = 0;
+				for (i = 0; i < textList.length; i++)
 				{
-					textfields[i].scaleX = 100 / (textfields[i].textBounds.width * textfields[i].scaleX);
-					textfields[i].scaleY = textfields[i].scaleX;
+					if (textList[i].length > textList[longestTxtFieldId].length)
+						longestTxtFieldId = i;
 				}
-				if (textfields[i].textBounds.height * textfields[i].scaleY > 150 / textList.length)
+				
+				var testTxtF:TextField = new TextField(150, 32, textList[longestTxtFieldId], "GillSansMTFont", 20);
+				testTxtF.vAlign = VAlign.CENTER;
+				testTxtF.autoSize = TextFieldAutoSize.HORIZONTAL;
+				testTxtF.autoScale = false;
+				while (testTxtF.textBounds.width > 150)
 				{
-					textfields[i].scaleY = (150 / textList.length) / (textfields[i].textBounds.height * textfields[i].scaleY);
-					textfields[i].scaleX = textfields[i].scaleY;
+					testTxtF.fontSize--;
 				}
-				arrows[i].x = 0;
-				arrows[i].y = textfields[i].y + (textfields[i].textBounds.y + textfields[i].textBounds.height / 2) * textfields[i].scaleY;
+				
+				var smallestFont:int = testTxtF.fontSize;
+				
+				for (i = 0; i < textList.length; i++)
+				{
+					var txtF:TextField = new TextField(150, 32, "", "GillSansMTFont", smallestFont);
+					txtF.autoSize = TextFieldAutoSize.HORIZONTAL;
+					txtF.autoScale = false;
+					txtF.vAlign = VAlign.CENTER;
+					txtF.hAlign = HAlign.LEFT;
+					txtF.text = textList[i];
+					addChild(txtF);
+					textfields.push(txtF);
+					textfields[i].x = 40;
+					textfields[i].y = i * 150 / textList.length;
+					
+					var arrow:Image = new Image(Assets.getTexture("strzalka"));
+					arrow.pivotY = arrow.height / 2;
+					addChild(arrow);
+					arrows.push(arrow);
+					arrows[i].x = 0;
+					arrows[i].y = textfields[i].y + (textfields[i].textBounds.y + textfields[i].textBounds.height / 2) * textfields[i].scaleY;
+				}
 			}
 		}
-	
+		
 	}
 }

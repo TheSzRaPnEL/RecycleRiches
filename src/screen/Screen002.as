@@ -159,26 +159,26 @@ package screen
 			logo1.y = 20;
 			container.addChild(logo1);
 			
-			logo1TxtF = new TextField(logo1.width, 15, "Instytucja finansujaca:", "KarnivatFont", 50, 0xa0522d);
+			logo1TxtF = new TextField(logo1.width, 20, "Instytucja finansujaca:", "GillSansMTFont", 50, 0xa0522d);
 			logo1TxtF.autoScale = true;
 			logo1TxtF.vAlign = VAlign.CENTER;
 			logo1TxtF.hAlign = HAlign.LEFT;
-			logo1TxtF.x = logo1.x + 5;
+			logo1TxtF.x = logo1.x;
 			logo1TxtF.y = logo1.y - logo1TxtF.height;
 			container.addChild(logo1TxtF);
 			
 			logo2 = new Image(Assets.getTexture("logoAmest"));
 			logo2.scaleX = 0.7;
 			logo2.scaleY = logo2.scaleX;
-			logo2.x = 760;
+			logo2.x = 740;
 			logo2.y = 35;
 			container.addChild(logo2);
 			
-			logo2TxtF = new TextField(logo1.width, 15, "Partner merytoryczny:", "KarnivatFont", 50, 0xa0522d);
+			logo2TxtF = new TextField(logo1.width, 20, "Partner merytoryczny:", "GillSansMTFont", 50, 0xa0522d);
 			logo2TxtF.autoScale = true;
 			logo2TxtF.vAlign = VAlign.CENTER;
 			logo2TxtF.hAlign = HAlign.LEFT;
-			logo2TxtF.x = logo2.x + 5 - (logo2TxtF.textBounds.width - logo2.width) / 2;
+			logo2TxtF.x = logo2.x - (logo2TxtF.textBounds.width - logo2.width) / 2;
 			logo2TxtF.y = logo2.y - logo2TxtF.height;
 			container.addChild(logo2TxtF);
 			
@@ -239,13 +239,14 @@ package screen
 				popupInfo.x = DisplayObject(e.target).x + 60;
 				popupInfo.y = DisplayObject(e.target).y;
 				popupInfo.visible = true;
+				popupInfo.setItem(ItemImage(e.target).itemRef);
+				
 				popupInfo.swapTexture = false;
 				if (popupInfo.x > width - popupInfo.width)
 				{
 					popupInfo.x -= popupInfo.width + grassItemOverlay.width + 100;
 					popupInfo.swapTexture = true;
 				}
-				popupInfo.setItem(ItemImage(e.target).itemRef);
 				
 				grassItemOverlay.visible = true;
 				grassItemOverlay.x = grassImages[itemImages.indexOf(e.target)].x;

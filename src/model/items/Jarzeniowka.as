@@ -26,7 +26,7 @@ package model.items
 			addMaterial(new Szklo());
 			addMaterial(new Zns());
 			
-			name = "SWIETLÓWKA";
+			name = "ŻARÓWKA";
 			
 			itemTexture = Assets.getTexture("przedmiot_Jarzeniowka");
 		}

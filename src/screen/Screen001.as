@@ -61,11 +61,11 @@ package screen
 			logo1.y = 670;
 			container.addChild(logo1);
 			
-			logo1TxtF = new TextField(logo1.width, 15, "Instytucja finansujaca:", "KarnivatFont", 50, 0xa0522d);
+			logo1TxtF = new TextField(logo1.width, 20, "Instytucja finansujaca:", "GillSansMTFont", 50, 0xa0522d);
 			logo1TxtF.autoScale = true;
 			logo1TxtF.vAlign = VAlign.CENTER;
 			logo1TxtF.hAlign = HAlign.LEFT;
-			logo1TxtF.x = logo1.x + 10;
+			logo1TxtF.x = logo1.x;
 			logo1TxtF.y = logo1.y - logo1TxtF.height;
 			container.addChild(logo1TxtF);
 			
@@ -74,7 +74,7 @@ package screen
 			logo2.y = 700;
 			container.addChild(logo2);
 			
-			logo2TxtF = new TextField(logo2.width, 20, "Partner merytoryczny:", "KarnivatFont", 50, 0xa0522d);
+			logo2TxtF = new TextField(logo2.width, 20, "Partner merytoryczny:", "GillSansMTFont", 50, 0xa0522d);
 			logo2TxtF.autoScale = true;
 			logo2TxtF.vAlign = VAlign.CENTER;
 			logo2TxtF.hAlign = HAlign.CENTER;

@@ -4,6 +4,7 @@ package components
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.text.TextField;
+	import starling.text.TextFieldAutoSize;
 	import starling.utils.Color;
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
@@ -23,58 +24,17 @@ package components
 			container = new Sprite();
 			addChild(container);
 			
-			spinArrow = new Image(Assets.getTexture("spinArrow"));
+			spinArrow = new Image(Assets.getTexture("lifeCycleBtn"));
 			container.addChild(spinArrow);
 			
-			colorCircle = new ColorCircle();
-			colorCircle.scaleX = 0.8;
-			colorCircle.scaleY = colorCircle.scaleX;
-			colorCircle.color = Color.GREEN;
-			colorCircle.x = -40;
-			colorCircle.y = 40;
-			container.addChild(colorCircle);
-			
-			colorCircle = new ColorCircle();
-			colorCircle.scaleX = 0.8;
-			colorCircle.scaleY = colorCircle.scaleX;
-			colorCircle.color = Color.GREEN;
-			colorCircle.x = 100;
-			colorCircle.y = -50;
-			container.addChild(colorCircle);
-			
-			colorCircle = new ColorCircle();
-			colorCircle.scaleX = 0.8;
-			colorCircle.scaleY = colorCircle.scaleX;
-			colorCircle.color = Color.GREEN;
-			colorCircle.x = 230;
-			colorCircle.y = 40;
-			container.addChild(colorCircle);
-			
-			colorCircle = new ColorCircle();
-			colorCircle.scaleX = 0.8;
-			colorCircle.scaleY = colorCircle.scaleX;
-			colorCircle.color = Color.GREEN;
-			colorCircle.x = 205;
-			colorCircle.y = 190;
-			container.addChild(colorCircle);
-			
-			colorCircle = new ColorCircle();
-			colorCircle.scaleX = 0.8;
-			colorCircle.scaleY = colorCircle.scaleX;
-			colorCircle.color = Color.GREEN;
-			colorCircle.x = -15;
-			colorCircle.y = 190;
-			container.addChild(colorCircle);
-			
-			txtF = new TextField(2 * spinArrow.width / 3, 2 * spinArrow.height / 3, "cykl\nzagospodarowania\nZUZYTEGO\nPRZEDMIOTU", "KarnivatFont", 70, 0xFFFFFF);
+			txtF = new TextField(spinArrow.width / 2, spinArrow.height / 2, "cykl\nzagospodarowania\nzużytego\nprzedmiotu", "GillSansMTFont", 18, 0xFFFFFF);
 			txtF.pivotX = txtF.width / 2;
 			txtF.pivotY = txtF.height / 2;
 			txtF.color = 0x2e6519;
-			txtF.autoScale = true;
 			txtF.vAlign = VAlign.CENTER;
 			txtF.hAlign = HAlign.CENTER;
 			txtF.x = spinArrow.x + spinArrow.width / 2;
-			txtF.y = spinArrow.y + spinArrow.height / 2;
+			txtF.y = spinArrow.y + spinArrow.height / 2 + 10;
 			container.addChild(txtF);
 		}
 		

@@ -79,7 +79,7 @@ package screen
 			messageArea.y = 95;
 			container.addChild(messageArea);
 			
-			messageAreaTxtF = new TextField(4 * messageArea.width / 5, 2 * messageArea.height / 3, "Poznaj technologię recyklingu\ni wartosc rynkowa surowca wtórnego.", "KarnivatFont", 50, 0xFFFFFF);
+			messageAreaTxtF = new TextField(4 * messageArea.width / 5, 2 * messageArea.height / 3, "Poznaj technologię recyklingu\ni wartość rynkową surowca wtórnego.", "GillSansMTFont", 50, 0xFFFFFF);
 			messageAreaTxtF.autoScale = true;
 			messageAreaTxtF.vAlign = VAlign.CENTER;
 			messageAreaTxtF.hAlign = HAlign.LEFT;
@@ -101,10 +101,8 @@ package screen
 			container.addChild(quad);
 			
 			reuseCycleBtn = new ReuseCycleBtn();
-			reuseCycleBtn.scaleX = 0.8;
-			reuseCycleBtn.scaleY = reuseCycleBtn.scaleX;
-			reuseCycleBtn.x = 80;
-			reuseCycleBtn.y = 400;
+			reuseCycleBtn.x = 40;
+			reuseCycleBtn.y = 360;
 			container.addChild(reuseCycleBtn);
 			reuseCycleBtn.addEventListener(TouchEvent.TOUCH, onReuseCycleBtnTouch_handler);
 			
@@ -128,7 +126,7 @@ package screen
 			quad.y = 300;
 			container.addChild(quad);
 			
-			cenaTxtF = new TextField(2 * quad.width / 3, 2 * quad.height / 3, "CENA SUROWCÓW WTÓRNYCH", "KarnivatFont", 50, 0xFFFFFF);
+			cenaTxtF = new TextField(2 * quad.width / 3, 2 * quad.height / 3, "CENA SUROWCÓW WTÓRNYCH", "GillSansMTFont", 50, 0xFFFFFF);
 			cenaTxtF.color = 0x2e6519;
 			cenaTxtF.autoScale = true;
 			cenaTxtF.vAlign = VAlign.CENTER;
@@ -163,26 +161,26 @@ package screen
 			logo1.y = 20;
 			container.addChild(logo1);
 			
-			logo1TxtF = new TextField(logo1.width, 15, "Instytucja finansujaca:", "KarnivatFont", 50, 0xa0522d);
+			logo1TxtF = new TextField(logo1.width, 20, "Instytucja finansujaca:", "GillSansMTFont", 50, 0xa0522d);
 			logo1TxtF.autoScale = true;
 			logo1TxtF.vAlign = VAlign.CENTER;
 			logo1TxtF.hAlign = HAlign.LEFT;
-			logo1TxtF.x = logo1.x + 5;
+			logo1TxtF.x = logo1.x;
 			logo1TxtF.y = logo1.y - logo1TxtF.height;
 			container.addChild(logo1TxtF);
 			
 			logo2 = new Image(Assets.getTexture("logoAmest"));
 			logo2.scaleX = 0.7;
 			logo2.scaleY = logo2.scaleX;
-			logo2.x = 760;
+			logo2.x = 740;
 			logo2.y = 35;
 			container.addChild(logo2);
 			
-			logo2TxtF = new TextField(logo1.width, 15, "Partner merytoryczny:", "KarnivatFont", 50, 0xa0522d);
+			logo2TxtF = new TextField(logo1.width, 20, "Partner merytoryczny:", "GillSansMTFont", 50, 0xa0522d);
 			logo2TxtF.autoScale = true;
 			logo2TxtF.vAlign = VAlign.CENTER;
 			logo2TxtF.hAlign = HAlign.LEFT;
-			logo2TxtF.x = logo2.x + 5 - (logo2TxtF.textBounds.width - logo2.width) / 2;
+			logo2TxtF.x = logo2.x - (logo2TxtF.textBounds.width - logo2.width) / 2;
 			logo2TxtF.y = logo2.y - logo2TxtF.height;
 			container.addChild(logo2TxtF);
 			

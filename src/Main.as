@@ -29,6 +29,9 @@ package
 	 */
 	public class Main extends Sprite
 	{
+		[Embed(source="../gfx/fonts/GillSansMTFont/Gill Sans MT.ttf", embedAsCFF = "false", fontFamily = "GillSansMTFont")]
+		private static const GillSansMTFont:Class;
+		
 		private var loader:Loader;
 		private var splashScreen:Bitmap;
 		private var star:Starling;

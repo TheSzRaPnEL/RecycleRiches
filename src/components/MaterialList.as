@@ -11,6 +11,7 @@ package components
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	import starling.text.TextField;
+	import starling.text.TextFieldAutoSize;
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
 	
@@ -21,6 +22,7 @@ package components
 	public class MaterialList extends Sprite
 	{
 		private var textfields:Vector.<MaterialTextField>;
+		private var equalVerticalSpit:Boolean;
 		
 		public function MaterialList(materials:Vector.<Material>)
 		{
@@ -32,34 +34,66 @@ package components
 		
 		public function update(materials:Vector.<Material>):void
 		{
-			for (var i:int = 0; i < materials.length; i++)
+			if (textfields.length)
 			{
-				if (textfields.length > i)
+				for (var i:int = 0; i < textfields.length; i++)
 				{
-					textfields[i].text = materials[i].name + " " + materials[i].price;
-					textfields[i].visible = true;
+					removeChild(textfields[i]);
+					textfields[i] = null;
 				}
-				else
+			}
+			
+			textfields.length = 0;
+			
+			if (materials.length)
+			{
+				var longestTxt:String = "";
+				for (i = 0; i < materials.length; i++)
 				{
-					var txtF:MaterialTextField = new MaterialTextField(300, 40, "", "KarnivatFont", 30, 0xFFFFFF, true);
+					var txt:String = materials[i].name + " " + materials[i].price;
+					if (txt.length > longestTxt.length)
+						longestTxt = txt;
+				}
+				
+				var testTxtF:TextField = new TextField(280, 32, longestTxt, "GillSansMTFont", 30, 0, true);
+				testTxtF.vAlign = VAlign.CENTER;
+				testTxtF.autoSize = TextFieldAutoSize.HORIZONTAL;
+				testTxtF.autoScale = false;
+				while (testTxtF.textBounds.width > 280)
+				{
+					testTxtF.fontSize--;
+				}
+				equalVerticalSpit = false;
+				while ((testTxtF.textBounds.height + 5) * (materials.length+1) > 260)
+				{
+					testTxtF.fontSize--;
+					equalVerticalSpit = true;
+				}
+				
+				var smallestFont:int = testTxtF.fontSize;
+				
+				for (i = 0; i < materials.length; i++)
+				{
+					var txtF:MaterialTextField = new MaterialTextField(280, 40, "", "GillSansMTFont", smallestFont, 0xFFFFFF, true);
 					txtF.color = 0x2e6519;
-					txtF.autoScale = true;
 					txtF.vAlign = VAlign.CENTER;
-					txtF.hAlign = HAlign.CENTER;
+					testTxtF.autoSize = TextFieldAutoSize.HORIZONTAL;
+					txtF.autoScale = false;
 					txtF.text = materials[i].name + " " + materials[i].price;
 					addChild(txtF);
 					textfields.push(txtF);
+					textfields[i].material = materials[i];
+					textfields[i].touchable = false;
+					textfields[i].x = 10;
+					if (!equalVerticalSpit)
+					{
+						textfields[i].y = i * 50;
+					}
+					else
+					{
+						textfields[i].y = 10 + i * (textfields[i].textBounds.height + 5);
+					}
 				}
-				
-				textfields[i].material = materials[i];
-				textfields[i].touchable = false;
-				textfields[i].x = 0;
-				textfields[i].y = i * 50;
-			}
-			
-			for (i = materials.length; i < textfields.length; i++)
-			{
-				textfields[i].visible = false;
 			}
 		}
 	

@@ -83,7 +83,7 @@ package model.lifeCycles
 			colorCircle.y = 225;
 			container.addChild(colorCircle);
 			
-			txtF = new TextField(2 * spinArrow.width / 3, 2 * spinArrow.height / 3, "cykl zagospodarowania\nZUŻYTYCH\nbaterii alkalicznych", "KarnivatFont", 25, 0xFFFFFF);
+			txtF = new TextField(2 * spinArrow.width / 3, 2 * spinArrow.height / 3, "cykl zagospodarowania\nZUŻYTYCH\nbaterii alkalicznych", "GillSansMTFont", 25, 0xFFFFFF);
 			txtF.pivotX = txtF.width / 2;
 			txtF.pivotY = txtF.height / 2;
 			txtF.color = 0x2e6519;

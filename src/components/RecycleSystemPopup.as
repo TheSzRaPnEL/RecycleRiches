@@ -31,7 +31,7 @@ package components
 			background = new Image(Assets.getTexture("popup_LifeCycle"));
 			container.addChild(background);
 			
-			headlineTxtF = new TextField(780, 80, "system odzysku i recyklingu zużytych źródeł światła\ni lamp fluorescencyjnych", "KarnivatFont", 50, 0xFFFFFF);
+			headlineTxtF = new TextField(780, 80, "system odzysku i recyklingu zużytych źródeł światła\ni lamp fluorescencyjnych", "GillSansMTFont", 50, 0xFFFFFF);
 			headlineTxtF.color = 0xFFFFFF;
 			headlineTxtF.autoScale = true;
 			headlineTxtF.vAlign = VAlign.CENTER;

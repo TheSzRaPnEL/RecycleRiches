@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:659cf2c37cbda2738066415003ff11c6:5392a98389440d64122b21c483bb72bc:3d6cfe992783a6efe04b75ceb7d0f402$ -->
+<!-- $TexturePacker:SmartUpdate:ff0151f27f75108a0469327b31183915:5392a98389440d64122b21c483bb72bc:3d6cfe992783a6efe04b75ceb7d0f402$ -->
 <TextureAtlas imagePath="RR01.png">
     <SubTexture name="bialeKolo" x="460" y="1106" width="107" height="107"/>
     <SubTexture name="button_Anuluj" x="118" y="1106" rotated="true" width="32" height="113"/>

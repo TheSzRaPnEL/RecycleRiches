@@ -78,7 +78,7 @@ package components
 			if (itemImage == null)
 			{
 				itemImage = new Image(item.itemTexture);
-				itemImage.x = 160;
+				itemImage.x = 130;
 				itemImage.y = 160;
 				container.addChild(itemImage);
 				itemImage.pivotX = itemImage.texture.width / 2;
@@ -100,14 +100,16 @@ package components
 			if (materialList == null)
 			{
 				materialList = new ArrowList(textList);
-				materialList.x = 230;
+				materialList.x = 290;
 				materialList.y = 160;
 				container.addChild(materialList);
+				materialList.pivotX = materialList.width / 2;
 				materialList.pivotY = materialList.height / 2;
 			}
 			else
 			{
 				materialList.update(textList);
+				materialList.pivotX = materialList.width / 2;
 				materialList.pivotY = materialList.height / 2;
 			}
 			
@@ -120,6 +122,14 @@ package components
 			headline.x = (value ? 70 : 35);
 			background.x = (value ? background.width + 50 : 0);
 			container.x = (value ? 170 : 0);
+			if (materialList && materialList.width == 0)
+			{
+				itemImage.x = (value ? 230 : 210);
+			}
+			else
+			{
+				itemImage.x = 130;
+			}
 		}
 	
 	}
