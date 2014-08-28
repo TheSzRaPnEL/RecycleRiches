@@ -1,5 +1,6 @@
 package screen
 {
+	import components.BravoPopup;
 	import components.ItemImage;
 	import events.ItemEvent;
 	import events.ScreenEvent;
@@ -33,7 +34,7 @@ package screen
 		private var basket3:Image;
 		private var basket4:Image;
 		private var itemImage:ItemImage;
-		private var popup:Image;
+		private var popup:BravoPopup;
 		private var topBorder:Image;
 		private var logo1:Image;
 		private var logo2:Image;
@@ -222,16 +223,16 @@ package screen
 			{
 				if (popup == null)
 				{
-					popup = new Image(Assets.getTexture("popup_Brawo"));
+					popup = new BravoPopup();
+					popup.text = "Ten przedmiot\nnadaje się do odzysku!"
 					popup.x = 512 - popup.width / 2;
 					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
 				{
-					popup.texture = Assets.getTexture("popup_Brawo");
-					popup.width = popup.texture.width;
-					popup.height = popup.texture.height;
+					popup.imageTexture = Assets.getTexture("popup_Brawo");
+					popup.text = "Ten przedmiot\nnadaje się do odzysku!"
 					popup.visible = true;
 				}
 				
@@ -242,16 +243,17 @@ package screen
 			{
 				if (popup == null)
 				{
-					popup = new Image(Assets.getTexture("popup_Fail"));
+					popup = new BravoPopup();
+					popup.imageTexture = Assets.getTexture("popup_Fail");
+					popup.text = "";
 					popup.x = 512 - popup.width / 2;
 					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
 				{
-					popup.texture = Assets.getTexture("popup_Fail");
-					popup.width = popup.texture.width;
-					popup.height = popup.texture.height;
+					popup.imageTexture = Assets.getTexture("popup_Fail");
+					popup.text = "";
 					popup.visible = true;
 				}
 				
@@ -269,16 +271,16 @@ package screen
 			{
 				if (popup == null)
 				{
-					popup = new Image(Assets.getTexture("popup_Brawo"));
+					popup = new BravoPopup();
+					popup.text = "Ten przedmiot\nnadaje się do recyklingu!"
 					popup.x = 512 - popup.width / 2;
 					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
 				{
-					popup.texture = Assets.getTexture("popup_Brawo");
-					popup.width = popup.texture.width;
-					popup.height = popup.texture.height;
+					popup.imageTexture = Assets.getTexture("popup_Brawo");
+					popup.text = "Ten przedmiot\nnadaje się do recyklingu!"
 					popup.visible = true;
 				}
 				
@@ -289,16 +291,17 @@ package screen
 			{
 				if (popup == null)
 				{
-					popup = new Image(Assets.getTexture("popup_Fail"));
+					popup = new BravoPopup();
+					popup.imageTexture = Assets.getTexture("popup_Fail");
+					popup.text = "";
 					popup.x = 512 - popup.width / 2;
 					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
 				{
-					popup.texture = Assets.getTexture("popup_Fail");
-					popup.width = popup.texture.width;
-					popup.height = popup.texture.height;
+					popup.imageTexture = Assets.getTexture("popup_Fail");
+					popup.text = "";
 					popup.visible = true;
 				}
 				
@@ -316,16 +319,16 @@ package screen
 			{
 				if (popup == null)
 				{
-					popup = new Image(Assets.getTexture("popup_Brawo"));
+					popup = new BravoPopup();
+					popup.text = "Ten przedmiot\nnadaje się do odzysku i do recyklingu!"
 					popup.x = 512 - popup.width / 2;
 					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
 				{
-					popup.texture = Assets.getTexture("popup_Brawo");
-					popup.width = popup.texture.width;
-					popup.height = popup.texture.height;
+					popup.imageTexture = Assets.getTexture("popup_Brawo");
+					popup.text = "Ten przedmiot nadaje się\ndo odzysku i do recyklingu!"
 					popup.visible = true;
 				}
 				
@@ -336,16 +339,17 @@ package screen
 			{
 				if (popup == null)
 				{
-					popup = new Image(Assets.getTexture("popup_Fail"));
+					popup = new BravoPopup();
+					popup.imageTexture = Assets.getTexture("popup_Fail");
+					popup.text = "";
 					popup.x = 512 - popup.width / 2;
 					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
 				{
-					popup.texture = Assets.getTexture("popup_Fail");
-					popup.width = popup.texture.width;
-					popup.height = popup.texture.height;
+					popup.imageTexture = Assets.getTexture("popup_Fail");
+					popup.text = "";
 					popup.visible = true;
 				}
 				
@@ -363,16 +367,16 @@ package screen
 			{
 				if (popup == null)
 				{
-					popup = new Image(Assets.getTexture("popup_Brawo"));
+					popup = new BravoPopup();
+					popup.text = "Ten przedmiot\nnadaje się na składowanisko!"
 					popup.x = 512 - popup.width / 2;
 					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
 				{
-					popup.texture = Assets.getTexture("popup_Brawo");
-					popup.width = popup.texture.width;
-					popup.height = popup.texture.height;
+					popup.imageTexture = Assets.getTexture("popup_Brawo");
+					popup.text = "Ten przedmiot\nnadaje się na składowanisko!"
 					popup.visible = true;
 				}
 				
@@ -383,16 +387,17 @@ package screen
 			{
 				if (popup == null)
 				{
-					popup = new Image(Assets.getTexture("popup_Fail"));
+					popup = new BravoPopup();
+					popup.imageTexture = Assets.getTexture("popup_Fail");
+					popup.text = "";
 					popup.x = 512 - popup.width / 2;
 					popup.y = 384 - popup.height / 2;
 					container.addChild(popup);
 				}
 				else
 				{
-					popup.texture = Assets.getTexture("popup_Fail");
-					popup.width = popup.texture.width;
-					popup.height = popup.texture.height;
+					popup.imageTexture = Assets.getTexture("popup_Fail");
+					popup.text = "";
 					popup.visible = true;
 				}
 				
