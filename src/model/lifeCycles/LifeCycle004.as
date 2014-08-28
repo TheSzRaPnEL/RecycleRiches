@@ -16,7 +16,7 @@ package model.lifeCycles
 			super();
 			
 			id = 4;
-			type = "Recykling\nSkładowanie >>";
+			type = "Recykling";
 			
 			addItemImage("przedmiot_Garnek");
 			

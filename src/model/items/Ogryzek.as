@@ -15,6 +15,7 @@ package model.items
 		public function Ogryzek()
 		{
 			lifeCycleId = 15;
+			systemId = 11;
 			
 			type = ItemType.ODZYSK;
 			

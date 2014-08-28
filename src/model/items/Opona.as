@@ -16,6 +16,7 @@ package model.items
 		public function Opona()
 		{
 			lifeCycleId = 18;
+			systemId = 3;
 			
 			type = ItemType.ODZYSK;
 			

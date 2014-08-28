@@ -14,6 +14,7 @@ package model.items
 		public function Leki()
 		{
 			lifeCycleId = 20;
+			systemId = 12;
 			
 			type = ItemType.ODZYSK;
 			

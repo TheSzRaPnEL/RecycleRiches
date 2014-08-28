@@ -15,6 +15,7 @@ package model.items
 		public function Puszka()
 		{
 			lifeCycleId = 14;
+			systemId = 5;
 			
 			type = ItemType.RECYKLING;
 			

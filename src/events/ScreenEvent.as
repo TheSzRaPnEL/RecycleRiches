@@ -16,6 +16,8 @@ package events
 		static public const SHOW_RECYCLESYSTEM_POPUP:String = "showRecyclesystemPopup";
 		static public const HIDE_RECYCLESYSTEM_POPUP:String = "hideRecyclesystemPopup";
 		static public const UPDATE_VISITOR_NUM:String = "updateVisitorNum";
+		static public const SHOW_SKLADOWISKO_POPUP:String = "showSkladowiskoPopup";
+		static public const HIDE_SKLADOWISKO_POPUP:String = "hideSkladowiskoPopup";
 		
 		public function ScreenEvent(type:String, bubbles:Boolean = false, data:Object = null)
 		{

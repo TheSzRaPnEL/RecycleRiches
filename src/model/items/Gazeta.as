@@ -15,6 +15,7 @@ package model.items
 		public function Gazeta()
 		{
 			lifeCycleId = 2;
+			systemId = 6;
 			
 			type = ItemType.RECYKLING;
 			

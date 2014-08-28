@@ -14,6 +14,7 @@ package model
 		private var _available:Boolean;
 		private var _type:String;
 		private var _lifeCycleId:int;
+		private var _systemId:int;
 		
 		public function Item()
 		{
@@ -79,6 +80,16 @@ package model
 		public function set lifeCycleId(value:int):void 
 		{
 			_lifeCycleId = value;
+		}
+		
+		public function get systemId():int 
+		{
+			return _systemId;
+		}
+		
+		public function set systemId(value:int):void 
+		{
+			_systemId = value;
 		}
 	
 	}

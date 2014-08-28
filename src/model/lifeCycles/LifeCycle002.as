@@ -22,7 +22,7 @@ package model.lifeCycles
 			super();
 			
 			id = 2;
-			type = "Recykling\nSkładowanie >>";
+			type = "Recykling";
 			
 			addItemImage("przedmiot_Gazeta");
 			

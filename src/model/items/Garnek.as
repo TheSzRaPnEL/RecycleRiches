@@ -16,6 +16,7 @@ package model.items
 		public function Garnek()
 		{
 			lifeCycleId = 4;
+			systemId = 10;
 			
 			type = ItemType.RECYKLING;
 			

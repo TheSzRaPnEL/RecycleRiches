@@ -16,7 +16,7 @@ package model.lifeCycles
 			super();
 			
 			id = 20;
-			type = "Recykling\nSkładowanie >>";
+			type = "Odzysk\nSkładowanie >>";
 			
 			addItemImage("przedmiot_Leki");
 			

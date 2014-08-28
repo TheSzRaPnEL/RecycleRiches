@@ -1,4 +1,4 @@
-package components 
+package components
 {
 	import events.ScreenEvent;
 	import events.SoundEvent;
@@ -32,6 +32,7 @@ package components
 	import starling.utils.Color;
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
+	
 	/**
 	 * ...
 	 * @author SzRaPnEL
@@ -47,8 +48,9 @@ package components
 		private var colorCircles:Vector.<ColorCircle>;
 		private var itemImages:Vector.<Image>;
 		private var lifeCycles:Vector.<LifeCycle>
+		private var skladowiskoBtn:SimpleButton;
 		
-		public function LifeCyclePopup() 
+		public function LifeCyclePopup()
 		{
 			lifeCycles = new Vector.<LifeCycle>;
 			lifeCycles.push(new LifeCycle001());
@@ -104,9 +106,22 @@ package components
 			exitBtn.y = 20;
 			exitBtn.addEventListener(Event.TRIGGERED, onExitBtnTriggered);
 			container.addChild(exitBtn);
+			
+			skladowiskoBtn = new SimpleButton(Assets.getTexture("kosz_Odzysk"));
+			skladowiskoBtn.alpha = 0;
+			skladowiskoBtn.x = 30;
+			skladowiskoBtn.y = 170;
+			skladowiskoBtn.addEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+			container.addChild(skladowiskoBtn);
 		}
 		
-		private function onExitBtnTriggered(e:Event):void 
+		private function onSkladowiskoBtnTriggered(e:Event):void
+		{
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SKLADOWISKO_POPUP));
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "CancelClick"));
+		}
+		
+		private function onExitBtnTriggered(e:Event):void
 		{
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_LIFECYCLE_POPUP));
 			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "CancelClick"));
@@ -114,7 +129,16 @@ package components
 		
 		public function updateType(string:String):void
 		{
-			typeTxtF.text = string;
+			//typeTxtF.text = string;
+			if (string == "Recykling\nSkładowanie >>" || string == "Odzysk\nSkładowanie >>")
+			{
+				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				skladowiskoBtn.addEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+			}
+			else
+			{
+				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+			}
 		}
 		
 		public function set lifeCycle(lifeCycleId:int):void
@@ -124,12 +148,15 @@ package components
 				removeChild(_lifeCycle);
 				_lifeCycle = null;
 			}
-			_lifeCycle = lifeCycles[lifeCycleId-1];
+			_lifeCycle = lifeCycles[lifeCycleId - 1];
+			_lifeCycle.touchable = false;
 			_lifeCycle.scaleX = 1;
 			_lifeCycle.scaleY = _lifeCycle.scaleX
 			addChild(_lifeCycle);
 			_lifeCycle.x = -35;
 			_lifeCycle.y = 105;
+			
+			updateType(_lifeCycle.type);
 			
 			if (colorCircles.length)
 			{

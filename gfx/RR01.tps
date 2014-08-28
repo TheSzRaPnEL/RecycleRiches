@@ -60,7 +60,7 @@
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
-        <uint>7</uint>
+        <uint>0</uint>
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
@@ -228,6 +228,7 @@
             <filename>images/kosz_OdzyskIRecykling.png</filename>
             <filename>images/button_InfoOff.png</filename>
             <filename>images/button_InfoOn.png</filename>
+            <filename>images/skladowisko.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

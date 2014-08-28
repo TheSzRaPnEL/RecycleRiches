@@ -17,6 +17,7 @@ package model.items
 		public function Baterie()
 		{
 			lifeCycleId = 1;
+			systemId = 8;
 			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			

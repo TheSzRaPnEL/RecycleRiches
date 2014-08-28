@@ -15,6 +15,7 @@ package model.items
 		public function Butelka()
 		{
 			lifeCycleId = 3;
+			systemId = 4;
 			
 			type = ItemType.RECYKLING;
 			

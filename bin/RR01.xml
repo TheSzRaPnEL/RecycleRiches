@@ -1,59 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:b8d30cbbf3d99d527a695a6befcab8d0:be6f7db873beedfde82f8b13dd37a996:3d6cfe992783a6efe04b75ceb7d0f402$ -->
+<!-- $TexturePacker:SmartUpdate:6721aee53a6a9de7b1dd62852073510b:352d96ba0ff76bb4309249ba537008a8:3d6cfe992783a6efe04b75ceb7d0f402$ -->
 <TextureAtlas imagePath="RR01.png">
-    <SubTexture name="bialeKolo" x="460" y="1106" width="107" height="107"/>
-    <SubTexture name="button_Anuluj" x="118" y="1106" rotated="true" width="32" height="113"/>
-    <SubTexture name="button_Exit" x="2015" y="1227" rotated="true" width="18" height="15"/>
+    <SubTexture name="bialeKolo" x="1204" y="1901" width="107" height="107"/>
+    <SubTexture name="button_Anuluj" x="1916" y="612" rotated="true" width="32" height="113"/>
+    <SubTexture name="button_Exit" x="1954" y="612" rotated="true" width="18" height="15"/>
     <SubTexture name="button_InfoOff" x="1994" y="208" width="41" height="40"/>
     <SubTexture name="button_InfoOn" x="1994" y="254" width="41" height="40"/>
-    <SubTexture name="button_Koniec" x="1839" y="1151" width="192" height="70"/>
+    <SubTexture name="button_Koniec" x="763" y="1836" rotated="true" width="70" height="192"/>
     <SubTexture name="button_Segreguj" x="1994" y="581" rotated="true" width="32" height="144"/>
     <SubTexture name="button_SoundOff" x="1994" y="300" width="38" height="34"/>
     <SubTexture name="button_SoundOn" x="1994" y="340" width="38" height="34"/>
-    <SubTexture name="button_Start" x="1839" y="1075" width="197" height="70"/>
-    <SubTexture name="jasnePoleTrawy" x="573" y="1106" rotated="true" width="153" height="220"/>
-    <SubTexture name="kosz_Odzysk" x="509" y="1867" width="248" height="66"/>
-    <SubTexture name="kosz_OdzyskIRecykling" x="252" y="1867" width="251" height="68"/>
-    <SubTexture name="kosz_Recykling" x="763" y="1106" width="248" height="66"/>
-    <SubTexture name="kosz_Skladowisko" x="763" y="1178" width="248" height="66"/>
+    <SubTexture name="button_Start" x="306" y="1106" width="197" height="70"/>
+    <SubTexture name="jasnePoleTrawy" x="1813" y="1353" width="220" height="153"/>
+    <SubTexture name="kosz_Odzysk" x="763" y="1764" width="248" height="66"/>
+    <SubTexture name="kosz_OdzyskIRecykling" x="763" y="1690" width="251" height="68"/>
+    <SubTexture name="kosz_Recykling" x="1483" y="1476" rotated="true" width="66" height="248"/>
+    <SubTexture name="kosz_Skladowisko" x="1555" y="1601" width="248" height="66"/>
     <SubTexture name="logoAmest" x="1994" y="434" rotated="true" width="36" height="141"/>
-    <SubTexture name="logoChlorofil" x="1990" y="731" rotated="true" width="53" height="156"/>
-    <SubTexture name="logoFundusz" x="122" y="1944" width="252" height="92"/>
-    <SubTexture name="logoGry" x="4" y="1340" rotated="true" width="102" height="608"/>
-    <SubTexture name="miejsceNaNapis" x="1038" y="1063" width="795" height="162"/>
-    <SubTexture name="popup_Brawo" x="906" y="1340" rotated="true" width="236" height="361"/>
-    <SubTexture name="popup_Fail" x="1117" y="1707" width="361" height="236"/>
-    <SubTexture name="popup_Info" x="598" y="1340" rotated="true" width="302" height="395"/>
+    <SubTexture name="logoChlorofil" x="4" y="1126" width="156" height="53"/>
+    <SubTexture name="logoFundusz" x="763" y="1592" width="252" height="92"/>
+    <SubTexture name="logoGry" x="1204" y="1126" width="608" height="102"/>
+    <SubTexture name="miejsceNaNapis" x="1036" y="1190" rotated="true" width="162" height="795"/>
+    <SubTexture name="popup_Brawo" x="1204" y="1234" width="361" height="236"/>
+    <SubTexture name="popup_Fail" x="1571" y="1234" rotated="true" width="236" height="361"/>
+    <SubTexture name="popup_Info" x="455" y="1592" rotated="true" width="302" height="395"/>
     <SubTexture name="popup_LifeCycle" x="1038" y="4" width="950" height="602"/>
-    <SubTexture name="popup_Mapa" x="1859" y="957" width="173" height="112"/>
-    <SubTexture name="przedmiot_Akumulator" x="397" y="1220" rotated="true" width="84" height="108"/>
-    <SubTexture name="przedmiot_Baterie" x="361" y="1106" width="93" height="108"/>
+    <SubTexture name="popup_Mapa" x="839" y="1836" width="173" height="112"/>
+    <SubTexture name="przedmiot_Akumulator" x="1701" y="1787" rotated="true" width="84" height="108"/>
+    <SubTexture name="przedmiot_Baterie" x="1709" y="1673" width="93" height="108"/>
     <SubTexture name="przedmiot_Butelka" x="1994" y="65" width="46" height="137"/>
-    <SubTexture name="przedmiot_ButelkaPet" x="112" y="1867" rotated="true" width="134" height="71"/>
-    <SubTexture name="przedmiot_Cd" x="71" y="1230" rotated="true" width="91" height="104"/>
-    <SubTexture name="przedmiot_Garnek" x="156" y="1106" rotated="true" width="98" height="112"/>
-    <SubTexture name="przedmiot_Gazeta" x="240" y="1224" width="151" height="109"/>
-    <SubTexture name="przedmiot_Jarzeniowka" x="4" y="1231" width="61" height="102"/>
-    <SubTexture name="przedmiot_Jogurt" x="1859" y="887" rotated="true" width="120" height="64"/>
-    <SubTexture name="przedmiot_Komorka" x="168" y="1224" width="66" height="110"/>
-    <SubTexture name="przedmiot_Krzeslo" x="534" y="1939" rotated="true" width="145" height="86"/>
-    <SubTexture name="przedmiot_Leki" x="4" y="1106" rotated="true" width="108" height="118"/>
-    <SubTexture name="przedmiot_Mis" x="4" y="1954" rotated="true" width="112" height="88"/>
-    <SubTexture name="przedmiot_Ogryzek" x="260" y="1106" width="95" height="111"/>
-    <SubTexture name="przedmiot_Opona" x="1859" y="800" rotated="true" width="121" height="81"/>
-    <SubTexture name="przedmiot_Patyki" x="1839" y="1227" width="170" height="107"/>
-    <SubTexture name="przedmiot_Puszka" x="1859" y="711" width="125" height="83"/>
-    <SubTexture name="przedmiot_Rower" x="380" y="1941" width="148" height="87"/>
-    <SubTexture name="przedmiot_Siatka" x="1859" y="612" rotated="true" width="127" height="93"/>
-    <SubTexture name="przedmiot_Spryskiwacz" x="685" y="1939" rotated="true" width="147" height="60"/>
+    <SubTexture name="przedmiot_ButelkaPet" x="166" y="1106" rotated="true" width="134" height="71"/>
+    <SubTexture name="przedmiot_Cd" x="1818" y="1126" rotated="true" width="91" height="104"/>
+    <SubTexture name="przedmiot_Garnek" x="1915" y="1190" width="112" height="98"/>
+    <SubTexture name="przedmiot_Gazeta" x="1809" y="1625" width="151" height="109"/>
+    <SubTexture name="przedmiot_Jarzeniowka" x="1483" y="1730" width="61" height="102"/>
+    <SubTexture name="przedmiot_Jogurt" x="1916" y="1006" rotated="true" width="120" height="64"/>
+    <SubTexture name="przedmiot_Komorka" x="1966" y="1625" width="66" height="110"/>
+    <SubTexture name="przedmiot_Krzeslo" x="1550" y="1766" rotated="true" width="145" height="86"/>
+    <SubTexture name="przedmiot_Leki" x="1916" y="1076" width="118" height="108"/>
+    <SubTexture name="przedmiot_Mis" x="839" y="1954" rotated="true" width="112" height="88"/>
+    <SubTexture name="przedmiot_Ogryzek" x="1813" y="1236" width="95" height="111"/>
+    <SubTexture name="przedmiot_Opona" x="1916" y="919" rotated="true" width="121" height="81"/>
+    <SubTexture name="przedmiot_Patyki" x="1813" y="1512" width="170" height="107"/>
+    <SubTexture name="przedmiot_Puszka" x="1916" y="830" width="125" height="83"/>
+    <SubTexture name="przedmiot_Rower" x="1555" y="1673" width="148" height="87"/>
+    <SubTexture name="przedmiot_Siatka" x="1916" y="731" rotated="true" width="127" height="93"/>
+    <SubTexture name="przedmiot_Spryskiwacz" x="1808" y="1740" rotated="true" width="147" height="60"/>
     <SubTexture name="screenBotWhite" x="4" y="782" width="1028" height="180"/>
     <SubTexture name="screenCorkBackground" x="4" y="4" width="1028" height="772"/>
-    <SubTexture name="screenPlaneta" x="112" y="1340" width="480" height="521"/>
+    <SubTexture name="screenPlaneta" x="509" y="1106" rotated="true" width="521" height="480"/>
     <SubTexture name="screenTopWhite" x="4" y="968" width="1028" height="132"/>
-    <SubTexture name="spinArrow" x="838" y="1741" width="273" height="273"/>
+    <SubTexture name="skladowisko" x="1038" y="612" width="872" height="508"/>
+    <SubTexture name="spinArrow" x="1204" y="1476" width="273" height="273"/>
     <SubTexture name="strzalka" x="1994" y="415" width="38" height="13"/>
     <SubTexture name="strzalka2" x="1994" y="380" rotated="true" width="38" height="29"/>
     <SubTexture name="strzalka3" x="1994" y="4" rotated="true" width="47" height="55"/>
-    <SubTexture name="systemOdzyskuText" x="1038" y="612" width="815" height="445"/>
+    <SubTexture name="systemOdzyskuText" x="4" y="1190" rotated="true" width="445" height="815"/>
 </TextureAtlas>

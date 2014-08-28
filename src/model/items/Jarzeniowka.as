@@ -18,6 +18,7 @@ package model.items
 		public function Jarzeniowka()
 		{
 			lifeCycleId = 9;
+			systemId = 2;
 			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			

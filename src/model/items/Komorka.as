@@ -25,6 +25,7 @@ package model.items
 		public function Komorka()
 		{
 			lifeCycleId = 16;
+			systemId = 9;
 			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			

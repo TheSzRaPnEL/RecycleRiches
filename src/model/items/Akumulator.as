@@ -17,6 +17,7 @@ package model.items
 		public function Akumulator()
 		{
 			lifeCycleId = 8;
+			systemId = 7;
 			
 			type = ItemType.ODZYSK_I_RECYKLING;
 			
