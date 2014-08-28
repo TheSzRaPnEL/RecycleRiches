@@ -198,8 +198,14 @@ package screen
 			Starling.current.stage.addEventListener(ScreenEvent.HIDE_LIFECYCLE_POPUP, hideLifeCycle_handler);
 			Starling.current.stage.addEventListener(ScreenEvent.SHOW_RECYCLESYSTEM_POPUP, showRecycleSystem_handler);
 			Starling.current.stage.addEventListener(ScreenEvent.HIDE_RECYCLESYSTEM_POPUP, hideRecycleSystem_handler);
+			Starling.current.stage.addEventListener(ScreenEvent.UPDATE_RECYCLESYTEM_POPUP, updateRecycleSystem_handler);
 			Starling.current.stage.addEventListener(ScreenEvent.SHOW_SKLADOWISKO_POPUP, showSkladowisko_handler);
 			Starling.current.stage.addEventListener(ScreenEvent.HIDE_SKLADOWISKO_POPUP, hideSkladowisko_handler);
+		}
+		
+		private function updateRecycleSystem_handler(e:ScreenEvent):void 
+		{
+			recycleSystemPopup.updateContent(itemImage.itemRef.systemId);
 		}
 		
 		private function showLifeCycle_handler(e:ScreenEvent):void 
@@ -244,6 +250,8 @@ package screen
 			{
 				recycleSystemPopup.visible = true;
 			}
+			
+			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.UPDATE_RECYCLESYTEM_POPUP));
 		}
 		
 		private function hideRecycleSystem_handler(e:ScreenEvent):void 

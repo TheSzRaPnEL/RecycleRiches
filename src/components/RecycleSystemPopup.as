@@ -8,6 +8,7 @@ package components
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.text.TextField;
+	import starling.textures.Texture;
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
 	
@@ -31,7 +32,7 @@ package components
 			background = new Image(Assets.getTexture("popup_LifeCycle"));
 			container.addChild(background);
 			
-			headlineTxtF = new TextField(780, 80, "system odzysku i recyklingu zużytych źródeł światła\ni lamp fluorescencyjnych", "GillSansMTFont", 50, 0xFFFFFF);
+			headlineTxtF = new TextField(780, 80, "", "GillSansMTFont", 50, 0xFFFFFF);
 			headlineTxtF.color = 0xFFFFFF;
 			headlineTxtF.autoScale = true;
 			headlineTxtF.vAlign = VAlign.CENTER;
@@ -40,9 +41,9 @@ package components
 			headlineTxtF.y = 13;
 			container.addChild(headlineTxtF);
 			
-			content = new Image(Assets.getTexture("systemOdzyskuText"));
-			content.x = 70;
-			content.y = 125;
+			content = new Image(Assets.getTexture("001"));
+			content.x = -50;
+			content.y = -110;
 			container.addChild(content);
 			
 			exitBtn = new SimpleButton(Assets.getTexture("button_Exit"));
@@ -56,6 +57,21 @@ package components
 		{
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_RECYCLESYSTEM_POPUP));
 			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "CancelClick"));
+		}
+		
+		public function updateContent(value:int):void
+		{
+			var name:String;
+			if (value < 10)
+			{
+				name = "00" + value;
+			}
+			else
+			{
+				name = "0" + value;
+			}
+			var txtr:Texture = Assets.getTexture(name);
+			content.texture = txtr;
 		}
 		
 	}

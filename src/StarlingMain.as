@@ -59,10 +59,14 @@ package
 			assetLoader.append(new XMLLoader("RRLC00.xml", {name: "RRLC00xml"}));
 			assetLoader.append(new XMLLoader("RRLC01.xml", {name: "RRLC01xml"}));
 			assetLoader.append(new XMLLoader("RRLC02.xml", {name: "RRLC02xml"}));
+			assetLoader.append(new XMLLoader("RRSys00.xml", {name: "RRSys00xml"}));
+			assetLoader.append(new XMLLoader("RRSys01.xml", {name: "RRSys01xml"}));
 			assetLoader.append(new ImageLoader("RR01.png", {name: "RR01png"}));
 			assetLoader.append(new ImageLoader("RRLC00.png", {name: "RRLC00png"}));
 			assetLoader.append(new ImageLoader("RRLC01.png", {name: "RRLC01png"}));
-			assetLoader.append(new ImageLoader("RRLC02.png", {name: "RRLC02png"}));
+			assetLoader.append(new ImageLoader("RRLC02.png", { name: "RRLC02png" } ));
+			assetLoader.append(new ImageLoader("RRSys00.png", {name: "RRSys00png"}));
+			assetLoader.append(new ImageLoader("RRSys01.png", {name: "RRSys01png"}));
 			assetLoader.append(new MP3Loader("gameMusic.mp3", {name: "GameMusic", autoPlay:false}));
 			assetLoader.append(new MP3Loader("cancelClick.mp3", {name: "CancelClick", autoPlay:false}));
 			assetLoader.append(new MP3Loader("failSound.mp3", {name: "FailSound", autoPlay:false}));
@@ -92,18 +96,23 @@ package
 			
 			bitmap = ContentDisplay(assetLoader.getContent("RRLC00png")).rawContent;
 			xml = XML(assetLoader.getContent("RRLC00xml"));
-			
 			assetManager.addTextureAtlas("RRLC00", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
 			
 			bitmap = ContentDisplay(assetLoader.getContent("RRLC01png")).rawContent;
 			xml = XML(assetLoader.getContent("RRLC01xml"));
-			
 			assetManager.addTextureAtlas("RRLC01", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
 			
 			bitmap = ContentDisplay(assetLoader.getContent("RRLC02png")).rawContent;
 			xml = XML(assetLoader.getContent("RRLC02xml"));
-			
 			assetManager.addTextureAtlas("RRLC02", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
+			
+			bitmap = ContentDisplay(assetLoader.getContent("RRSys00png")).rawContent;
+			xml = XML(assetLoader.getContent("RRSys00xml"));
+			assetManager.addTextureAtlas("RRSys00", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
+			
+			bitmap = ContentDisplay(assetLoader.getContent("RRSys01png")).rawContent;
+			xml = XML(assetLoader.getContent("RRSys01xml"));
+			assetManager.addTextureAtlas("RRSys01", new TextureAtlas(Texture.fromBitmap(bitmap), xml));
 			
 			var music:Sound = assetLoader.getContent("GameMusic");
 			assetManager.addSound("Music", music);

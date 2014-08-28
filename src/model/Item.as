@@ -20,6 +20,7 @@ package model
 		{
 			_materialList = new Vector.<Material>;
 			_name = "itemName";
+			_systemId = 1;
 		}
 		
 		public function get type():String

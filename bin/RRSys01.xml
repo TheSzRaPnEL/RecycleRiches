@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:a5d7b01ac742667c3c7063304511fbbc:984bca4509e85693470be9a7079a861a:85bc1466a9ff9be1e264b8379cf8a88c$ -->
+<TextureAtlas imagePath="RRSys01.png">
+    <SubTexture name="006" x="4" y="534" width="816" height="528" frameX="-110" frameY="-157" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="010" x="4" y="4" width="824" height="524" frameX="-109" frameY="-158" frameWidth="1028" frameHeight="772"/>
+</TextureAtlas>
