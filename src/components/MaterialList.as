@@ -55,11 +55,10 @@ package components
 						longestTxt = txt;
 				}
 				
-				var testTxtF:TextField = new TextField(280, 32, longestTxt, "GillSansMTFont", 30, 0, true);
+				var testTxtF:MaterialTextField = new MaterialTextField(1000, 32, longestTxt, "GillSansMTFont", 30);
 				testTxtF.vAlign = VAlign.CENTER;
-				testTxtF.autoSize = TextFieldAutoSize.HORIZONTAL;
 				testTxtF.autoScale = false;
-				while (testTxtF.textBounds.width > 280)
+				while (testTxtF.textBounds.width > 260)
 				{
 					testTxtF.fontSize--;
 				}
@@ -74,10 +73,9 @@ package components
 				
 				for (i = 0; i < materials.length; i++)
 				{
-					var txtF:MaterialTextField = new MaterialTextField(280, 40, "", "GillSansMTFont", smallestFont, 0xFFFFFF, true);
-					txtF.color = 0x2e6519;
+					var txtF:MaterialTextField = new MaterialTextField(280, 32, "", "GillSansMTFont", smallestFont);
 					txtF.vAlign = VAlign.CENTER;
-					testTxtF.autoSize = TextFieldAutoSize.HORIZONTAL;
+					txtF.color = 0x2e6519;
 					txtF.autoScale = false;
 					txtF.text = materials[i].name + " " + materials[i].price;
 					addChild(txtF);
