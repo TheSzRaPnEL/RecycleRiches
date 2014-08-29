@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:6721aee53a6a9de7b1dd62852073510b:352d96ba0ff76bb4309249ba537008a8:3d6cfe992783a6efe04b75ceb7d0f402$ -->
+<!-- $TexturePacker:SmartUpdate:a98accabf79ab60bb3a4e7e5c98a8e0c:a5a962f9f5d346060499a6304bf1a1b4:3d6cfe992783a6efe04b75ceb7d0f402$ -->
 <TextureAtlas imagePath="RR01.png">
     <SubTexture name="bialeKolo" x="1204" y="1901" width="107" height="107"/>
     <SubTexture name="button_Anuluj" x="1916" y="612" rotated="true" width="32" height="113"/>
-    <SubTexture name="button_Exit" x="1954" y="612" rotated="true" width="18" height="15"/>
+    <SubTexture name="button_Exit" x="1954" y="612" rotated="true" width="32" height="27"/>
     <SubTexture name="button_InfoOff" x="1994" y="208" width="41" height="40"/>
     <SubTexture name="button_InfoOn" x="1994" y="254" width="41" height="40"/>
     <SubTexture name="button_Koniec" x="763" y="1836" rotated="true" width="70" height="192"/>

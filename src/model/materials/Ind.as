@@ -11,7 +11,7 @@ package model.materials
 		
 		public function Ind()
 		{
-			name = "Metale ziem rzadkich – np.ind";
+			name = "Metale ziem rzadkich";
 			price = "600 zł/kg";
 		}
 	

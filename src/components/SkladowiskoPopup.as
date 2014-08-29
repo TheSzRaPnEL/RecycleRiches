@@ -46,7 +46,7 @@ package components
 			container.addChild(content);
 			
 			exitBtn = new SimpleButton(Assets.getTexture("button_Exit"));
-			exitBtn.x = 915;
+			exitBtn.x = 905;
 			exitBtn.y = 20;
 			exitBtn.addEventListener(Event.TRIGGERED, onExitBtnTriggered);
 			container.addChild(exitBtn);

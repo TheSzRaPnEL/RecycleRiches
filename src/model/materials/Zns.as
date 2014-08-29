@@ -11,7 +11,7 @@ package model.materials
 		
 		public function Zns()
 		{
-			name = "Substancje fluoryzujące np. ZnS";
+			name = "Substancje fluoryzujące";
 			price = "150 zł/kg";
 		}
 		

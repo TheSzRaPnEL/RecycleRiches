@@ -11,7 +11,7 @@ package model.materials
 		
 		public function Pet()
 		{
-			name = "PET – politetraftalan etylenu";
+			name = "Politetraftalan etylenu";
 			price = "1,5 zł/kg";
 		}
 	
