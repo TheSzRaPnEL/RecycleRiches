@@ -16,7 +16,7 @@ package model.lifeCycles
 			super();
 			
 			id = 13;
-			type = "Recykling";
+			type = "Składowanie Kompostownia>>";
 			
 			addItemImage("przedmiot_Patyki");
 			

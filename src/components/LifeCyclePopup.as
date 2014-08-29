@@ -132,6 +132,13 @@ package components
 			//typeTxtF.text = string;
 			if (string == "Recykling\nSkładowanie >>" || string == "Odzysk\nSkładowanie >>")
 			{
+				skladowiskoBtn.y = 170;
+				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				skladowiskoBtn.addEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+			}
+			else if (string == "Składowanie Kompostownia>>")
+			{
+				skladowiskoBtn.y = 130;
 				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
 				skladowiskoBtn.addEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
 			}

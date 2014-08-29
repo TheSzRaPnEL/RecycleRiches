@@ -16,7 +16,7 @@ package model.lifeCycles
 			super();
 			
 			id = 15;
-			type = "Recykling";
+			type = "Składowanie Kompostownia>>";
 			
 			addItemImage("przedmiot_Ogryzek");
 			

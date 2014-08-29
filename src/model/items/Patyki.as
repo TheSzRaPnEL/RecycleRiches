@@ -15,6 +15,7 @@ package model.items
 		public function Patyki()
 		{
 			lifeCycleId = 13;
+			systemId = 11;
 			
 			type = ItemType.ODZYSK;
 			
