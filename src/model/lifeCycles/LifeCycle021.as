@@ -8,19 +8,21 @@ package model.lifeCycles
 	 * ...
 	 * @author SzRaPnEL
 	 */
-	public class LifeCycle018 extends LifeCycle
+	public class LifeCycle021 extends LifeCycle
 	{
 		
-		public function LifeCycle018()
+		public function LifeCycle021()
 		{
 			super();
 			
-			id = 18;
-			type = "Recykling\nSkładowanie1 >>";
+			id = 21;
+			type = "Odzysk\nSkładowanie3 >>";
 			
+			addItemImage("przedmiot_Mis");
 			addItemImage("przedmiot_Opona");
+			addItemImage("przedmiot_Krzeslo");
 			
-			overlayGfx = new Image(Assets.getTexture("lifeCycle018"));
+			overlayGfx = new Image(Assets.getTexture("lifeCycle017"));
 			container.addChild(overlayGfx);
 		}
 		

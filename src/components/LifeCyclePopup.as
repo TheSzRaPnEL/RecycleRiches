@@ -23,6 +23,9 @@ package components
 	import model.lifeCycles.LifeCycle018;
 	import model.lifeCycles.LifeCycle019;
 	import model.lifeCycles.LifeCycle020;
+	import model.lifeCycles.LifeCycle021;
+	import model.lifeCycles.LifeCycle022;
+	import model.lifeCycles.LifeCycle023;
 	import services.Assets;
 	import starling.core.Starling;
 	import starling.display.Image;
@@ -49,6 +52,8 @@ package components
 		private var itemImages:Vector.<Image>;
 		private var lifeCycles:Vector.<LifeCycle>
 		private var skladowiskoBtn:SimpleButton;
+		private var odzyskBtn:SimpleButton;
+		private var popupType:String;
 		
 		public function LifeCyclePopup()
 		{
@@ -73,6 +78,9 @@ package components
 			lifeCycles.push(new LifeCycle018());
 			lifeCycles.push(new LifeCycle019());
 			lifeCycles.push(new LifeCycle020());
+			lifeCycles.push(new LifeCycle021());
+			lifeCycles.push(new LifeCycle022());
+			lifeCycles.push(new LifeCycle023());
 			
 			itemImages = new Vector.<Image>;
 			colorCircles = new Vector.<ColorCircle>;
@@ -107,6 +115,13 @@ package components
 			exitBtn.addEventListener(Event.TRIGGERED, onExitBtnTriggered);
 			container.addChild(exitBtn);
 			
+			odzyskBtn = new SimpleButton(Assets.getTexture("kosz_Odzysk"));
+			odzyskBtn.alpha = 0;
+			odzyskBtn.x = 30;
+			odzyskBtn.y = 115;
+			odzyskBtn.addEventListener(Event.TRIGGERED, onOdzyskBtnTriggered);
+			container.addChild(odzyskBtn);
+			
 			skladowiskoBtn = new SimpleButton(Assets.getTexture("kosz_Odzysk"));
 			skladowiskoBtn.alpha = 0;
 			skladowiskoBtn.x = 30;
@@ -121,6 +136,19 @@ package components
 			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "CancelClick"));
 		}
 		
+		private function onOdzyskBtnTriggered(e:Event):void
+		{
+			if (popupType == "Odzysk\nSkładowanie1 >>")
+			{
+				lifeCycle = 23;
+			}
+			if (popupType == "Odzysk\nSkładowanie2 >>")
+			{
+				lifeCycle = 21;
+			}
+			Starling.current.stage.dispatchEvent(new SoundEvent(SoundEvent.PLAY_SOUND, false, "CancelClick"));
+		}
+		
 		private function onExitBtnTriggered(e:Event):void
 		{
 			Starling.current.stage.dispatchEvent(new ScreenEvent(ScreenEvent.HIDE_LIFECYCLE_POPUP));
@@ -130,21 +158,53 @@ package components
 		public function updateType(string:String):void
 		{
 			//typeTxtF.text = string;
-			if (string == "Recykling\nSkładowanie >>" || string == "Odzysk\nSkładowanie >>")
+			popupType = string;
+			if (string == "Recykling\nSkładowanie >>")
 			{
 				skladowiskoBtn.y = 170;
 				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
 				skladowiskoBtn.addEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				
+				odzyskBtn.removeEventListener(Event.TRIGGERED, onOdzyskBtnTriggered);
 			}
 			else if (string == "Składowanie Kompostownia>>")
 			{
 				skladowiskoBtn.y = 130;
 				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
 				skladowiskoBtn.addEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				
+				odzyskBtn.removeEventListener(Event.TRIGGERED, onOdzyskBtnTriggered);
+			}
+			else if (string == "Odzysk\nSkładowanie1 >>")
+			{
+				skladowiskoBtn.y = 185;
+				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				skladowiskoBtn.addEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				
+				odzyskBtn.removeEventListener(Event.TRIGGERED, onOdzyskBtnTriggered);
+				odzyskBtn.addEventListener(Event.TRIGGERED, onOdzyskBtnTriggered);
+			}
+			else if (string == "Odzysk\nSkładowanie2 >>")
+			{
+				skladowiskoBtn.y = 185;
+				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				skladowiskoBtn.addEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				
+				odzyskBtn.removeEventListener(Event.TRIGGERED, onOdzyskBtnTriggered);
+				odzyskBtn.addEventListener(Event.TRIGGERED, onOdzyskBtnTriggered);
+			}
+			else if (string == "Odzysk\nSkładowanie3 >>")
+			{
+				skladowiskoBtn.y = 185;
+				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				skladowiskoBtn.addEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				
+				odzyskBtn.removeEventListener(Event.TRIGGERED, onOdzyskBtnTriggered);
 			}
 			else
 			{
 				skladowiskoBtn.removeEventListener(Event.TRIGGERED, onSkladowiskoBtnTriggered);
+				odzyskBtn.removeEventListener(Event.TRIGGERED, onOdzyskBtnTriggered);
 			}
 		}
 		

@@ -17,6 +17,7 @@ package model.items
 		public function Spryskiwacz()
 		{
 			lifeCycleId = 7;
+			systemId = 1;
 			
 			type = ItemType.RECYKLING;
 			

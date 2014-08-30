@@ -16,6 +16,7 @@ package model.items
 		public function ButelkaPet()
 		{
 			lifeCycleId = 10;
+			systemId = 1;
 			
 			type = ItemType.RECYKLING;
 			

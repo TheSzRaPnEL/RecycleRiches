@@ -16,7 +16,7 @@ package model.lifeCycles
 			super();
 			
 			id = 17;
-			type = "Odzysk\nSkładowanie >>";
+			type = "Odzysk\nSkładowanie2 >>";
 			
 			addItemImage("przedmiot_Krzeslo");
 			

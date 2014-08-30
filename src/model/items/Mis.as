@@ -16,6 +16,7 @@ package model.items
 		public function Mis()
 		{
 			lifeCycleId = 19;
+			systemId = 10;
 			
 			type = ItemType.ODZYSK;
 			

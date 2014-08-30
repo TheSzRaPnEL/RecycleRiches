@@ -16,7 +16,7 @@ package model.lifeCycles
 			super();
 			
 			id = 19;
-			type = "Odzysk\nSkładowanie >>";
+			type = "Odzysk\nSkładowanie1 >>";
 			
 			addItemImage("przedmiot_Mis");
 			

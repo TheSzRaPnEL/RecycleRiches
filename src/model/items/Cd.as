@@ -15,6 +15,7 @@ package model.items
 		public function Cd()
 		{
 			lifeCycleId = 11;
+			systemId = 1;
 			
 			type = ItemType.RECYKLING;
 			

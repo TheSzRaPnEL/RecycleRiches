@@ -15,6 +15,7 @@ package model.items
 		public function Siatka()
 		{
 			lifeCycleId = 6;
+			systemId = 1;
 			
 			type = ItemType.RECYKLING;
 			

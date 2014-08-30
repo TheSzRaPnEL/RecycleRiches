@@ -18,7 +18,7 @@ package model.items
 		public function Rower()
 		{
 			lifeCycleId = 5;
-			systemId = 10;
+			systemId = 5;
 			
 			type = ItemType.RECYKLING;
 			

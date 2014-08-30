@@ -17,6 +17,7 @@ package model.items
 		public function Jogurt()
 		{
 			lifeCycleId = 12;
+			systemId = 1;
 			
 			type = ItemType.RECYKLING;
 			
