@@ -14,7 +14,7 @@ package model.items
 		public function Krzeslo()
 		{
 			lifeCycleId = 17;
-			systemId = 10;
+			systemId = 13;
 			
 			type = ItemType.ODZYSK;
 			

@@ -186,6 +186,7 @@
             <filename>images/010.png</filename>
             <filename>images/011.png</filename>
             <filename>images/012.png</filename>
+            <filename>images/013.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
