@@ -11,7 +11,7 @@ package model.materials
 		
 		public function TluczkaSzklana()
 		{
-			name = "Tłuczka szklana";
+			name = "Stłuczka szklana";
 			price = "0,02 zł/kg";
 		}
 	
