@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:177514a0c26024e025170966277f48a0:d25d77f73ed93e86d221b29120d159a9:85bc1466a9ff9be1e264b8379cf8a88c$ -->
+<!-- $TexturePacker:SmartUpdate:325c18883d28f88a60ad96e5b714c2d6:b8ce5fbd3f66ec2d06b4d8ccf1c8d9f5:85bc1466a9ff9be1e264b8379cf8a88c$ -->
 <TextureAtlas imagePath="RRSys00.png">
-    <SubTexture name="001" x="1530" y="840" rotated="true" width="510" height="806" frameX="-109" frameY="-157" frameWidth="1028" frameHeight="772"/>
     <SubTexture name="002" x="4" y="432" width="838" height="372" frameX="-108" frameY="-154" frameWidth="1028" frameHeight="772"/>
-    <SubTexture name="003" x="4" y="4" width="856" height="422" frameX="-97" frameY="-158" frameWidth="1028" frameHeight="772"/>
-    <SubTexture name="004" x="848" y="484" width="838" height="350" frameX="-96" frameY="-154" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="003" x="4" y="4" width="848" height="422" frameX="-97" frameY="-158" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="004" x="848" y="484" width="838" height="346" frameX="-97" frameY="-154" frameWidth="1028" frameHeight="772"/>
     <SubTexture name="005" x="4" y="810" width="824" height="524" frameX="-109" frameY="-158" frameWidth="1028" frameHeight="772"/>
-    <SubTexture name="007" x="466" y="1340" rotated="true" width="402" height="690" frameX="-170" frameY="-154" frameWidth="1028" frameHeight="772"/>
-    <SubTexture name="008" x="834" y="840" width="690" height="402" frameX="-170" frameY="-154" frameWidth="1028" frameHeight="772"/>
-    <SubTexture name="009" x="4" y="1340" rotated="true" width="456" height="696" frameX="-172" frameY="-154" frameWidth="1028" frameHeight="772"/>
-    <SubTexture name="010" x="874" y="1652" width="754" height="392" frameX="-141" frameY="-158" frameWidth="1028" frameHeight="772"/>
-    <SubTexture name="011" x="866" y="4" width="842" height="474" frameX="-109" frameY="-158" frameWidth="1028" frameHeight="772"/>
-    <SubTexture name="012" x="874" y="1652" width="754" height="392" frameX="-141" frameY="-158" frameWidth="1028" frameHeight="772"/>
-    <SubTexture name="013" x="1714" y="4" rotated="true" width="290" height="754" frameX="-142" frameY="-157" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="006" x="820" y="1340" width="816" height="528" frameX="-110" frameY="-157" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="007" x="4" y="1340" rotated="true" width="402" height="704" frameX="-169" frameY="-154" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="008" x="412" y="1340" rotated="true" width="402" height="704" frameX="-169" frameY="-154" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="009" x="834" y="836" width="710" height="456" frameX="-172" frameY="-154" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="010" x="1642" y="836" rotated="true" width="392" height="770" frameX="-141" frameY="-158" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="011" x="858" y="4" width="842" height="474" frameX="-109" frameY="-158" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="012" x="1642" y="836" rotated="true" width="392" height="770" frameX="-141" frameY="-158" frameWidth="1028" frameHeight="772"/>
+    <SubTexture name="013" x="1706" y="4" rotated="true" width="290" height="754" frameX="-142" frameY="-157" frameWidth="1028" frameHeight="772"/>
 </TextureAtlas>
